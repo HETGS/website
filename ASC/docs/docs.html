@@ -1,0 +1,4367 @@
+	<HTML>
+	<HEAD>
+	   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+	   <META NAME="GENERATOR" CONTENT="Mozilla/4.03 [en] (X11; I; SunOS 5.5.1 sun4u) [Netscape]">
+	   <META NAME="Author" CONTENT="Michael Wise">
+	   <TITLE>MIT CXC Documents</TITLE>
+	</HEAD>
+	<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#FF0000" VLINK="#0000FF" ALINK="#84AAE3">
+
+	<CENTER>
+	<H6>
+	<FONT SIZE=+4>MIT CXC Documents</FONT></H6></CENTER>
+
+	<HR WIDTH="100%">
+
+	CONTENTS: <BR>
+	<ul>
+	<a href=#ACIS> ACIS </a>
+	<ul>
+	   <a href=#badpix> acis_build_badpix spec</a><BR>
+	   <a href=#gti> acis_build_chip_gti spec</a><BR>
+	   <a href=#msk> acis_build_mask spec</a><BR>
+	   <a href=#hotpix> acis_detect_hotpix spec</a> (obsolete)<BR>
+	   <a href=#aft> acis_find_afterglow spec</a><BR>
+	   <a href=#bkgd> acis_make_bkgd spec</a><BR>
+	   <a href=#ape> acis_process_events spec</a><BR>
+	   <a href=#apebadpix> acis_process_events: bad-pixel spec</a><BR>
+	   <a href=#readcorr> acisreadcorr spec</a><BR>
+	   <a href=#aft_det_eff> Afterglow detection efficiency</a><BR>
+	   <a href=#ACISARD> ARD ICD</a><BR>
+	   <a href=#bias_keys> Bias keywords</a><BR>
+	   <a href=#berr> Bias-parity errors spec</a><BR>
+	   <a href=#bias_rep> Bias repair and replacement spec</a><BR>
+	   <a href=#cc_bias_sum> CC bias summary</a><BR>
+	   <a href=#check_vf> Check VFAINT background</a><BR>
+	   <a href=#energy_pi> Computation of ENERGY and PI</a><BR>
+	   <a href=#grades> Computation of FLTGRADE, GRADE, and PHA</a><BR>
+	   <a href=#exposure> Computation of ONTIME, DTCOR, and EXPOSURE</a><BR>
+	   <a href=#hkp> Computation of QUERY_VAL</a><BR>
+	   <a href=#toa> Computation of X, Y, and TIMEs of arrival of CC-mode events</a><BR>
+	   <a href=#cti> CTI spec</a><BR>
+	   <a href=#deltoclk> DELTOCLK spec</a><BR>
+	   <a href=#fltgrade_caveat> FLTGRADE caveat</a><BR>
+	   <a href=#grade_ard> Grade ARD</a><BR>
+	   <a href=#hotpix2> Hot-pixel spec</a> (obsolete)<BR>
+	   <a href=#ACISL0> Level 0 ICD</a><BR>
+	   <a href=#ACISL1> Level 1 ICD</a><BR>
+	   <a href=#mean_bias> Mean biases</a><BR>
+	   <a href=#mkacisrmf> mkacisrmf</a><BR>
+	   <a href=#instgeom> Notes about the ACIS instrument geometry data</a><BR>
+	   <a href=#caveats> Pipeline processing caveats</a><BR>
+	   <a href=#ACIStools> Pipeline processing tools</a><BR>
+	   <a href=#s4streak_alg> S4 streak algorithm</a><BR>
+	   <a href=#s4streak_loss> S4 streak loss parameter</a><BR>
+	   <a href=#s4streak_prop> S4 streak properties</a><BR>
+	   <a href=#bpixbits> STATUS bits in bad-pixel files</a><BR>
+	   <a href=#evtbits> STATUS bits in event files</a><BR>
+	   <a href=#subpix> Sub-pixel and pixel randomization spec</a><BR>
+	   <a href=#trmf> Temperature-dependent RMF spec</a><BR>
+	   <a href=#tgain_ard> Time-dependent gain ARD</a><BR>
+	   <a href=#tgain_spec> Time-dependent gain spec</a><BR>
+	   <a href=#acis_s_geom> ACIS-S detector geometry</a><BR>
+	</ul>
+
+	<a href=#HETG> HETG and LETG </a><BR>
+
+	<ul>
+		<LI> <a href=#tgpipe> Requirements for grating
+		response computation in standard pipeline processing.
+	</ul>
+
+	<ul>
+		<LI> <a href=#letgslsf> HRC-S/LETG test of updated QE,
+		LSFPARM
+
+		<LI> <a href=#hrcstgain> HRC-S/LETG "tgain" correction
+		(SPI computation) </a> <br>
+	</ul>
+
+	<ul>
+		<LI> <a href=#letggeom1> LETG + ACIS-S Rotation Issue  </a> <br>
+		<LI> <a href=#findzo> Finding Zeroth Order Position  </a> <br>
+	</ul>
+
+	<ul>
+		<LI> <a href=#hetgfptemp> HETG/ACIS Focal Plane Temperature Analysis  </a> <br>
+	</ul>
+
+
+
+
+	<a href=#PSF> PSF and LSF </a><BR>
+	<ul>
+		<LI> <a href=#random> Data Randomization </a> Required enhancement in header keywords
+		<LI> <a href=#lsf1>  LSFPARM </a> for HETG+ACIS-S validated for unrandomized datasets
+		<LI> <a href=#lsf2>  LSFPARM </a> for LETG+HRC-S validated for unrandomized datasets
+		<LI> <a href=#lsf3>  LSFPARM </a> for LETG+ACIS-S validated for unrandomized datasets
+		<LI> <a href=#lsf4>  Updated LSFPARM </a> for MEG+ACIS-S  for unrandomized datasets
+	</ul>
+	<a href=#ARD> ARD </a><BR>
+	<a href=#ISIS> ISIS </a><BR>
+	<a href=#Expmap> Exposure Map </a><BR>
+	<a href=#Misc> Miscellaneous </a><BR>
+	<ul>
+	<LI>   <a href=#CIAO3> CIAO 3 </a>architecture White Paper and SDS presentation.
+	<LI><a href=#SLangIntro> Introduction to S-Lang</a> (CXC S-Lang Class,
+	Jan 2003)
+	<LI><a href=#SLang> S-Lang </a> use in data analysis (CXC S-Lang
+	class, Jan 2003).
+	</ul>
+	</ul>
+
+	<HR WIDTH="100%">
+
+	<CENTER>
+	<H6>
+	<a name=ACIS> </a>
+	<FONT SIZE=+2>Subject: ACIS</FONT></H6></CENTER>
+
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">04/28/17</TD>
+
+	<a name=badpix> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>acis_build_badpix spec</FONT></B>&nbsp;
+
+	<P>This document describes the use of the parameters bitflag and
+        usrfile for the tool acis_build_badpix.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.6.pdf">
+	PDF</A> (78 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_bw_2.6.pdf">
+	B/W PDF</A> (78 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.6.ps.gz">
+	PS</A> (200 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.6.tex">
+	LaTeX source</A> (11 K) of Rev. 2.6 (04/28/17)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.5.pdf">
+	PDF</A> (78 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.5.ps.gz">
+	PS</A> (92 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.5.tex">
+	LaTeX source</A> (11 K) of Rev. 2.5 (10/06/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.4.pdf">
+	PDF</A> (78 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.4.ps.gz">
+	PS</A> (92 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.4.tex">
+	LaTeX source</A> (10 K) of Rev. 2.4 (04/24/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.3.pdf">
+	PDF</A> (77 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.3.ps.gz">
+	PS</A> (91 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.3.tex">
+	LaTeX source</A> (10 K) of Rev. 2.3 (04/01/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.2.pdf">
+	PDF</A> (77 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.2.ps.gz">
+	PS</A> (91 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.2.tex">
+	LaTeX source</A> (10 K) of Rev. 2.2 (03/20/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.1.pdf">
+	PDF</A> (77 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.1.ps.gz">
+	PS</A> (91 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.1.tex">
+	LaTeX source</A> (10 K) of Rev. 2.1 (03/19/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.0.pdf">
+	PDF</A> (77 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.0.ps.gz">
+	PS</A> (91 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_2.0.tex">
+	LaTeX source</A> (10 K) of Rev. 2.0 (03/18/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.8.pdf">
+	PDF</A> (68 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.8.ps.gz">
+	PS</A> (77 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.8.tex">
+	LaTeX source</A> (10 K) of Rev. 1.8 (03/06/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.7.pdf">
+	PDF</A> (68 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.7.ps.gz">
+	PS</A> (77 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.7.tex">
+	LaTeX source</A> (10 K) of Rev. 1.7 (03/04/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.6.pdf">
+	PDF</A> (68 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.6.ps.gz">
+	PS</A> (77 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.6.tex">
+	LaTeX source</A> (9 K) of Rev. 1.6 (02/20/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.5.pdf">
+	PDF</A> (66 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.5.ps.gz">
+	PS</A> (77 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.5.tex">
+	LaTeX source</A> (9 K) of Rev. 1.5 (11/24/08)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.4.pdf">
+	PDF</A> (68 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.4.ps.gz">
+	PS</A> (78 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.4.tex">
+	LaTeX source</A> (9 K) of Rev. 1.4 (08/15/08)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.3.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.3.ps.gz">
+	PS</A> (74 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.3.tex">
+	LaTeX source</A> (8 K) of Rev. 1.3 (04/18/07)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.2.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.2.ps.gz">
+	PS</A> (74 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.2.tex">
+	LaTeX source</A> (8 K) of Rev. 1.2 (02/27/07)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.1.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.1.ps.gz">
+	PS</A> (73 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.1.tex">
+	LaTeX source</A> (8 K) of Rev. 1.1 (01/22/07)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.0.ps.gz">
+	PS</A> (74 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_badpix_1.0.tex">
+	LaTeX source</A> (8 K) of Rev. 1.0 (11/17/06)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">07/15/14</TD>
+
+	<a name=gti> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>acis_build_chip_gti spec</FONT></B>&nbsp;
+
+        <P><EM><FONT COLOR="RED">*** Disregard.  The acis_build_chip_gti
+        specs are flawed. ***</FONT></EM>
+
+	<P>This document describes a specification for the ACIS tool
+        acis_build_chip_gti.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_build_chip_gti_2.1.pdf">
+	PDF</A> (92 K),
+	<A HREF="http://space.mit.edu/ASC/docs/acis_build_chip_gti_bw_2.1.pdf">
+	B/W PDF</A> (92 K),
+	<A HREF="http://space.mit.edu/ASC/docs/acis_build_chip_gti_2.1.ps.gz">
+	PS</A> (200 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/acis_build_chip_gti_2.1.tex">
+	LaTeX source</A> (21 K) of Rev. 2.1 (07/15/14)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_build_chip_gti_2.0.pdf">
+	PDF</A> (90 K),
+	<A HREF="http://space.mit.edu/ASC/docs/acis_build_chip_gti_bw_2.0.pdf">
+	B/W PDF</A> (90 K),
+	<A HREF="http://space.mit.edu/ASC/docs/acis_build_chip_gti_2.0.ps.gz">
+	PS</A> (200 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/acis_build_chip_gti_2.0.tex">
+	LaTeX source</A> (20 K) of Rev. 2.0 (06/22/14)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_chip_gti_1.1.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_chip_gti_1.1.ps.gz">
+	PS</A> (102 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_chip_gti_1.1.tex">
+	LaTeX source</A> (8 K) of DRAFT Rev. 1.1 (11/08/04)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">04/04/07</TD>
+
+	<a name=msk> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>acis_build_mask spec</FONT></B>&nbsp;
+
+	<P>This document describes a specification for the ACIS tool acis_build_mask.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_4.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_4.0.ps.gz">
+	PS</A> (108 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_4.0.tex">
+	LaTeX source</A> (24 K) of Rev. 4.0 (04/04/07)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.10.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.10.ps.gz">
+	PS</A> (104 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.10.tex">
+	LaTeX source</A> (20 K) of Rev. 3.10 (08/11/04)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.9.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.9.ps.gz">
+	PS</A> (103 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.9.tex">
+	LaTeX source</A> (19 K) of Rev. 3.9 (04/26/04)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.8.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.8.ps.gz">
+	PS</A> (66 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.8.tex">
+	LaTeX source</A> (19 K) of Rev. 3.8 (11/21/03)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.7.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.7.ps.gz">
+	PS</A> (66 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.7.tex">
+	LaTeX source</A> (18 K) of Rev. 3.7 (10/22/03)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.6.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.6.ps.gz">
+	PS</A> (62 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.6.tex">
+	LaTeX source</A> (16 K) of Rev. 3.6 (10/21/03)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.5.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.5.ps.gz">
+	PS</A> (62 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.5.tex">
+	LaTeX source</A> (16 K) of Rev. 3.5 (10/20/03)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.3.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.3.ps.gz">
+	PS</A> (60 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.3.tex">
+	LaTeX source</A> (14 K) of Rev. 3.3 (09/25/03)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.2.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.2.ps.gz">
+	PS</A> (60 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_build_mask_3.2.tex">
+	LaTeX source</A> (14 K) of Rev. 3.2 (12/04/02)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">02/11/11</TD>
+
+	<a name=hotpix> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>acis_detect_hotpix spec</FONT></B>&nbsp;
+
+	<P>This document describes a specification for the ACIS tool
+        acis_detect_hotpix.  This spec is superseded by the newer
+	<a href=#aft>acis_find_afterglow spec</a>.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.11.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.11.ps.gz">
+	PS</A> (115 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.11.tex">
+	LaTeX source</A> (23 K) of Rev. 1.11 (06/16/06)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.10.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.10.ps.gz">
+	PS</A> (107 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.10.tex">
+	LaTeX source</A> (23 K) of Rev. 1.10 (05/10/06)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.9.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.9.ps.gz">
+	PS</A> (112 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.9.tex">
+	LaTeX source</A> (22 K) of Rev. 1.9 (10/15/04)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.8.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.8.ps.gz">
+	PS</A> (112 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.8.tex">
+	LaTeX source</A> (22 K) of Rev. 1.8 (06/30/04)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.7.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.7.ps.gz">
+	PS</A> (111 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.7.tex">
+	LaTeX source</A> (22 K) of Rev. 1.7 (06/14/04)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.6.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.6.ps.gz">
+	PS</A> (73 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.6.tex">
+	LaTeX source</A> (22 K) of Rev. 1.6 (03/29/04)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.5.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.5.ps.gz">
+	PS</A> (70 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.5.tex">
+	LaTeX source</A> (21 K) of Rev. 1.5 (02/11/04)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.4.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.4.ps.gz">
+	PS</A> (70 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.4.tex">
+	LaTeX source</A> (21 K) of Rev. 1.4 (01/05/04)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.3.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.3.ps.gz">
+	PS</A> (70 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_detect_hotpix_1.3.tex">
+	LaTeX source</A> (21 K) of Rev. 1.3 (03/17/03)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">04/28/17</TD>
+
+	<a name=aft> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>acis_find_afterglow spec</FONT></B>&nbsp;
+
+	<P>This document describes a specification for algorithms to find
+        afterglows and hot pixels on ACIS CCDs.  This spec supersedes the
+        previous <a href=#hotpix>acis_detect_hotpix</a> and
+	<a href=#hotpix2>hot-pixel detection</a> specs.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.11.pdf">
+	PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_bw_2.11.pdf">
+	B/W PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.11.ps.gz">
+	PS</A> (320 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.11.tex">
+	LaTeX source</A> (30 K) of Rev. 2.11 (04/28/17)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.10.pdf">
+	PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_black_2.10.pdf">
+	B/W PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.10.ps.gz">
+	PS</A> (312 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.10.tex">
+	LaTeX source</A> (30 K) of Rev. 2.10 (4/11/12)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.9.pdf">
+	PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_black_2.9.pdf">
+	B/W PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.9.ps.gz">
+	PS</A> (312 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.9.tex">
+	LaTeX source</A> (29 K) of Rev. 2.9 (3/2/12)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.8.pdf">
+	PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_black_2.8.pdf">
+	B/W PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.8.ps.gz">
+	PS</A> (176 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.8.tex">
+	LaTeX source</A> (28 K) of Rev. 2.8 (12/9/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.7.pdf">
+	PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_black_2.7.pdf">
+	B/W PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.7.ps.gz">
+	PS</A> (176 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.7.tex">
+	LaTeX source</A> (28 K) of Rev. 2.7 (11/9/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.6.pdf">
+	PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_black_2.6.pdf">
+	B/W PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.6.ps.gz">
+	PS</A> (176 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.6.tex">
+	LaTeX source</A> (28 K) of Rev. 2.6 (10/28/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.5.pdf">
+	PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_black_2.5.pdf">
+	B/W PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.5.ps.gz">
+	PS</A> (176 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.5.tex">
+	LaTeX source</A> (28 K) of Rev. 2.5 (09/12/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.4.pdf">
+	PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_black_2.4.pdf">
+	B/W PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.4.ps.gz">
+	PS</A> (168 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.4.tex">
+	LaTeX source</A> (28 K) of Rev. 2.4 (03/09/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.3.pdf">
+	PDF</A> (144 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_black_2.3.pdf">
+	B/W PDF</A> (144 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.3.ps.gz">
+	PS</A> (176 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.3.tex">
+	LaTeX source</A> (27 K) of Rev. 2.3 (03/04/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.2.pdf">
+	PDF</A> (144 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_black_2.2.pdf">
+	B/W PDF</A> (144 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.2.ps.gz">
+	PS</A> (176 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.2.tex">
+	LaTeX source</A> (26 K) of Rev. 2.2 (02/24/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.1.pdf">
+	PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_black_2.1.pdf">
+	B/W PDF</A> (144 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.1.ps.gz">
+	PS</A> (168 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.1.tex">
+	LaTeX source</A> (27 K) of Rev. 2.1 (02/22/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.0.pdf">
+	PDF</A> (144 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_black_2.0.pdf">
+	B/W PDF</A> (144 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.0.ps.gz">
+	PS</A> (168 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_2.0.tex">
+	LaTeX source</A> (24 K) of Rev. 2.0 (02/10/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.9.pdf">
+	PDF</A> (128 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_black_1.9.pdf">
+	B/W PDF</A> (128 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.9.ps.gz">
+	PS</A> (160 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.9.tex">
+	LaTeX source</A> (19 K) of Rev. 1.9 (08/16/10)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.8.pdf">
+	PDF</A> (114 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.8.ps.gz">
+	PS</A> (132 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.8.tex">
+	LaTeX source</A> (18 K) of Rev. 1.8 (08/13/08)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.7.pdf">
+	PDF</A> (114 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.7.ps.gz">
+	PS</A> (131 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.7.tex">
+	LaTeX source</A> (18 K) of Rev. 1.7 (07/30/08)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.6.pdf">
+	PDF</A> (114 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.6.ps.gz">
+	PS</A> (131 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.6.tex">
+	LaTeX source</A> (18 K) of Rev. 1.6 (07/29/08)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.5.pdf">
+	PDF</A> (114 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.5.ps.gz">
+	PS</A> (132 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.5.tex">
+	LaTeX source</A> (19 K) of Rev. 1.5 (07/28/08)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.4.pdf">
+	PDF</A> (108 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.4.ps.gz">
+	PS</A> (127 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_spec_1.4.tex">
+	LaTeX source</A> (17 K) of Rev. 1.4 (07/27/08)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_find_afterglow_1.3.pdf">
+	PDF</A> (87 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_find_afterglow_1.3.ps.gz">
+	PS</A> (95 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_find_afterglow_1.3.tex">
+	LaTeX source</A> (16 K) of Rev. 1.3 (02/13/08)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_find_afterglow_1.2.pdf">
+	PDF</A> (86 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_find_afterglow_1.2.ps.gz">
+	PS</A> (95 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_find_afterglow_1.2.tex">
+	LaTeX source</A> (15 K) of Rev. 1.2 (02/12/08)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_find_afterglow_1.1.pdf">
+	PDF</A> (88 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_find_afterglow_1.1.ps.gz">
+	PS</A> (96 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_find_afterglow_1.1.tex">
+	LaTeX source</A> (16 K) of Rev. 1.1 (02/11/08)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_find_afterglow_1.0.pdf">
+	PDF</A> (88 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_find_afterglow_1.0.ps.gz">
+	PS</A> (96 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_find_afterglow_1.0.tex">
+	LaTeX source</A> (16 K) of Rev. 1.0 (02/11/08)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">05/11/06</TD>
+
+	<a name=bkgd> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>acis_make_bkgd spec</FONT></B>&nbsp;
+
+	<P>This document describes a specification for the ACIS tool acis_make_bkgd.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.4.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.4.ps.gz">
+	PS</A> (87 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.4.tex">
+	LaTeX source</A> (17 K) of Rev. 1.4 (05/11/06)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.3.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.3.ps.gz">
+	PS</A> (87 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.3.tex">
+	LaTeX source</A> (13 K) of Rev. 1.3 (04/08/05)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.2.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.2.ps.gz">
+	PS</A> (81 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.2.tex">
+	LaTeX source</A> (11 K) of Rev. 1.2 (04/01/05)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.1.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.1.ps.gz">
+	PS</A> (80 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.1.tex">
+	LaTeX source</A> (9 K) of Rev. 1.1 (03/16/05)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.0.ps.gz">
+	PS</A> (75 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_make_bkgd_1.0.tex">
+	LaTeX source</A> (5 K) of Rev. 1.0 (02/18/05)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">04/28/17</TD>
+
+	<a name=ape> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>acis_process_events spec</FONT></B>&nbsp;
+
+	<P>This document describes an incomplete specification for the ACIS
+        tool acis_process_events.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.17.pdf">
+	PDF</A> (296 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.17.pdf">
+	B/W PDF</A> (296 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.17.ps.gz">
+	PS</A> (312 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.17.tex">
+	LaTeX source</A> (184 K) of Rev. 4.17 (04/28/17)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.16.pdf">
+	PDF</A> (296 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.16.pdf">
+	B/W PDF</A> (296 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.16.ps.gz">
+	PS</A> (304 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.16.tex">
+	LaTeX source</A> (184 K) of Rev. 4.16 (09/28/16)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.15.pdf">
+	PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.15.pdf">
+	B/W PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.15.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.15.tex">
+	LaTeX source</A> (160 K) of Rev. 4.15 (07/07/16)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.14.pdf">
+	PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.14.pdf">
+	B/W PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.14.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.14.tex">
+	LaTeX source</A> (160 K) of Rev. 4.14 (06/23/16)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.13.pdf">
+	PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.13.pdf">
+	B/W PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.13.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.13.tex">
+	LaTeX source</A> (160 K) of Rev. 4.13 (06/15/16)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.12.pdf">
+	PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.12.pdf">
+	B/W PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.12.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.12.tex">
+	LaTeX source</A> (160 K) of Rev. 4.12 (04/26/16)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.11.pdf">
+	PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.11.pdf">
+	B/W PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.11.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.11.tex">
+	LaTeX source</A> (152 K) of Rev. 4.11 (02/19/16)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.10.pdf">
+	PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.10.pdf">
+	B/W PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.10.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.10.tex">
+	LaTeX source</A> (144 K) of Rev. 4.10 (02/02/16)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.09.pdf">
+	PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.09.pdf">
+	B/W PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.09.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.09.tex">
+	LaTeX source</A> (144 K) of Rev. 4.09 (02/02/16)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.08.pdf">
+	PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.08.pdf">
+	B/W PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.08.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.08.tex">
+	LaTeX source</A> (144 K) of Rev. 4.08 (01/19/16)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.07.pdf">
+	PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.07.pdf">
+	B/W PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.07.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.07.tex">
+	LaTeX source</A> (144 K) of Rev. 4.07 (12/14/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.06.pdf">
+	PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.06.pdf">
+	B/W PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.06.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.06.tex">
+	LaTeX source</A> (152 K) of Rev. 4.06 (09/09/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.05.pdf">
+	PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.05.pdf">
+	B/W PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.05.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.05.tex">
+	LaTeX source</A> (144 K) of Rev. 4.05 (08/31/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.04.pdf">
+	PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.04.pdf">
+	B/W PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.04.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.04.tex">
+	LaTeX source</A> (152 K) of Rev. 4.04 (08/27/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.03.pdf">
+	PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.03.pdf">
+	B/W PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.03.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.03.tex">
+	LaTeX source</A> (144 K) of Rev. 4.03 (08/26/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.02.pdf">
+	PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.02.pdf">
+	B/W PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.02.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.02.tex">
+	LaTeX source</A> (144 K) of Rev. 4.02 (08/25/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.01.pdf">
+	PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.01.pdf">
+	B/W PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.01.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.01.tex">
+	LaTeX source</A> (144 K) of Rev. 4.01 (08/24/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.00.pdf">
+	PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_4.00.pdf">
+	B/W PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.00.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_4.00.tex">
+	LaTeX source</A> (144 K) of Rev. 4.00 (08/22/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.42.pdf">
+	PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.42.pdf">
+	B/W PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.42.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.42.tex">
+	LaTeX source</A> (144 K) of Rev. 3.42 (08/20/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.41.pdf">
+	PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.41.pdf">
+	B/W PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.41.ps.gz">
+	PS</A> (320 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.41.tex">
+	LaTeX source</A> (144 K) of Rev. 3.41 (08/19/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.40.pdf">
+	PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.40.pdf">
+	B/W PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.40.ps.gz">
+	PS</A> (320 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.40.tex">
+	LaTeX source</A> (144 K) of Rev. 3.40 (08/18/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.39.pdf">
+	PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.39.pdf">
+	B/W PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.39.ps.gz">
+	PS</A> (320 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.39.tex">
+	LaTeX source</A> (144 K) of Rev. 3.39 (08/15/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.38.pdf">
+	PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.38.pdf">
+	B/W PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.38.ps.gz">
+	PS</A> (320 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.38.tex">
+	LaTeX source</A> (144 K) of Rev. 3.38 (08/14/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.37.pdf">
+	PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.37.pdf">
+	B/W PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.37.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.37.tex">
+	LaTeX source</A> (144 K) of Rev. 3.37 (08/10/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.36.pdf">
+	PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.36.pdf">
+	B/W PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.36.ps.gz">
+	PS</A> (288 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.36.tex">
+	LaTeX source</A> (136 K) of Rev. 3.36 (08/04/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.35.pdf">
+	PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.35.pdf">
+	B/W PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.35.ps.gz">
+	PS</A> (288 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.35.tex">
+	LaTeX source</A> (136 K) of Rev. 3.35 (08/04/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.34.pdf">
+	PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.34.pdf">
+	B/W PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.34.ps.gz">
+	PS</A> (288 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.34.tex">
+	LaTeX source</A> (136 K) of Rev. 3.34 (08/04/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.33.pdf">
+	PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.33.pdf">
+	B/W PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.33.ps.gz">
+	PS</A> (288 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.33.tex">
+	LaTeX source</A> (136 K) of Rev. 3.33 (07/30/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.32.pdf">
+	PDF</A> (280 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.32.pdf">
+	B/W PDF</A> (280 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.32.ps.gz">
+	PS</A> (320 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.32.tex">
+	LaTeX source</A> (160 K) of Rev. 3.32 (07/23/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.31.pdf">
+	PDF</A> (280 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.31.pdf">
+	B/W PDF</A> (280 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.31.ps.gz">
+	PS</A> (320 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.31.tex">
+	LaTeX source</A> (160 K) of Rev. 3.31 (07/14/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.30.pdf">
+	PDF</A> (272 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.30.pdf">
+	B/W PDF</A> (272 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.30.ps.gz">
+	PS</A> (312 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.30.tex">
+	LaTeX source</A> (152 K) of Rev. 3.30 (07/02/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.29.pdf">
+	PDF</A> (272 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.29.pdf">
+	B/W PDF</A> (272 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.29.ps.gz">
+	PS</A> (312 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.29.tex">
+	LaTeX source</A> (152 K) of Rev. 3.29 (06/28/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.28.pdf">
+	PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.28.pdf">
+	B/W PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.28.ps.gz">
+	PS</A> (312 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.28.tex">
+	LaTeX source</A> (152 K) of Rev. 3.28 (06/20/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.27.pdf">
+	PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.27.pdf">
+	B/W PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.27.ps.gz">
+	PS</A> (312 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.27.tex">
+	LaTeX source</A> (152 K) of Rev. 3.27 (06/11/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.26.pdf">
+	PDF</A> (272 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.26.pdf">
+	B/W PDF</A> (272 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.26.ps.gz">
+	PS</A> (304 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.26.tex">
+	LaTeX source</A> (160 K) of Rev. 3.26 (06/09/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.25.pdf">
+	PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.25.pdf">
+	B/W PDF</A> (264 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.25.ps.gz">
+	PS</A> (304 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.25.tex">
+	LaTeX source</A> (152 K) of Rev. 3.25 (05/21/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.24.pdf">
+	PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.24.pdf">
+	B/W PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.24.ps.gz">
+	PS</A> (304 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.24.tex">
+	LaTeX source</A> (144 K) of Rev. 3.24 (05/20/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.23.pdf">
+	PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.23.pdf">
+	B/W PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.23.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.23.tex">
+	LaTeX source</A> (144 K) of Rev. 3.23 (05/12/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.22.pdf">
+	PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.22.pdf">
+	B/W PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.22.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.22.tex">
+	LaTeX source</A> (144 K) of Rev. 3.22 (05/08/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.21.pdf">
+	PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.21.pdf">
+	B/W PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.21.ps.gz">
+	PS</A> (304 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.21.tex">
+	LaTeX source</A> (144 K) of Rev. 3.21 (04/28/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.20.pdf">
+	PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.20.pdf">
+	B/W PDF</A> (256 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.20.ps.gz">
+	PS</A> (304 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.20.tex">
+	LaTeX source</A> (144 K) of Rev. 3.20 (04/23/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.12.pdf">
+	PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.12.pdf">
+	B/W PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.12.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.12.tex">
+	LaTeX source</A> (136 K) of Rev. 3.12 (04/08/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.11.pdf">
+	PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.11.pdf">
+	B/W PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.11.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.11.tex">
+	LaTeX source</A> (136 K) of Rev. 3.11 (04/03/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.10.pdf">
+	PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.10.pdf">
+	B/W PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.10.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.10.tex">
+	LaTeX source</A> (136 K) of Rev. 3.10 (04/03/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.9.pdf">
+	PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.9.pdf">
+	B/W PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.9.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.9.tex">
+	LaTeX source</A> (128 K) of Rev. 3.9 (04/01/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.8.pdf">
+	PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.8.pdf">
+	B/W PDF</A> (248 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.8.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.8.tex">
+	LaTeX source</A> (128 K) of Rev. 3.8 (03/26/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.7.pdf">
+	PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.7.pdf">
+	B/W PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.7.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.7.tex">
+	LaTeX source</A> (128 K) of Rev. 3.7 (03/25/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.6.pdf">
+	PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.6.pdf">
+	B/W PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.6.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.6.tex">
+	LaTeX source</A> (128 K) of Rev. 3.6 (03/25/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.5.pdf">
+	PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.5.pdf">
+	B/W PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.5.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.5.tex">
+	LaTeX source</A> (128 K) of Rev. 3.5 (03/23/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.4.pdf">
+	PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.4.pdf">
+	B/W PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.4.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.4.tex">
+	LaTeX source</A> (128 K) of Rev. 3.4 (03/20/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.3.pdf">
+	PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.3.pdf">
+	B/W PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.3.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.3.tex">
+	LaTeX source</A> (128 K) of Rev. 3.3 (03/13/15)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.2.pdf">
+	PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.2.pdf">
+	B/W PDF</A> (240 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.2.ps.gz">
+	PS</A> (296 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.2.tex">
+	LaTeX source</A> (128 K) of Rev. 3.2 (01/06/14)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.1.pdf">
+	PDF</A> (225 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_bw_3.1.pdf">
+	B/W PDF</A> (225 K),
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.1.ps.gz">
+	PS</A> (265 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ape_spec_3.1.tex">
+	LaTeX source</A> (124 K) of Rev. 3.1 (09/12/14)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">01/19/07</TD>
+
+	<a name=apebadpix> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>acis_process_events: bad-pixel spec</FONT></B>&nbsp;
+
+	<P>This document describes a specification for the use of bad-pixel
+        files by the ACIS tool acis_process_events.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_ape_badpix_1.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_ape_badpix_1.0.ps.gz">
+	PS</A> (68 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_ape_badpix_1.0.tex">
+	LaTeX source</A> (4 K) of Rev. 1.0 (01/19/07)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">10/01/02</TD>
+
+	<a name=readcorr> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>acisreadcorr spec</FONT></B>&nbsp;
+
+	<P>This document describes a specification for the computation of TIME for the
+	ACIS tool acisreadcorr.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_read_corr_times_1.3b.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_read_corr_times_1.3b.ps.gz">
+	PS</A> (51 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_read_corr_times_1.3b.tex">
+	LaTeX source</A> (5 K) of Rev. 1.3b (10/01/02)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">03/01/11</TD>
+
+	<a name=aft_det_eff> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Afterglow detection efficiency</FONT></B>&nbsp;
+
+	<P>This document describes the afterglow detection efficiency of
+        acis_run_hotpix.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_detection_efficiency_1.2.pdf">
+	PDF</A> (224 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_detection_efficiency_1.2.ps.gz">
+	PS</A> (136 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_detection_efficiency_1.2.tex">
+	LaTeX source</A> (20 K) of Rev. 1.2 (03/01/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_detection_efficiency_1.1.pdf">
+	PDF</A> (224 K),
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_detection_efficiency_1.1.ps.gz">
+	PS</A> (136 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/afterglow_detection_efficiency_1.1.tex">
+	LaTeX source</A> (20 K) of Rev. 1.1 (10/07/10)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+	<TD WIDTH="10%">03/15/00</TD>
+
+	<a name=ACISARD> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>
+	ACIS Analysis Reference Data Interface Control Document</FONT></B>&nbsp;
+
+	<P>This document describes the formats of the Analysis Reference Data files
+	used by the ACIS tools.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ARD_ICD/ACIS_ARD_ICD_2.1.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/ARD_ICD/ACIS_ARD_ICD_2.1.ps.gz">
+	PS</A> (113 K) of Rev 2.1 (03/15/00)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ARD_ICD/ACIS_ARD_ICD_2.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/ARD_ICD/ACIS_ARD_ICD_2.0.ps.gz">
+	PS</A> (119 K) of Rev 2.0 (11/30/99)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/ARD_ICD/ACIS_ARD_ICD_1.3.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/ARD_ICD/ACIS_ARD_ICD_1.3.ps.gz">
+	PS</A> (525 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ACISsource/ARD/Rev1.3/">LaTeX
+	source</A> of Rev 1.3 (03/12/99)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">09/05/06</TD>
+
+	<a name=bias_keys> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Bias header keywords</FONT></B>&nbsp;
+
+	<P>This spec describes how to determine the values of some of the
+        keywords in the header of an ACIS bias file.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bias_keys_1.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bias_keys_1.0.ps.gz">
+	PS</A> (61 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bias_keys_1.0.tex">
+	LateX source</A> (2 K) of Rev. 1.0 (09/05/06)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">11/14/13</TD>
+
+	<a name=berr> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Bias-parity errors</FONT></B>&nbsp;
+
+	<P>This spec describes how to handle bias-parity errors when
+        producing a bad-pixel file.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_1.3.pdf">
+	PDF</A> (288 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_black_1.3.pdf">
+	PDF B/W</A> (288 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_1.3.ps.gz">
+	PS</A> (248 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_1.3.tex">
+	LateX source</A> (18 K) of Rev. 1.3 (11/14/13)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_1.1.pdf">
+	PDF</A> (288 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_black_1.1.pdf">
+	PDF B/W</A> (288 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_1.1.ps.gz">
+	PS</A> (240 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_1.1.tex">
+	LateX source</A> (18 K) of Rev. 1.1 (10/21/13)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_1.0.pdf">
+	PDF</A> (288 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_black_1.0.pdf">
+	PDF B/W</A> (288 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_1.0.ps.gz">
+	PS</A> (240 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_1.0.tex">
+	LateX source</A> (18 K) of Rev. 1.0 (11/21/12)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_0.4.pdf">
+	PDF</A> (288 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_black_0.4.pdf">
+	PDF B/W</A> (288 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_0.4.ps.gz">
+	PS</A> (240 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_0.4.tex">
+	LateX source</A> (18 K) of Rev. 0.4 (11/19/12)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_0.3.pdf">
+	PDF</A> (288 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_black_0.3.pdf">
+	PDF B/W</A> (288 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_0.3.ps.gz">
+	PS</A> (152 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_0.3.tex">
+	LateX source</A> (18 K) of Rev. 0.3 (08/20/10)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_0.2.pdf">
+	PDF</A> (272 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_black_0.2.pdf">
+	PDF B/W</A> (272 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_0.2.ps.gz">
+	PS</A> (144 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_0.2.tex">
+	LateX source</A> (13 K) of Rev. 0.2 (08/18/10)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_0.1.pdf">
+	PDF</A> (280 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_0.1.ps.gz">
+	PS</A> (152 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_parity_error_spec_0.1.tex">
+	LateX source</A> (14 K) of Rev. 0.1 (07/22/10)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">05/25/11</TD>
+
+	<a name=bias_rep> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Bias repair and replacement</FONT></B>&nbsp;
+
+	<P>This spec describes how to repair or replace a bias for an
+        observation with a suitable bias from another observation.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.5.pdf">
+	PDF</A> (3471 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_black_5.5.pdf">
+	B/W PDF</A> (3471 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.5.ps.gz">
+	PS</A> (5940 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.5.tex">
+	LaTeX source</A> (23 K) of Rev 5.5 (05/25/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.4.pdf">
+	PDF</A> (3471 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.4.ps.gz">
+	PS</A> (5931 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.4.tex">
+	LaTeX source</A> (22 K) of Rev 5.4 (05/13/10)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.3.pdf">
+	PDF</A> (3469 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.3.ps.gz">
+	PS</A> (5931 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.3.tex">
+	LaTeX source</A> (22 K) of Rev 5.3 (05/12/10)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.2.pdf">
+	PDF</A> (3469 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.2.ps.gz">
+	PS</A> (5931 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.2.tex">
+	LaTeX source</A> (21 K) of Rev 5.2 (05/05/10)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.1.pdf">
+	PDF</A> (3467 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.1.ps.gz">
+	PS</A> (5931 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.1.tex">
+	LaTeX source</A> (20 K) of Rev 5.1 (04/16/10)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.0.pdf">
+	PDF</A> (3468 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.0.ps.gz">
+	PS</A> (5931 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_5.0.tex">
+	LaTeX source</A> (21 K) of Rev 5.0 (04/13/10)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.4.pdf">
+	PDF</A> (3479 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.4.ps.gz">
+	PS</A> (5937 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.4.tex">
+	LaTeX source</A> (25 K) of Rev 4.4 (04/07/10)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.3.pdf">
+	PDF</A> (3480 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.3.ps.gz">
+	PS</A> (5937 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.3.tex">
+	LaTeX source</A> (25 K) of Rev 4.3 (02/02/10)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.2.pdf">
+	PDF</A> (3480 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.2.ps.gz">
+	PS</A> (5938 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.2.tex">
+	LaTeX source</A> (25 K) of Rev 4.2 (12/08/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.1.pdf">
+	PDF</A> (3480 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.1.ps.gz">
+	PS</A> (5940 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.1.tex">
+	LaTeX source</A> (25 K) of Rev 4.1 (11/13/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.0.pdf">
+	PDF</A> (3481 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.0.ps.gz">
+	PS</A> (5939 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_4.0.tex">
+	LaTeX source</A> (25 K) of Rev 4.0 (11/11/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_3.1.pdf">
+	PDF</A> (2355 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_3.1.ps.gz">
+	PS</A> (4052 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_3.1.tex">
+	LaTeX source</A> (21 K) of Rev 3.1 (11/04/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_3.0.pdf">
+	PDF</A> (2304 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_3.0.ps.gz">
+	PS</A> (3964 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_3.0.tex">
+	LaTeX source</A> (20 K) of Rev 3.0 (11/03/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_2.0.pdf">
+	PDF</A> (1105 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_2.0.ps.gz">
+	PS</A> (1926 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_2.0.tex">
+	LaTeX source</A> (11 K) of Rev 2.0 (09/02/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_1.0.pdf">
+	PDF</A> (56 K),
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_1.0.ps.gz">
+	PS</A> (69 K), or
+	<A HREF="http://space.mit.edu/ASC/docs/bias_repair_1.0.tex">
+	LaTeX source</A> (3 K) of Rev 1.0 (08/12/09)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">03/10/08</TD>
+
+	<a name=check_vf> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Check VFAINT background</FONT></B>&nbsp;
+
+	<P>This document describes an algorithm that can be used to search
+        for potential cosmic-ray background events in the data for TIMED
+	VFAINT mode observations.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.4.pdf">
+	PDF</A> (79 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.4.ps.gz">
+	PS</A> (157 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.4.tex">
+	LateX source</A> (5 K) of Rev. 1.4 (03/10/08)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.3.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.3.ps.gz">
+	PS</A> (158 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.3.tex">
+	LateX source</A> (5 K) of Rev. 1.3 (09/22/06)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.2.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.2.ps.gz">
+	PS</A> (157 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.2.tex">
+	LateX source</A> (5 K) of Rev. 1.2 (09/01/06)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.1.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.1.ps.gz">
+	PS</A> (153 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.1.tex">
+	LateX source</A> (5 K) of Rev. 1.1 (04/24/06)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.0.ps.gz">
+	PS</A> (150 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_check_vf_pha_1.0.tex">
+	LateX source</A> (5 K) of Rev. 1.0 (04/24/06)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">10/27/10</TD>
+
+	<a name=cti> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>CTI spec</FONT></B>&nbsp;
+
+	<P>This document describes how to compute the CTI-adjusted values of
+        PHAS, PHA, ENERGY, PI, FLTGRADE, and GRADE for ACIS event data.  The
+        algorithm includes a temperature-dependent scaling factor for the
+        integrated trap-density maps.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_7.2.pdf">
+	PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_black_7.2.pdf">
+	B/W PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_7.2.ps.gz">
+	PS</A> (176 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_7.2.tex">
+	LateX source</A> (34 K) of Rev. 7.2 (10/27/10)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_7.1.pdf">
+	PDF</A> (148 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_black_7.1.pdf">
+	B/W PDF</A> (148 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_7.1.ps.gz">
+	PS</A> (172 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_7.1.tex">
+	LateX source</A> (36 K) of Rev. 7.1 (10/10/10)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_7.0.pdf">
+	PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_black_7.0.pdf">
+	B/W PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_7.0.ps.gz">
+	PS</A> (176 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_7.0.tex">
+	LateX source</A> (34 K) of Rev. 7.0 (06/08/10)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_6.2.pdf">
+	PDF</A> (144 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_6.2.ps.gz">
+	PS</A> (152 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_6.2.tex">
+	LateX source</A> (38 K) of Rev. 6.2 (09/01/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_6.1.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_6.1.ps.gz">
+	PS</A> (134 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_6.1.tex">
+	LateX source</A> (36 K) of Rev. 6.1 (08/14/06)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_6.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_6.0.ps.gz">
+	PS</A> (134 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_6.0.tex">
+	LateX source</A> (36 K) of Rev. 6.0 (08/11/06)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.8.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.8.ps.gz">
+	PS</A> (130 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.8.tex">
+	LateX source</A> (35 K) of Rev. 5.8 (02/02/06)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.7.pdf">
+	PDF</A> (132 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.7.ps.gz">
+	PS</A> (132 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.7.tex">
+	LateX source</A> (36 K) of Rev. 5.7 (01/27/06)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.6.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.6.ps.gz">
+	PS</A> (132 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.6.tex">
+	LateX source</A> (36 K) of Rev. 5.6 (01/17/06)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.5.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.5.ps.gz">
+	PS</A> (132 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.5.tex">
+	LateX source</A> (35 K) of Rev. 5.5 (01/13/06)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.4.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.4.ps.gz">
+	PS</A> (131 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.4.tex">
+	LateX source</A> (34 K) of Rev. 5.4 (12/19/05)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.3.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.3.ps.gz">
+	PS</A> (132 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.3.tex">
+	LateX source</A> (36 K) of Rev. 5.3 (12/16/05)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.2.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.2.ps.gz">
+	PS</A> (129 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.2.tex">
+	LateX source</A> (31 K) of Rev. 5.2 (12/13/05)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.1.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.1.ps.gz">
+	PS</A> (129 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.1.tex">
+	LateX source</A> (31 K) of Rev. 5.1 (12/07/05)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.0.ps.gz">
+	PS</A> (127 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_5.0.tex">
+	LateX source</A> (29 K) of Rev. 5.0 (12/06/05)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_4.10.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_4.10.ps.gz">
+	PS</A> (119 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_4.10.tex">
+	LateX source</A> (30 K) of Rev. 4.10 (10/28/05)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_4.9.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_4.9.ps.gz">
+	PS</A> (83 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_4.9.tex">
+	LateX source</A> (30 K) of Rev. 4.9 (04/13/04)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_4.8.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_4.8.ps.gz">
+	PS</A> (83 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_4.8.tex">
+	LateX source</A> (30 K) of Rev. 4.8 (05/02/03)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_4.7b.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_4.7b.ps.gz">
+	PS</A> (71 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_cti_correction_4.7b.tex">
+	LateX source</A> (26 K) of Rev. 4.7b (09/09/02)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">02/19/13</TD>
+
+	<a name=deltoclk> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>DELTOCLK spec</FONT></B>&nbsp;
+
+	<P>This document describes the algorithm used to identify anomalous
+        DELTOCLK values.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_3.2.pdf">
+	PDF</A> (1338 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_bw_3.2.pdf">
+	B/W PDF</A> (1338 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_3.2.ps.gz">
+	PS</A> (576 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_3.2.tex">
+	LateX source</A> (28 K) of Rev. 3.2 (02/19/13)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_3.1.pdf">
+	PDF</A> (1338 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_bw_3.1.pdf">
+	B/W PDF</A> (1338 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_3.1.ps.gz">
+	PS</A> (576 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_3.1.tex">
+	LateX source</A> (28 K) of Rev. 3.1 (02/19/13)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_3.0.pdf">
+	PDF</A> (1342 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_bw_3.0.pdf">
+	B/W PDF</A> (1342 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_3.0.ps.gz">
+	PS</A> (586 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_3.0.tex">
+	LateX source</A> (28 K) of Rev. 3.0 (02/19/13)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_2.0.pdf">
+	PDF</A> (496 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_2.0.ps.gz">
+	PS</A> (304 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_2.0.tex">
+	LateX source</A> (22 K) of Rev. 2.0 (04/30/12)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.4.pdf">
+	PDF</A> (491 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_black_1.4.pdf">
+	B/W PDF</A> (491 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.4.ps.gz">
+	PS</A> (312 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.4.tex">
+	LateX source</A> (14 K) of Rev. 1.4 (03/13/12)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.3.pdf">
+	PDF</A> (488 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_black_1.3.pdf">
+	B/W PDF</A> (488 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.3.ps.gz">
+	PS</A> (216 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.3.tex">
+	LateX source</A> (14 K) of Rev. 1.3 (06/18/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.2.pdf">
+	PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_black_1.2.pdf">
+	B/W PDF</A> (152 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.2.ps.gz">
+	PS</A> (144 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.2.tex">
+	LateX source</A> (13 K) of Rev. 1.2 (06/15/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.1.pdf">
+	PDF</A> (76 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_black_1.1.pdf">
+	B/W PDF</A> (76 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.1.ps.gz">
+	PS</A> (112 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.1.tex">
+	LateX source</A> (8 K) of Rev. 1.1 (06/10/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.0.pdf">
+	PDF</A> (60 K),
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.0.ps.gz">
+	PS</A> (86 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/deltoclk_spec_1.0.tex">
+	LateX source</A> (4 K) of Rev. 1.0 (06/03/11)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">07/20/13</TD>
+
+	<a name=energy_pi> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Computation of ENERGY and PI</FONT></B>&nbsp;
+
+	<P>This document describes how to compute ENERGY and PI for ACIS
+        event data.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/energy_pi_spec_1.0.pdf">
+	PDF</A> (176 K),
+	<A HREF="http://space.mit.edu/ASC/docs/energy_pi_spec_bw_1.0.pdf">
+	B/W PDF</A> (176 K),
+	<A HREF="http://space.mit.edu/ASC/docs/energy_pi_spec_1.0.ps.gz">
+	PS</A> (200 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/energy_pi_spec_1.0.tar">
+	LateX source</A> (200 K) of Rev. 1.0 (07/20/13)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">03/18/14</TD>
+
+	<a name=grades> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Computation of FLTGRADE, GRADE, and PHA</FONT></B>&nbsp;
+
+	<P>This document describes how to compute FLTGRADE, GRADE, and PHA for ACIS
+	event data.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_fltgrade_grade_pha_1.7.pdf">
+	PDF</A> (86),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_fltgrade_grade_pha_bw_1.7.pdf">
+	B/W PDF</A> (86 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_fltgrade_grade_pha_1.7.ps.gz">
+	PS</A> (192 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_fltgrade_grade_pha_1.7.tar.gz">
+	LateX source</A> (14 K) of Rev. 1.7 (03/18/14)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_fltgrade_grade_pha_1.5.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_fltgrade_grade_pha_1.5.ps.gz">
+	PS</A> (88 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_fltgrade_grade_pha_1.5.tar.gz">
+	LateX source</A> (7 K) of Rev. 1.5 (01/08/07)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_fltgrade_grade_pha_1.4.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_fltgrade_grade_pha_1.4.ps.gz">
+	PS</A> (64 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_fltgrade_grade_pha_1.4.tar.gz">
+	LateX source</A> (7 K) of Rev. 1.4 (05/16/03)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_fltgrade_grade_pha_1.3b.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_fltgrade_grade_pha_1.3b.ps.gz">
+	PS</A> (64 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_fltgrade_grade_pha_1.3b.tar.gz">
+	LateX source</A> (7 K) of Rev. 1.3b (09/09/02)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/grades.ps.gz">
+	PS</A> (280 K) of Rev. 1.1 (04/02/99)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">09/09/02</TD>
+
+	<a name=exposure> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Computation of ONTIME, DTCOR, and EXPOSURE</FONT></B>&nbsp;
+
+	<P>This document describes how to compute TIMEDEL, FLSHTIME, ONTIME, DTCOR,
+	and EXPOSURE for ACIS event data.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_time_keywords_proposal_1.2b.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_time_keywords_proposal_1.2b.ps.gz">
+	PS</A> (66 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_time_keywords_proposal_1.2b.tex">
+	LaTeX source</A> (11 K) of Rev. 1.2b (09/09/02)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">09/09/02</TD>
+
+	<a name=hkp> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Computation of QUERY_VAL</FONT></B>&nbsp;
+
+	<P>This document describes how to compute QUERY_VAL for ACIS housekeeping
+	data.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_hkp0_query_val_1.1.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_hkp0_query_val_1.1.ps.gz">
+	PS</A> (59 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_hkp0_query_val_1.1.tex">
+	LaTeX source</A> (13 K) of Rev. 1.1 (09/09/02)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_hkp0_query_val_1.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_hkp0_query_val_1.0.ps.gz">
+	PS</A> (59 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_hkp0_query_val_1.0.tex">
+	LaTeX source</A> (13 K) of Rev. 1.0 (08/26/02)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">04/04/06</TD>
+
+	<a name=toa> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Computation of X, Y, and TIMEs of arrival of CC-mode events</FONT></B>&nbsp;
+
+	<P>This document describes how to compute the sky coordinates and times of
+	arrival of photons at the detector for CC-mode event data.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.6.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.6.ps.gz">
+	PS</A> (95 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.6.tex">
+	LaTeX source</A> (12 K) of Rev. 4.6 (04/04/06)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.5.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.5.ps.gz">
+	PS</A> (99 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.5.tex">
+	LaTeX source</A> (12 K) of Rev. 4.5 (01/14/05)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.4.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.4.ps.gz">
+	PS</A> (61 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.4.tex">
+	LaTeX source</A> (11 K) of Rev. 4.4 (04/25/03)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.3b.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.3b.ps.gz">
+	PS</A> (60 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.3b.tex">
+	LaTeX source</A> (12 K) of Rev. 4.3b (09/09/02)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.1.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.1.ps.gz">
+	PS</A> (58 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_acis_cc_calc_toa_4.1.tar.gz">
+	LaTeX source</A> (91 K) of Rev. 4.1 (12/18/01)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/times_of_arrival.ps.gz">
+	PS</A> (1.7 M) file of Chandra Calibration Workshop presentation,
+	November 2002 (11/07/02)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">02/27/07</TD>
+
+	<a name=fltgrade_caveat> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>A caveat about FLTGRADE = 255 in Level 1 event files</FONT></B>&nbsp;
+
+	<P>This document describes why Level 1 event files can contain
+        events that have FLTGRADE = 255.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/notes_fltgrade_1.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/notes_fltgrade_1.0.ps.gz">
+	PS</A> (66 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/notes_fltgrade_1.0.tex">
+	LaTeX source</A> of Rev 1.0 (02/27/07)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">03/18/14</TD>
+
+	<a name=grade_ard> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Grade ARD spec</FONT></B>&nbsp;
+
+	<P>This spec describes the grade ARD file structure.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/grade_ard_1.0.pdf">
+	PDF</A> (78 K),
+	<A HREF="http://space.mit.edu/ASC/docs/grade_ard_bw_1.0.pdf">
+	B/W PDF</A> (78 K),
+	<A HREF="http://space.mit.edu/ASC/docs/grade_ard_1.0.ps.gz">
+	PS</A> (200 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/grade_ard_1.0.tex">
+	LaTeX source</A> (15 K) of Rev 1.0 (03/18/14)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">02/11/11</TD>
+
+	<a name=hotpix2> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Hot-pixel spec</FONT></B>&nbsp;
+
+	<P>This document describes a specification for a hot-pixel detection
+        algorithm.  It is superseded by the newer <a
+        href=#aft>acis_find_afterglow spec</a>.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/hotpix_spec_2.3.pdf">
+	PDF</A> (112 K),
+	<A HREF="http://space.mit.edu/ASC/docs/hotpix_spec_2.3.ps.gz">
+	PS</A> (144 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/hotpix_spec_2.3.tex">
+	LaTeX source</A> (12 K) of Rev. 2.3 (01/23/11)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/hotpix_spec_2.2.pdf">
+	PDF</A> (98 K),
+	<A HREF="http://space.mit.edu/ASC/docs/hotpix_spec_2.2.ps.gz">
+	PS</A> (120 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/hotpix_spec_2.2.tex">
+	LaTeX source</A> (12 K) of Rev. 2.2 (10/23/09)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/hotpix_spec_2.1.pdf">
+	PDF</A> (98 K),
+	<A HREF="http://space.mit.edu/ASC/docs/hotpix_spec_2.1.ps.gz">
+	PS</A> (120 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/hotpix_spec_2.1.tex">
+	LaTeX source</A> (12 K) of Rev. 2.1 (07/30/08)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/hotpix_spec_2.0.pdf">
+	PDF</A> (98 K),
+	<A HREF="http://space.mit.edu/ASC/docs/hotpix_spec_2.0.ps.gz">
+	PS</A> (120 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/hotpix_spec_2.0.tex">
+	LaTeX source</A> (11 K) of Rev. 2.0 (07/29/08)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">10/23/00</TD>
+
+	<a name=ACISL0> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>ACIS Level 0 Interface Control Document</FONT></B>&nbsp;
+
+	<P>This document describes the formats of the Level 0 data products.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l0_3.2.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l0_3.2.ps.gz">
+	PS</A> (124 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ACISsource/L0/Rev3.2/">Framemaker
+	source</A> of Rev 3.2 (10/23/00)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l0_3.1.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l0_3.1.ps.gz">
+	PS</A> (123 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ACISsource/L0/Rev3.1/">Framemaker
+	source</A> of Rev 3.1 (08/10/00)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l0_3.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l0_3.0.ps.gz">
+	PS</A> (122 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ACISsource/L0/Rev3.0/">Framemaker
+	source</A> of Rev 3.0 (08/18/99)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l0_2.11.pdf">
+	PDF</A> or
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l0_2.11.ps.gz">
+	PS</A> (115 K) of Rev 2.11 (06/08/99)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l0_2.10.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l0_2.10.ps.gz">
+	PS</A> (107 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ACISsource/L0/Rev2.10/">Framemaker
+	source</A> of Rev 2.10 (04/05/99)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/old_ACIS_ICDs.html">
+	older revisions</A> of the ICD
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">09/11/00</TD>
+
+	<a name=ACISL1> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>ACIS Level 1 Interface Control Document</FONT></B>&nbsp;
+
+	<P>This document describes the formats of the Level 1 data products.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l1_2.3.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l1_2.3.ps.gz">
+	PS</A> (60 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ACISsource/L1/Rev2.3/acis_l1_2.3.tar">
+	Framemaker source</A> of Rev 2.3 (12/03/01)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l1_2.2.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l1_2.2.ps.gz">
+	PS</A> (60 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ACISsource/L1/Rev2.2/acis_l1_2.2.tar">
+	Framemaker source</A> of Rev 2.2 (09/11/00)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l1_2.1.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l1_2.1.ps.gz">
+	PS</A> (59 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ACISsource/L1/Rev2.1/">
+	Framemaker source</A> of Rev 2.1 (08/10/00)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l1_2.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l1_2.0.ps.gz">
+	PS</A> (57 K) of Rev 2.0 (11/05/99)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l1_1.10.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l1_1.10.ps.gz">
+	PS</A> (56 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ACISsource/L1/Rev1.10/">
+	Framemaker source</A> of Rev 1.10 (08/05/99)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l1_1.9.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/acis_l1_1.9.ps.gz">
+	PS</A> (55 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/ACISsource/L1/Rev1.9/">
+	Framemaker source</A> of Rev 1.9 (04/07/99)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/old_ACIS_ICDs.html">
+	older revisions</A> of the ICD
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">06/08/05</TD>
+
+	<a name=instgeom> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Notes about ACIS instrument geometry data</FONT></B>&nbsp;
+
+	<P>This document describes some self-consistency tests of the LSI
+           coordinates of the ACIS CCDs.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_instgeom_1.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_instgeom_1.0.ps.gz">
+	PS</A> (142 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_instgeom_1.0.tex">
+	LaTeX source</A> of Rev 1.0 (06/08/05)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">06/12/07</TD>
+
+	<a name=mean_bias> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Mean biases</FONT></B>&nbsp;
+
+	<P>This document describes a specification for computing
+        observation-specific biases from mean biases.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_mean_bias_1.2.pdf">
+	PDF</A> (59 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_mean_bias_1.2.ps.gz">
+	PS</A> (75 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_mean_bias_1.2.tex">
+	LaTeX source</A> (3 K) of Rev 1.2 (06/12/07)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_mean_bias_1.1.pdf">
+	PDF</A> (52 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_mean_bias_1.1.ps.gz">
+	PS</A> (66 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_mean_bias_1.1.tex">
+	LaTeX source</A> (2 K) of Rev 1.1 (06/04/07)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_mean_bias_1.0.pdf">
+	PDF</A> (52 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_mean_bias_1.0.ps.gz">
+	PS</A> (66 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_mean_bias_1.0.tex">
+	LaTeX source</A> (2 K) of Rev 1.0 (05/30/07)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">02/01/17</TD>
+
+	<a name=mkacisrmf> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>mkacisrmf</FONT></B>&nbsp;
+
+	<P>This document describes a specification for computing an ACIS RMF.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/mkacisrmf_spec_1.00.pdf">
+	PDF</A> (131 K),
+	<A HREF="http://space.mit.edu/ASC/docs/mkacisrmf_spec_bw_1.00.pdf">
+	B/W PDF</A> (131 K),
+	<A HREF="http://space.mit.edu/ASC/docs/mkacisrmf_spec_1.00.ps.gz">
+	PS</A> (273 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/mkacisrmf_spec_1.00.tex">
+	LaTeX source</A> (34 K) of Rev 1.00 (02/01/17)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">07/10/02</TD>
+
+	<a name=caveats> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>ACIS pipeline processing caveats</FONT></B>&nbsp;
+
+	<P>This document describes caveats about ACIS pipeline-produced event data.
+
+	<P><A HREF="http://space.mit.edu/ASC/docs/acis_caveats_020710.html">HTML</A>
+	(07/10/02)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">02/28/00</TD>
+
+	<a name=ACIStools> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>ACIS pipeline processing tools</FONT></B>&nbsp;
+
+	<P>This document describes the ACIS pipeline processing tools.
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_tools_rev2.1.pdf">
+	PDF</A> or
+	<A HREF="http://space.mit.edu/ASC/docs/acis_tools_rev2.1.ps.gz">
+	PS</A> (90 K) of DRAFT of Rev 2.1 (02/28/00)
+
+	<P>Download
+	<A HREF="http://space.mit.edu/ASC/docs/acis_tools_rev2.0.pdf">
+	PDF</A> or
+	<A HREF="http://space.mit.edu/ASC/docs/acis_tools_rev2.0.ps.gz">
+	PS</A> (89 K) of Rev 2.0 (11/01/99)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">06/07/13</TD>
+
+	<a name=s4streak_alg> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>S4 streak algorithm</FONT></B>&nbsp;
+
+	<P>This document describes an algorithm used to identify horizontal,
+        instrumental, streak events on ACIS-S4.
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/s4_streak_algorithm_000801.pdf">
+	PDF</A> (1574 K) of the August 1, 2000 document (06/07/13)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">08/15/13</TD>
+
+	<a name=s4streak_loss> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>S4 streak loss parameter</FONT></B>&nbsp;
+
+	<P>This document describes a better implementation of the fractional
+        loss parameter of the tool that identifies horizontal, instrumental,
+        streak events on ACIS-S4.
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/s4_streak_loss_2.0.pdf">
+	PDF</A> (1933 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/s4_streak_loss_2.0.tar.gz">
+	Source files</A> (288 K) of Rev. 2.0 (08/15/13)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/s4_streak_loss_1.1.pdf">
+	PDF</A> (2640 K) of Rev. 1.1 (06/12/13)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/s4_streak_loss_1.0.pdf">
+	PDF</A> (2594 K) of Rev. 1.0 (06/10/13)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">06/07/13</TD>
+
+	<a name=s4streak_prop> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>S4 streak properties</FONT></B>&nbsp;
+
+	<P>This document describes the properties of the horizontal,
+        instrumental, streak events on ACIS-S4.
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/s4_streak_properties_040316.pdf">
+	PDF</A> (328 K) of the March 16, 2004 document (06/07/13)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">04/28/17</TD>
+
+	<a name=bpixbits> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>STATUS bits in bad-pixel files</FONT></B>&nbsp;
+
+	<P>This document describes the conditions for which the STATUS bits in ACIS
+	bad pixel files are set.
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.12.pdf">
+	PDF</A> (63),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_bw_1.12.pdf">
+	B/W PDF</A> (63 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.12.ps.gz">
+	PS</A> (152 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.12.tex">
+	LaTeX source</A> (10 K) of Rev 1.12 (04/28/17)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.11.pdf">
+	PDF</A> (59),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.11.ps.gz">
+	PS</A> (73 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.11.tex">
+	LaTeX source</A> (10 K) of Rev 1.11 (06/19/07)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.10.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.10.ps.gz">
+	PS</A> (67 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.10.tex">
+	LaTeX source</A> (10 K) of Rev 1.10 (05/04/06)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.9.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.9.ps.gz">
+	PS</A> (67 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.9.tex">
+	LaTeX source</A> (10 K) of Rev 1.9 (08/29/05)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.8.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.8.ps.gz">
+	PS</A> (67 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.8.tex">
+	LaTeX source</A> (9 K) of Rev 1.8 (08/23/05)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.7.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.7.ps.gz">
+	PS</A> (65 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.7.tex">
+	LaTeX source</A> (7 K) of Rev 1.7 (05/20/05)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.6.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.6.ps.gz">
+	PS</A> (69 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.6.tex">
+	LaTeX source</A> (7 K) of Rev 1.6 (12/15/04)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.5.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.5.ps.gz">
+	PS</A> (69 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.5.tex">
+	LaTeX source</A> (7 K) of Rev 1.5 (10/27/04)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.4.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.4.ps.gz">
+	PS</A> (70 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.4.tex">
+	LaTeX source</A> (7 K) of Rev 1.4 (10/15/04)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.3.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.3.ps.gz">
+	PS</A> (69 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.3.tex">
+	LaTeX source</A> (7 K) of Rev 1.3 (06/30/04)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.2.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.2.ps.gz">
+	PS</A> (69 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.2.tex">
+	LaTeX source</A> (6 K) of Rev 1.2 (06/28/04)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.1.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.1.ps.gz">
+	PS</A> (50 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_bpix_status_bits_1.1.tex">
+	LaTeX source</A> (6 K) of Rev 1.1 (09/25/02)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">05/18/09</TD>
+
+	<a name=evtbits> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>STATUS bits in event files</FONT></B>&nbsp;
+
+	<P>This document describes the conditions for which the STATUS bits
+        in ACIS	event data files are set.
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_2.3.pdf">
+	PDF</A> (67 K),
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_2.3.ps.gz">
+	PS</A> (74 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_2.3.tex">
+	LaTeX source</A> (12 K) of Rev 2.3 (05/18/09)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_2.2.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_2.2.ps.gz">
+	PS</A> (73 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_2.2.tex">
+	LaTeX source</A> (12 K) of Rev 2.2 (01/19/07)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_2.1.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_2.1.ps.gz">
+	PS</A> (71 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_2.1.tex">
+	LaTeX source</A> (11 K) of Rev 2.1 (04/24/06)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_2.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_2.0.ps.gz">
+	PS</A> (71 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_2.0.tex">
+	LaTeX source</A> (11 K) of Rev 2.0 (04/06/06)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_1.9.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_1.9.ps.gz">
+	PS</A> (71 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_1.9.tex">
+	LaTeX source</A> (9 K) of Rev 1.9 (03/29/06)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_1.8.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_1.8.ps.gz">
+	PS</A> (70 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_1.8.tex">
+	LaTeX source</A> (8 K) of Rev 1.8 (11/17/05)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_1.7.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_1.7.ps.gz">
+	PS</A> (51 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_1.7.tex">
+	LaTeX source</A> (8 K) of Rev 1.7 (03/05/03)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_1.6.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_1.6.ps.gz">
+	PS</A> (51 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_event_status_bits_1.6.tex">
+	LaTeX source</A> (8 K) of Rev 1.6 (10/18/02)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">09/30/13</TD>
+
+	<a name=subpix> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Sub-pixel event-repositioning and pixel
+        randomization spec</FONT></B>&nbsp;
+
+	<P>This document is a spec describing the sub-pixel
+        event-repositioning and pixel randomization algorithms.
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.4.pdf">
+	PDF</A> (128 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_bw_2.4.pdf">
+	B/W PDF</A> (128 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.4.ps.gz">
+	PS</A> (272 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.4.tex">
+	LaTeX source</A> (20 K) of Rev 2.4 (09/30/13)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.3.pdf">
+	PDF</A> (128 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_bw_2.3.pdf">
+	B/W PDF</A> (128 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.3.ps.gz">
+	PS</A> (272 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.3.tex">
+	LaTeX source</A> (19 K) of Rev 2.3 (08/21/13)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.2.pdf">
+	PDF</A> (128 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_bw_2.2.pdf">
+	B/W PDF</A> (128 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.2.ps.gz">
+	PS</A> (264 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.2.tex">
+	LaTeX source</A> (20 K) of Rev 2.2 (06/28/13)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.1.pdf">
+	PDF</A> (118 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_bw_2.1.pdf">
+	B/W PDF</A> (118 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.1.ps.gz">
+	PS</A> (261 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.1.tex">
+	LaTeX source</A> (20 K) of Rev 2.1 (06/13/13)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.0.pdf">
+	PDF</A> (128 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_bw_2.0.pdf">
+	B/W PDF</A> (128 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.0.ps.gz">
+	PS</A> (264 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_2.0.tex">
+	LaTeX source</A> (20 K) of Rev 2.0 (01/11/13)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_1.2.pdf">
+	PDF</A> (112 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_bw_1.2.pdf">
+	B/W PDF</A> (112 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_1.2.ps.gz">
+	PS</A> (136 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_1.2.tex">
+	LaTeX source</A> (14 K) of Rev 1.2 (09/14/10)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_1.1.pdf">
+	PDF</A> (112 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_black_1.1.pdf">
+	B/W PDF</A> (112 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_1.1.ps.gz">
+	PS</A> (136 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_1.1.tex">
+	LaTeX source</A> (14 K) of Rev 1.1 (09/07/10)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_1.0.pdf">
+	PDF</A> (112 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_1.0.ps.gz">
+	PS</A> (136 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_1.0.tex">
+	LaTeX source</A> (14 K) of Rev 1.0 (05/19/10)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_0.3.pdf">
+	PDF</A> (112 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_0.3.ps.gz">
+	PS</A> (136 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_0.3.tex">
+	LaTeX source</A> (15 K) of Rev 0.3 (05/14/10)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_0.2.pdf">
+	PDF</A> (112 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_0.2.ps.gz">
+	PS</A> (128 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_0.2.tex">
+	LaTeX source</A> (13 K) of Rev 0.2 (05/13/10)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_0.1.pdf">
+	PDF</A> (88 K),
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_0.1.ps.gz">
+	PS</A> (108 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/subpix_spec_0.1.tex">
+	LaTeX source</A> (10 K) of Rev 0.1 (05/11/10)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">03/16/17</TD>
+
+	<a name=trmf> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Temperature-dependent RMF spec</FONT></B>&nbsp;
+
+	<P>This document describes how a script could be used to create a
+        temperature-dependent RMF.
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/trmf_spec_1.01.pdf">
+	PDF</A>, (76 K)
+	<A HREF="http://space.mit.edu/ASC/docs/trmf_spec_bw_1.01.pdf">
+	B/W PDF</A>, (76 K)
+	<A HREF="http://space.mit.edu/ASC/docs/trmf_spec_1.01.ps.gz">
+	PS</A> (216 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/trmf_spec_1.01.tex">
+	LaTeX source</A> (8 K) of Rev 1.01 (03/16/17)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/trmf_spec_1.00.pdf">
+	PDF</A>, (73 K)
+	<A HREF="http://space.mit.edu/ASC/docs/trmf_spec_bw_1.00.pdf">
+	B/W PDF</A>, (73 K)
+	<A HREF="http://space.mit.edu/ASC/docs/trmf_spec_1.00.ps.gz">
+	PS</A> (216 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/trmf_spec_1.00.tex">
+	LaTeX source</A> (7 K) of Rev 1.00 (02/02/17)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">04/06/03</TD>
+
+	<a name=tgain_ard> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Time-dependent gain ARD</FONT></B>&nbsp;
+
+	<P>This document describes the format of the ARD file used to compute the
+	time-dependent gain adjustment.
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_tgain_ard_1.0.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_tgain_ard_1.0.ps.gz">
+	PS</A> (53 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_tgain_ard_1.0.tex">
+	LaTeX source</A> (5 K) of Rev 1.0 (06/04/03)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">06/02/06</TD>
+
+	<a name=tgain_spec> </a>
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Time-dependent gain spec</FONT></B>&nbsp;
+
+	<P>This document specifies how to apply the time-dependent gain
+        adjustment.  This spec is superseded by the
+	<a href=#ape>acis_process_events spec</a>.
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.6.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.6.ps.gz">
+	PS</A> (91 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.6.tex">
+	LaTeX source</A> (16 K) of Rev 1.6 (06/02/06)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.5.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.5.ps.gz">
+	PS</A> (95 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.5.tex">
+	LaTeX source</A> (16 K) of Rev 1.5 (04/20/04)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.4.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.4.ps.gz">
+	PS</A> (60 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.4.tex">
+	LaTeX source</A> (15 K) of Rev 1.4 (09/24/03)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.3.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.3.ps.gz">
+	PS</A> (61 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.3.tex">
+	LaTeX source</A> (15 K) of Rev 1.3 (09/16/03)
+
+	<P>
+	Download
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.2.pdf">
+	PDF</A>,
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.2.ps.gz">
+	PS</A> (60 K) or
+	<A HREF="http://space.mit.edu/ASC/docs/memo_apply_tgain_1.2.tex">
+	LaTeX source</A> (15 K) of Rev 1.2 (06/09/03)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+        <TD WIDTH="10%">11/15/04</TD>
+
+        <a name=acis_s_geom> </a>
+        <TD>
+        <UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+        <BR><B><FONT SIZE=+1>New ACIS-S geometry file </FONT></B>&nbsp;
+
+        <P>This document specifies the update on ACIS-S CCD chip corner positions
+	   and MEG grating period.
+
+        <P>
+        Download
+        <A HREF="http://space.mit.edu/ASC/docs/memo_geometry_acis_s_1.0.ps.gz">
+        PS</A> (562 K) or
+        <A HREF="http://space.mit.edu/ASC/docs/memo_geometry_acis_s_1.0.tex">
+        LaTeX source</A> (16 K) of Rev 1.0 (11/15/04)
+
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+        &nbsp;
+
+
+
+	<HR WIDTH="100%">
+
+	<CENTER>
+	<H6>
+	<a name=HETG> </a>
+	<FONT SIZE=+2>Subject: HETG and LETG; HRC-S </FONT></H6></CENTER>
+
+
+
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+        <TD WIDTH="10%">2019.08.10</TD>
+
+        <a name=tgpipe> </a> <TD> <UL><B><FONT
+        SIZE=+1>&nbsp;</FONT></B>&nbsp; <BR><B><FONT SIZE=+1>
+          Pipeline enhancements to compute grating responses
+        </FONT></B>&nbsp;
+
+        <P>This memo describes proposed pipeline changes for
+        computation of grating responses (ARFs, RMFs) for the archive.
+
+        <P>
+        Current version:
+        <A HREF="http://space.mit.edu/cxc/docs/cxc_pipe_tg_enhancement.pdf">  PDF</A>
+        Ver. 1.0 (10 Aug 2019)
+
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+
+
+
+
+
+
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+        <TD WIDTH="10%">2015.11.04</TD>
+
+        <a name=letgslsf> </a> <TD> <UL><B><FONT
+        SIZE=+1>&nbsp;</FONT></B>&nbsp; <BR><B><FONT SIZE=+1>
+          Grating/CC-mode enhancements
+        </FONT></B>&nbsp;
+
+        <P>This memo describes changes made to acis_process_events and tg_resolve_events
+           which improve order-sorting through a second pass of processing which uses
+           the HETG-processing-determined CHIPY position to re-do CTI/gain/tgain
+           corrections.
+
+        <P>
+        Current version:
+        <A HREF="http://space.mit.edu/cxc/docs/grating_cc_2015-02.pdf">  PDF</A>
+        Ver. 1.0 (04 Nov 2015)
+
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+        <TD WIDTH="10%">2015.08.13</TD>
+
+        <a name=letgslsf> </a> <TD> <UL><B><FONT
+        SIZE=+1>&nbsp;</FONT></B>&nbsp; <BR><B><FONT SIZE=+1> Tests/validation of new HRC-S QE and LETG EEFRAC</FONT></B>&nbsp;
+
+        <P>This memo shows test of the revised HRC-S QE and LETG
+        EEFRAC (in the LSFPARM file).  The LETGS effective area should be
+        unchanged.  EEFRAC changes were required for custom
+        extractions which can improve a weak lines signal-to-noise ratio.
+
+        <P>
+        Current version:
+        <A HREF="http://space.mit.edu/cxc/docs/lsfparm_update-02.pdf">  PDF</A>
+        Ver. 1.0 (11 August 2015)
+
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+
+
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+        <TD WIDTH="10%">2015.10.14</TD>
+
+        <a name=hrcstgain> </a> <TD> <UL><B><FONT
+        SIZE=+1>&nbsp;</FONT></B>&nbsp; <BR><B><FONT SIZE=+1>
+        tgdetect2, tg_choose_method specifications</FONT></B>&nbsp;
+
+        <P>
+        Current version:
+        <A HREF="http://space.mit.edu/cxc/docs/tg_choose_method_specs-0.2.pdf">  PDF</A>
+        <A HREF="http://space.mit.edu/cxc/docs/tg_choose_method_specs-0.2.tex">  TEX</A>
+        Ver. 0.2 (11 Sept 2012)
+
+        <P>
+        Overview
+        <A HREF="http://space.mit.edu/cxc/docs/tgfzo.pdf">  PDF</A>
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+        <TD WIDTH="10%">2015.10.14</TD>
+
+        <a name=hrcstgain> </a> <TD> <UL><B><FONT
+        SIZE=+1>&nbsp;</FONT></B>&nbsp; <BR><B><FONT SIZE=+1>
+        tg_findzo specifications</FONT></B>&nbsp;
+
+        <P>
+        Current version:
+        <A HREF="http://space.mit.edu/cxc/docs/tg_findzo_specs-1.0.0.pdf">  PDF</A>
+        <A HREF="http://space.mit.edu/cxc/docs/tg_findzo_specs-1.0.0.tex">  TEX</A>
+        Ver. 1.0 (13 Dec 2012)
+
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+
+
+
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+        <TD WIDTH="10%">2013.06.24</TD>
+
+        <a name=hrcstgain> </a> <TD> <UL><B><FONT
+        SIZE=+1>&nbsp;</FONT></B>&nbsp; <BR><B><FONT SIZE=+1> HRC-S
+        Tgain correction (for reduced background); LETG/HRC-S spectral
+        filtering after HRC-S Tgain correction</FONT></B>&nbsp;
+
+        <P>This document describes the HRC-S time-dependent linearized
+        PI computation ("SPI") for background reduction and associated
+        CALDB "t_gmap" file (appropriate for <em>all</em> HRC-S
+        observations), and the associated HRC-S/LETG event filter
+        required for spectral extraction from Tgain-corrected HRC-S
+        events (CALDB "pireg_tgain" file).
+
+        <P>
+        Current version:
+        <A HREF="http://space.mit.edu/cxc/docs/hrcs_spi_icd-1.4.pdf">  PDF</A>
+        Ver. 1.4 (24 November 2009)
+        <P>
+        Previous version:
+        <A HREF="http://space.mit.edu/cxc/docs/hrcs_spi_icd-1.3.pdf">  PDF</A>
+        Ver. 1.3 (8 July 2009)
+
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+
+
+
+
+
+
+
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+        <TD WIDTH="10%">11/02/04</TD>
+
+
+
+        <a name=letggeom1> </a>
+        <TD>
+        <UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+        <BR><B><FONT SIZE=+1>LETG+ACIS-S Spurious Rotation Issue </FONT></B>&nbsp;
+
+        <P>This document describes the LETG+ACIS-S spurious rotation issue.
+
+        <P>
+        Download
+        <A HREF="http://space.mit.edu/ASC/docs/memo_letg_rot_1.0.ps.gz">
+        PS</A> (331 K) or
+        <A HREF="http://space.mit.edu/ASC/docs/memo_letg_rot_1.0.tex">
+        LaTeX source</A> (12 K) of Ver. 1.0 (11/02/04)
+
+
+
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+        &nbsp;
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%">
+	<A HREF="./technote_2004.06.11_la_rotation.ps.gz">
+	<IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM>
+	</A>
+	</TD>
+
+	<TD WIDTH="10%">2004.06.11</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>
+	 Technical Note: LETG/ACIS-S rotation compensation
+	  </FONT></B>&nbsp;
+
+	<P>Modification to extraction region to compensate for
+	anomalous rotation residuals.
+
+	<P>
+	Download <A HREF="./technote_2004.06.11_la_rotation.ps.gz">PS</A>&nbsp;&nbsp
+	<P>
+	</TD>
+
+	</TABLE></CENTER>
+
+
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+        <TD WIDTH="10%">03/23/06</TD>
+
+
+
+        <a name=findzo> </a>
+        <TD>
+        <UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+        <BR><B><FONT SIZE=+1>Finding Zeroth Order Position </FONT></B>&nbsp;
+
+        <P>This document describes a new algorithm of detecting zeroth order position.
+
+        <P>
+        Download
+        <A HREF="http://space.mit.edu/ASC/docs/memo_fzero_1.4.ps">
+        PS</A> (238 K) or
+        <A HREF="http://space.mit.edu/ASC/docs/memo_fzero_1.4.tex">
+        LaTeX source</A> (77 K) of Ver. 1.4 (04/11/07)
+
+
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+        &nbsp;
+
+
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%">
+	<A HREF="./ICD_L1.5.ps.gz">
+	<IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM>
+	</A>
+	</TD>
+
+	<TD WIDTH="10%">03/27/99</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>
+	 Transmission Grating  L1.5 to Archive Interface Control Document
+	  </FONT></B>&nbsp;
+
+	<P>A detailed description of Grating L1.5 (event diffraction coordinates)
+	data products.
+
+	<P>
+	Download <A HREF="./ICD_L1.5.ps.gz">PS</A>&nbsp;&nbsp
+	<A HREF="./ICD_L1.5_src.tar.gz">LaTeX source </A>&nbsp;&nbsp
+	<A HREF="./CO_L15_ICD.txt">Change-Orders.</A>
+	<P>
+	Previous version: Download <A HREF="./ICD_L1.5-prev.ps.gz">PS</A>&nbsp;&nbsp
+	<A HREF="./ICD_L1.5-prev.tex">LaTeX source </A>&nbsp;&nbsp
+	</TD>
+
+	</TABLE></CENTER>
+
+
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%">
+	<A HREF="./ICD_TGL2.ps.gz">
+	<IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM>
+	</A>
+	</TD>
+
+	<TD WIDTH="10%">05/28/99</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>
+	 Transmission Grating  Level 2 to Archive Interface Control Document
+	 </FONT></B>&nbsp;
+
+	<P>A description of Grating Level 2 data products (binned spectrum).
+
+	<P>
+	Download <A HREF="./ICD_TGL2.ps.gz"> PS</A>
+	<A HREF="./ICD_TGL2_src.tar.gz"> LaTeX source</A>&nbsp;&nbsp
+	<A HREF="./CO_TGL2_ICD.txt">Change-Orders.</A>
+	<P>
+	Previous version: Download <A HREF="./ICD_TGL2-prev.ps.gz">PS</A>&nbsp;&nbsp
+	<A HREF="./ICD_TGL2-prev_src.tar.gz">LaTeX source </A>&nbsp;&nbsp
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+
+
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%">
+	<A HREF="./hesfmaskcalc.ps.gz">
+	<IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM>
+	</A>
+	</TD>
+	<TD WIDTH="10%">06/04/99</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>
+	 Grating Tool Specifications: Level 1.5 LETG/HESF Region Mask
+	 Definitions and Wavelength Determination
+	 </FONT></B>&nbsp;
+
+	<P>
+	<A HREF="./hesfmaskcalc.ps.gz">Download PS &nbsp;&nbsp (25
+	pages);</A>
+	&nbsp;&nbsp
+	<A HREF="./hesfmaskcalc.tar.gz">Download LaTeX source. &nbsp;&nbsp</A>
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+
+
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%">
+	<A HREF="./cc_mode.ps.gz">
+	<IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM>
+	</A>
+	</TD>
+	<TD WIDTH="10%">04/22/99</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1></FONT></B>
+	<BR><B><FONT SIZE=+1>
+	 Grating Tool Specifications: Level 1.5: ACIS Continuous-Clocking Mode
+	 Processing
+	 </FONT></B>&nbsp;
+
+	<P><A HREF="./cc_mode.ps.gz">Download PS &nbsp;&nbsp (10 pages);</A>
+	&nbsp;&nbsp
+	<A HREF="./cc_mode.tex">Download LaTeX source. </A>
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+
+
+
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+        <TD WIDTH="10%">2020 June 15</TD>
+
+        <a name=hetgfptemp> </a>
+        <TD>
+        <UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+        <BR><B><FONT SIZE=+1>HETG/ACIS Focal Plane Temperature Analysis </FONT></B>&nbsp;
+
+        <P> Analysis of effects of high focal-plane temperature on
+            HETGS effective area through QE and/or order-sorting.
+
+        <P><A HREF="http://space.mit.edu/ASC/docs/WarmACISeffectsOnOSIP_20200611.pdf">
+        WarmACISeffectsOnOSIP_20200611.pdf</A>
+        
+
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+        &nbsp;
+
+
+
+
+
+
+
+
+
+
+	<HR WIDTH="100%">
+
+	<CENTER>
+	<H6>
+	<a name=PSF> </a>
+	<FONT SIZE=+2>Subject: PSF</FONT></H6></CENTER>
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+	<TD WIDTH="10%">12/28/01</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>ICD for the GRATING LSF LIBRARY</FONT></B>&nbsp;
+
+	<P>A detailed description of the LSF Library files. &nbsp;
+
+	<P><A HREF="http://space.mit.edu/ASC/docs/ICD_mkgrmf_ard.ps.gz">download PS&nbsp;</A>&nbsp;
+	.....&nbsp; (943 K)&nbsp;
+
+	<P><A HREF="http://space.mit.edu/ASC/docs/ICD_mkgrmf_ard.tex">download Latex Source&nbsp;</A>&nbsp;
+	.....&nbsp; (23 K)&nbsp;</UL>
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+	<TD WIDTH="10%">10/07/98</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>PSF TOOL ICD</FONT></B>&nbsp;
+
+	<P>The PSF tool ICD. &nbsp;
+
+	<P><A HREF="http://space.mit.edu/ASC/docs/ICD_PSF.ps.gz">download PS&nbsp;</A>&nbsp;
+	.....&nbsp; (56 K)&nbsp;
+
+	<P><A HREF="http://space.mit.edu/ASC/docs/ICD_PSF.tex">download Latex Source&nbsp;</A>&nbsp;
+	.....&nbsp; (3 K)&nbsp;</UL>
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+	<TD WIDTH="10%">02/24/00</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>LSF LIBRARY and TOOLS TECHNICAL REFERENCE</FONT></B>&nbsp;
+
+	<P>The LSF Library and Tools Technical Reference. &nbsp;
+
+	<P><A HREF="http://space.mit.edu/ASC/docs/techref_psf.ps.gz">download PS&nbsp;</A>&nbsp;
+	.....&nbsp; (588 K)&nbsp;
+
+	<P><A HREF="http://space.mit.edu/ASC/docs/techref_psf/techref_psf.html">HTML&nbsp;</A>&nbsp;
+	.....&nbsp;  &nbsp;</UL>
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+	<TD WIDTH="10%">12/28/01</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>LSF GUIDE</FONT></B>&nbsp;
+
+	<P>The LSF Guide. &nbsp;
+
+	<P><A HREF="http://space.mit.edu/ASC/docs/lsf_guide/lsf_guide.ps.gz">download PS&nbsp;</A>&nbsp;
+	.....&nbsp; (437 K)&nbsp;
+
+	<P><A HREF="http://space.mit.edu/ASC/docs/lsf_guide/lsf_guide.html">HTML&nbsp;</A>&nbsp;
+	.....&nbsp;  &nbsp;</UL>
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+        <TD WIDTH="10%">06/10/04</TD>
+
+        <a name=random> </a>
+        <TD>
+        <UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+        <BR><B><FONT SIZE=+1>Data Randomization / New Header Keywords </FONT></B>&nbsp;
+
+        <P>This document describes how we propose to implement additional FITS keywords
+	into Level 1 Event products and higher.
+
+
+        <P>
+        Download
+        <A HREF="http://space.mit.edu/ASC/docs/memo_random_0.2.ps.gz">
+        PS</A> (53 K) or
+        <A HREF="http://space.mit.edu/ASC/docs/memo_random_0.2.tex">
+        LaTeX source</A> (6 K) of Rev 0.2 (03/01/04)
+
+        <P>
+        Download
+        <A HREF="http://space.mit.edu/ASC/docs/memo_random_0.3.ps.gz">
+        PS</A> (53 K) or
+        <A HREF="http://space.mit.edu/ASC/docs/memo_random_0.3.tex">
+        LaTeX source</A> (6 K) of Rev 0.3 (03/03/04)
+
+        <P>
+        Download
+        <A HREF="http://space.mit.edu/ASC/docs/memo_random_0.4.ps.gz">
+        PS</A> (53 K) or
+        <A HREF="http://space.mit.edu/ASC/docs/memo_random_0.4.tex">
+        LaTeX source</A> (6 K) of Rev 0.4 (03/15/04)
+
+        <P>
+        Download
+        <A HREF="http://space.mit.edu/ASC/docs/memo_random_1.0.ps.gz">
+        PS</A> (53 K) or
+        <A HREF="http://space.mit.edu/ASC/docs/memo_random_1.0.tex">
+        LaTeX source</A> (6 K) of Rev 1.0 (06/10/04)
+
+
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+        &nbsp;
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+        <TD WIDTH="10%">05/03/04</TD>
+
+        <a name=lsf1> </a>
+        <TD>
+        <UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+        <BR><B><FONT SIZE=+1>LSFPARM for HETG+ACIS-S validated for unrandomized datasets  </FONT></B>&nbsp;
+
+        <P>This document describes the quality of new non-randomized LSFPARM products for HETG+ACIS-S configuration.
+
+        <P>
+        Download
+        <A HREF="http://space.mit.edu/ASC/docs/memo_lsf_ha_1.0.ps.gz">
+        PS</A> (376 K) or
+        <A HREF="http://space.mit.edu/ASC/docs/memo_lsf_ha_1.0.tex">
+        LaTeX source</A> (39 K) of Ver. 1.0 (04/26/04)
+
+        <P>
+        Download
+        <A HREF="http://space.mit.edu/ASC/docs/memo_lsf_ha_1.1.ps.gz">
+        PS</A> (372 K) or
+        <A HREF="http://space.mit.edu/ASC/docs/memo_lsf_ha_1.1.tex">
+        LaTeX source</A> (40 K) of Ver. 1.1 (05/03/04)
+
+
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+        &nbsp;
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+        <TD WIDTH="10%">05/03/04</TD>
+
+
+
+        <a name=lsf2> </a>
+        <TD>
+        <UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+        <BR><B><FONT SIZE=+1>LSFPARM for LETG+HRC-S validated for unrandomized datasets  </FONT></B>&nbsp;
+
+        <P>This document describes the quality of new non-randomized LSFPARM products for LETG+HRC-S configuration.
+
+        <P>
+        Download
+        <A HREF="http://space.mit.edu/ASC/docs/memo_lsf_lh_1.0.ps.gz">
+        PS</A> (287 K) or
+        <A HREF="http://space.mit.edu/ASC/docs/memo_lsf_lh_1.0.tex">
+        LaTeX source</A> (9 K) of Ver. 1.0 (05/03/04)
+
+
+
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+        &nbsp;
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+        <TD WIDTH="10%">07/20/04</TD>
+        <a name=lsf3> </a>
+        <TD>
+
+        <UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+        <BR><B><FONT SIZE=+1>LSFPARM for LETG+ACIS-S validated for unrandomized datasets  </FONT></B>&nbsp;
+
+        <P>This document describes the quality of new non-randomized LSFPARM products for LETG+ACIS-S configuration.
+
+        <P>
+        Download
+        <A HREF="http://space.mit.edu/ASC/docs/memo_lsf_la_1.0.ps.gz">
+        PS</A> (181 K) or
+        <A HREF="http://space.mit.edu/ASC/docs/memo_lsf_la_1.0.tex">
+        LaTeX source</A> (26 K) of Ver. 1.0 (07/20/04)
+
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+        &nbsp;
+
+        <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+        <TR>
+        <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+
+        <TD WIDTH="10%">01/22/07</TD>
+        <a name=lsf4> </a>
+        <TD>
+
+        <UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+        <BR><B><FONT SIZE=+1>Updated LSFPARM for MEG+ACIS-S for unrandomized datasets  </FONT></B>&nbsp;
+
+        <P>This document describes the quality of new non-randomized LSFPARM products for MEG+ACIS-S configuration.
+
+        <P>
+        Download
+        <A HREF="http://space.mit.edu/ASC/docs/memo_lsf_ma_1.0.ps.gz">
+        PS</A> (185 K) or
+        <A HREF="http://space.mit.edu/ASC/docs/memo_lsf_ma_1.0.tex">
+        LaTeX source</A> (20 K) of Ver. 1.0 (01/22/06)
+
+        </TD>
+        </TR>
+        </TABLE></CENTER>
+        &nbsp;
+
+
+	<HR WIDTH="100%">
+
+	<CENTER>
+	<H6>
+	<a name=ARD> </a>
+	<FONT SIZE=+2>Subject: Analysis Reference Data</FONT></H6></CENTER>
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+	<TD WIDTH="10%">3/26/99</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<B><FONT SIZE=+1>Exposure Maps and Gratings Data Level
+	1.5 and 2.0 Analysis Reference Data ICD</FONT></B>&nbsp;
+
+	<P>Interface Control Document describing the reference data read
+	   by exposure map and gratings pipelines and tools.
+
+
+	<P>
+	Download <A HREF="http://space.mit.edu/ASC/docs/ARD_ICD/ARD_ICD.ps.gz">
+	  PS</A>  (about 80 pages)
+	or
+	<A HREF="http://space.mit.edu/ASC/docs/ARD_ICD/ARD_ICD_src.tar.gz">
+	  LaTeX source</A>
+	or
+	<A HREF="http://space.mit.edu/ASC/docs/ARD_ICD/ARD_template.tex">
+	LaTeX template</A>   for new files.
+	<BR>
+	<A HREF="./ARD_ICD/CO_ARD_ICD.txt">Change-Orders.</A>
+
+
+	<P>
+
+	<FONT SIZE=+1>
+	ACIS  <A HREF="http://space.mit.edu/ASC/docs/ARD_ICD/ARD_ICD-v1.7_contamxy.ps.gz">
+	  Spatial Contamination</A>  (2004.10.13 UPDATE)
+	</FONT>
+
+
+	<P>
+
+	<FONT SIZE=+1>
+		ACIS  <A HREF="http://space.mit.edu/ASC/docs/acis_da_spec-1.2.1.pdf">
+	  Dead Area</A> (2006.09.14 update)
+	</FONT>
+
+
+
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+	<TD WIDTH="10%">04/21/98</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Spectroscopy Database: Analysis Reference Data
+	ICD</FONT></B>&nbsp;
+
+	<P>The format of the Spectroscopy Database files to be used in L2 spectral
+	   analysis is described here.
+
+	<P><A HREF="http://space.mit.edu/ASC/docs/ARD_ICD/spectral_db.ps.gz">
+	  Download PS</A> .... (511K)
+
+	<P>
+	<A HREF="http://space.mit.edu/ASC/docs/ARD_ICD/spectral_db.tex">
+	  Download LaTeX source</A> .... (40K ARD_template)
+
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+
+
+
+	<HR WIDTH="100%">
+
+	<CENTER>
+	<H6>
+	<a name=ISIS> </a>
+	<FONT SIZE=+2>Subject: ISIS</FONT></H6></CENTER>
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">1/8/99</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>ISIS: Interactive Spectral Interpretation System </FONT></B></UL>
+
+	<UL>Describes the functions we wish to include in the analysis system for high&nbsp;
+	<BR>resolution X-ray spectra (currently under development).&nbsp;
+
+	<P><A HREF="http://space.mit.edu/ASC/docs/isis_description.ps.gz">Download
+	PS&nbsp;&nbsp;</A> .....&nbsp; (392 K)&nbsp;</UL>
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+
+	<HR WIDTH="100%">
+
+	<CENTER>
+	<H6>
+	<a name=Expmap> </a>
+	<FONT SIZE=+2>Subject: Exposure Map</FONT></H6></CENTER>
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+	<TD WIDTH="10%">2/09/99</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Exposure Map Data Products ICD</FONT></B>&nbsp;
+
+	<P>
+	Download <A HREF="http://space.mit.edu/ASC/docs/Exp_DP_ICD.pdf">
+	  PDF</A>, <A HREF="http://space.mit.edu/ASC/docs/Exp_DP_ICD.ps.gz">
+	  PS</A>,
+	or
+	<A HREF="http://space.mit.edu/ASC/docs/Exp_DP_ICD_src.tar.gz">
+	  LaTeX source</A>
+
+	</TD>
+	</TR>
+
+
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+	<TD WIDTH="10%">2/08/99</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Aspect Histogram Processing and Data Products ICD</FONT></B>&nbsp;
+
+	<P>
+	Download <A HREF="http://space.mit.edu/ASC/docs/AspHist_ICD.pdf">
+	  PDF</A>, <A HREF="http://space.mit.edu/ASC/docs/AspHist_ICD.ps.gz">
+	  PS</A>,
+	or
+	<A HREF="http://space.mit.edu/ASC/docs/AspHist_src.tar.gz">
+	  LaTeX source</A>
+	(About 14 pages/1 MB de-compressed)
+
+	</TD>
+	</TR>
+
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+	<TD WIDTH="10%">09/11/2000</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>Introduction to Exposure Maps</FONT></B>&nbsp;
+
+	<P>
+	Download <A HREF="http://space.mit.edu/ASC/docs/expmap_intro.pdf">
+	  PDF</A> or
+	  <A HREF="http://space.mit.edu/ASC/docs/expmap_intro.ps.gz">
+	  PS</A>
+
+	(12 pages, about 1 Mb uncompressed)
+
+	</TD>
+	</TR>
+
+
+	</TABLE></CENTER>
+
+
+
+
+
+
+
+	<HR WIDTH="100%">
+
+	<CENTER>
+	<H6> <a name=Misc> </a>
+	<FONT SIZE=+2>Subject: Miscellaneous</FONT></H6></CENTER>
+
+
+
+	<TR>
+	<TD></TD>
+	<TD>
+	<UL><B>
+	<a name=SLangIntro> </a>
+	<B>
+	<FONT SIZE=+1>
+	An Introduction to S-Lang
+	</FONT></B></UL>
+	<UL>
+	<P>
+	 Talk by John E. Davis, from CXC S-Lang class (January, 2003)
+	<BR>
+	<A HREF="http://space.mit.edu/CXC/docs/SLang/davistalk.pdf">(pdf)</A>
+	<BR>
+	</UL>
+	</TD>
+	</TR>
+
+	<TR>
+	<TD></TD>
+	<TD>
+	<UL><B>
+	<a name=SLangIntro> </a>
+	<B>
+	<FONT SIZE=+1>
+	Advanced S-Lang Applications
+	</FONT></B></UL>
+	<UL>
+	<P>
+	 Talk by John C. Houck, from CXC S-Lang class (January, 2003)
+	<BR>
+	<A HREF="http://space.mit.edu/CXC/docs/SLang/houck_talk.pdf">(pdf)</A>
+	<A HREF="http://space.mit.edu/CXC/docs/SLang/houck_talk.ps.gz">(ps)</A>
+	<BR>
+	</UL>
+	</TD>
+	</TR>
+
+	</TR>
+
+	<TD></TD>
+	<UL><B>
+	<B>
+	<TD>
+	<FONT SIZE=+1>
+	Examples of S-Lang in Data Analysis
+	</FONT></B></UL>
+	<UL>
+	<P>
+	 Notes by David Huenemoerder from CXC S-Lang classes (January, 2003)
+	<BR>
+	<A HREF="http://space.mit.edu/CXC/docs/SLang/Notes.ps.gz">(ps)</A>
+	<A HREF="http://space.mit.edu/CXC/docs/SLang/Notes.pdf">(pdf)</A>
+	<BR>
+	The Slides (a less detailed version of the Notes):
+	<BR>
+	<A HREF="http://space.mit.edu/CXC/docs/SLang/Slides.ps.gz">(ps)</A>
+	<A HREF="http://space.mit.edu/CXC/docs/SLang/Slides.pdf"> (pdf)</A>
+	<BR>
+	</UL>
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+
+
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD
+	WIDTH="10%"><IMG SRC="../images/text2.gif"
+	       HEIGHT=40 WIDTH=47 ALIGN=BOTTOM>
+	</TD>
+
+	<TD WIDTH="10%">12/13/2001</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<a name=CIAO3> </a>
+	<BR>
+	<B>
+	<FONT SIZE=+1>
+	CIAO 3 Interactive Analysis Planning
+	</FONT></B></UL>
+	<UL>
+	Architecture design for interactive analysis and rapid prototyping.
+	<P>
+	<A HREF="http://space.mit.edu/CXC/docs/CIAO_3_Arch.ps.gz">Download
+	PS&nbsp;&nbsp;</A> .....
+	<BR>
+	<A HREF="http://space.mit.edu/CXC/docs/CIAO_3_Arch_talk.ps.gz">Download
+	Part 2 (summary for discussion, some Slang examples)&nbsp;&nbsp;</A> .....
+	</UL>
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+
+
+
+
+
+	<CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" >
+	<TR>
+	<TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD>
+
+	<TD WIDTH="10%">04/02/97</TD>
+
+	<TD>
+	<UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp;
+	<BR><B><FONT SIZE=+1>AXAF Transmission Grating Diffraction Coordinates</FONT></B></UL>
+
+	<UL>Describes the transformation from reported event positions&nbsp;
+	<BR>to dispersion coordinates.&nbsp;
+
+	<P><A HREF="http://space.mit.edu/ASC/docs/diffract-coord.ps.gz">Download
+	PS&nbsp;&nbsp;</A> .....&nbsp; (101 K)&nbsp;</UL>
+	</TD>
+	</TR>
+	</TABLE></CENTER>
+	&nbsp;
+	<!--  <CENTER><TABLE CELLSPACING=0 CELLPADDING=3 WIDTH="100%" > -->
+	<!--  <TR> -->
+	<!--  <TD WIDTH="10%"><IMG SRC="../images/text2.gif" HEIGHT=40 WIDTH=47 ALIGN=BOTTOM></TD> -->
+
+	<!--  <TD WIDTH="10%">04/02/97</TD> -->
+
+	<!--  <TD> -->
+	<!--  <UL><B><FONT SIZE=+1>&nbsp;</FONT></B>&nbsp; -->
+	<!--  <BR><B><FONT SIZE=+1>Grating Response Matrices for XSPEC...and Beyond</FONT></B>&nbsp; -->
+
+	<!--  <P>Defines the spatial and pulse-height redistribution of the grating spectrometers -->
+	<!--  and their relationship to XSPEC response matrices.&nbsp; -->
+
+	<!--  <P><A HREF="http://space.mit.edu/ASC/docs/TG_rsp.ps.gz">Download PS&nbsp;</A>&nbsp; -->
+	<!--  .....&nbsp; (81 K)&nbsp;</UL> -->
+	<!--  </TD> -->
+	<!--  </TR> -->
+	<!--  </TABLE></CENTER> -->
+
+	<HR WIDTH="100%">
+	<CENTER><FONT SIZE=+1>[ <A HREF="http://space.mit.edu/ASC/Welcome.html">MIT/ASC
+	Home page</A> | <A HREF="http://space.mit.edu/ASC/staff/staff.html">Staff</A>
+	| <A HREF="http://space.mit.edu/HETG/xrcf.html">Calibration </A>| <A HREF="http://space.mit.edu/ASC/analysis/analysis.html">Analysis</A>
+	| <A HREF="http://space.mit.edu/ASC/spect/spect.html">Spectroscopy</A>
+	]</FONT></CENTER>
+
+	<CENTER><FONT SIZE=+1>[ <A HREF="http://space.mit.edu/ASC/science/science.html">Science
+	Gallery </A>| <A HREF="http://space.mit.edu/ASC/software/software.html">Software</A>
+	| <A HREF="http://space.mit.edu/ASC/docs/docs.html">Documentation</A> |
+	<A HREF="http://space.mit.edu/ASC/links/links.html">Links</A> | <A HREF="http://space.mit.edu/ASC/local/local.html">Local
+	Access </A>]</FONT></CENTER>
+
+
+	<P>
+	<HR>
+	<ADDRESS>
+	<A HREF="mailto:gea@space.mit.edu">Glenn Allen (and SDS friends)</A> - gea@space.mit.edu</ADDRESS>
+
+	<BR>Last Updated: April 28, 2017 by GEA
+	</BODY>
+	</HTML>
