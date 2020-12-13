@@ -1,1883 +1,1974 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+﻿<!DOCTYPE html>
+<html lang="en">
 
-  <title>MIT/CXC/HETG group</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="../css/scrolling-nav.css" rel="stylesheet">
-
-</head>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>MIT/CXC/HETG group</title>
+	<!-- Bootstrap core CSS -->
+	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="../css/scrolling-nav.css" rel="stylesheet"> </head>
 
 <body id="page-top">
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">MIT/CXC group</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#current">Current documents</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#archive">Archive</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="http://acis.mit.edu/">ACIS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../../HETG/index.html">HETG</a>
-          </li>
-
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <section id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <h2>Memos and specifications</h2>
-          <p class="lead">
-	    We provide a range of information about pipeline processing, the CXC Data Analysis System, Grating related analysis issues, and general scientific analysis algorithms.</p>
-
-	  <p>The MIT/CXC team produces different types of documents:</p>
-          <ul>
-	    <li><b>spec (specification)</b> Exact specification for the behavior of analysis tools. Look here for a description of the exact algorithm that a CIAO tool should implement.</li>
-
-	    <li><b>ARD (analysis reference data)</b> Specification for the mormat of CALDB files</li>
-
-	    <li><b>ICD (Interface control document)</b> Specification of file format produced by tool.</li>
-	    
-	    <li><b>memo</b> General documents written to support the development of specs, ARDs, or ICDs. For example, the analysis of a specific detector effect might be documented here. If that analysis leads to specific changes in the algorithm for a tool, then the new algorithm will be included into the revised version of the relevant specs.</li>
-
-	    <li><b>misc</b> Miscellaneous files including white papers and presentations.</li>
-          </ul>
-	  <p>The documents listed on this page are revised over time, some may still be under development, while others may become obsolute when a tool is discontinued, e.g. because its functionality is now integrated into other tools.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="current" class="bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <h2>Current versions</h2>
-          <p>In this section, we list the most relevant and current documents.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Type</th>
-		<th scope="col">Instrument</th>
-		<th scope="col">Title</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-	      <tr>
-		<td>spec</td>
-		<td>ACIS</td>
-		<td><a href="memo_acis_build_badpix_2.6.pdf">acis_build_badpix</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>ACIS</td>
-		<td><a href="memo_acis_build_mask_4.0.pdf">acis_build_mask</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>ACIS</td>
-		<td><a href="afterglow_spec_2.11.pdf">acis_find_afterglow</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>ACIS</td>
-		<td><a href="memo_acis_make_bkgd_1.4.pdf">acis_make_bkgd</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>ACIS</td>
-		<td><a href="ape_spec_4.17.pdf">acis_process_events</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>ACIS</td>
-		<td><a href="memo_acis_read_corr_times_1.3b.pdf">computation of TIME for the ACIS tool acisreadcorr</a></td>
-	      </tr>
-	      <tr>
-		<td>ARD</td>
-		<td>ACIS</td>
-		<td><a href="ARD_ICD/ACIS_ARD_ICD_2.1.pdf">ACIS ARD (draft, but best available description)</a></td>
-	      </tr>
-	      <tr>
-		<td>memo</td>
-		<td>ACIS</td>
-		<td><a href="memo_bias_keys_1.0.pdf">Some keywords in ACIS bias files</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>ACIS</td>
-		<td><a href="bias_parity_error_spec_1.3.pdf">Bias parity errors</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>ACIS</td>
-		<td><a href="bias_repair_5.5.pdf">Bias repair and replacement</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>ACIS</td>
-		<td><a href="memo_check_vf_pha_1.4.pdf">Search for cosmic rays in VFAINT mode</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>ACIS</td>
-		<td><a href="memo_time_keywords_proposal_1.2b.pdf">Computation of ONTIME, DTCOR, and EXPOSURE</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>ACIS</td>
-		<td><a href="memo_hkp0_query_val_1.1.pdf">Computation of QUERY_VAL</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>ACIS</td>
-		<td><a href="deltoclk_spec_3.2.pdf">identify anomalous DELTOCLK values</a></td>
-	      </tr>
-	      <tr>
-		<td>memo</td>
-		<td>ACIS</td>
-		<td><a href="notes_fltgrade_1.0.pdf">caveat about FLTGRADE = 255 in Level 1 event files</a></td>
-	      </tr>
-	      <tr>
-		<td>ARD</td>
-		<td>ACIS</td>
-		<td><a href="grade_ard_1.0.pdf">Grade file</a></td>
-	      </tr>
-	      <tr>
-		<td>ICD</td>
-		<td>ACIS</td>
-		<td><a href="acis_I0_3.2.pdf">ACIS Level 0 ICD</a></td>
-	      </tr>
-	      <tr>
-		<td>ICD</td>
-		<td>ACIS</td>
-		<td><a href="acis_I1_2.3.pdf">ACIS Level 1 ICD</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>ACIS</td>
-		<td><a href="mkacisrmf_spec_1.00.pdf">makeacisrmf</a></td>
-	      </tr>
-	      <tr>
-		<td>memo</td>
-		<td>ACIS</td>
-		<td><a href="mkacisrmf_spec_1.00.pdf">Tests for self-consistency of ACIS LCI coordinates</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>ACIS</td>
-		<td><a href="s4_streak_loss_2.0.pdf">S4 streak loss parameter</a></td>
-	      </tr>
-	      <tr>
-		<td>memo</td>
-		<td>ACIS</td>
-		<td><a href="memo_bpix_status_bits_1.12.pdf">Status bits in bad-pixel files</a></td>
-	      </tr>
-	      <tr>
-		<td>memo</td>
-		<td>ACIS</td>
-		<td><a href="memo_event_status_bits_2.3.pdf">Status bits in event files</a></td>
-	      </tr>
-	      <tr>
-		<td>ARD</td>
-		<td>ACIS</td>
-		<td><a href="memo_tgain_ard_1.0.pdf">time-dependent gain adjustment</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>HETG/LETG</td>
-		<td><a href="cxc_pipe_tg_enhancement.pdf">Pipeline enhancements to compute grating responses in the archive</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>HETG/LETG</td>
-		<td><a href="grating_cc_2015-02.pdf">Grating/CC-mode enhancements</a> This memo describes changes made to acis_process_events and tg_resolve_events which improve order-sorting through a second pass of processing which uses the HETG-processing-determined CHIPY position to re-do CTI/gain/tgain corrections. </td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>HETG/LETG</td>
-		<td><a href="lsfparm_update-02.pdf">Tests/validation of new HRC-S QE and LETG EEFRAC</a> This memo shows test of the revised HRC-S QE and LETG EEFRAC (in the LSFPARM file). The LETGS effective area should be unchanged. EEFRAC changes were required for custom extractions which can improve a weak lines signal-to-noise ratio. </td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>HETG/LETG</td>
-		<td><a href="tg_choose_method_specs-0.2.pdf">tgdetect2, tg_choose_method</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>HETG/LETG</td>
-		<td><a href="tg_findzo_specs-1.0.0.pdf">tg_findzo</a></td>
-	      </tr>
-	      <tr>
-		<td>ICD</td>
-		<td>HETG/LETG</td>
-		<td><a href="hrcs_spi_icd-1.4.pdf">HRC-S Tgain correction (for reduced background); LETG/HRC-S spectral filtering after HRC-S Tgain correction</a> This document describes the HRC-S time-dependent linearized PI computation ("SPI") for background reduction and associated CALDB "t_gmap" file (appropriate for all HRC-S observations), and the associated HRC-S/LETG event filter required for spectral extraction from Tgain-corrected HRC-S events (CALDB "pireg_tgain" file). </td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>HETG/LETG</td>
-		<td><a href="memo_letg_rot_1.0.ps.gz">LETG+ACIS-S Spurious Rotation Issue</a></td>
-	      </tr>
-	      <tr>
-		<td>memo</td>
-		<td>HETG/LETG</td>
-		<td><a href="technote_2004.06.11_la_rotation.ps.gz">Technical Note: LETG/ACIS-S rotation compensation</a></td>
-	      </tr>
-	      <tr>
-		<td>ICD</td>
-		<td>HETG/LETG</td>
-		<td><a href="ICD_L1.5.ps.gz">Transmission Grating L1.5 to Archive</a></td>
-	      </tr>
-	      <tr>
-		<td>ICD</td>
-		<td>HETG/LETG</td>
-		<td><a href="ICD_TGL2.ps.gz">Transmission Grating Level 2 to Archive</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>HETG/LETG</td>
-		<td><a href="hesfmaskcalc.ps.gz">Level 1.5 LETG/HESF Region Mask Definitions and Wavelength Determination</a></td>
-	      </tr>
-	      <tr>
-		<td>spec</td>
-		<td>HETG/LETG</td>
-		<td><a href="cc_mode.ps.gz">Level 1.5: ACIS Continuous-Clocking Mode Processing</a></td>
-	      </tr>
-	      <tr>
-		<td>memo</td>
-		<td>HETG</td>
-		<td><a href="WarmACISeffectsOnOSIP_20200611.pdf">HETG/ACIS Focal Plane Temperature Analysis</a></td>
-	      </tr>
-	      <tr>
-		<td>ICD</td>
-		<td>HETG/LETG</td>
-		<td><a href="ICD_mkgrmf_ard.ps.gz">Grating LSF Library</a></td>
-	      </tr>
-	      <tr>
-		<td>ICD</td>
-		<td>all</td>
-		<td><a href="ICD_PSF.ps.gz">PSF Library</a></td>
-	      </tr>
-	      <tr>
-		<td>memo</td>
-		<td>HETG/LETG</td>
-		<td><a href="techref_psf.ps.gz">LSF library and tools technical reference</a></td>
-	      </tr>
-	      <tr>
-		<td>memo</td>
-		<td>HETG/LETG</td>
-		<td><a href="memo_random_0.2.ps.gz">FITS keywords to describe data randomization</a></td>
-	      </tr>
-	      <tr>
-		<td>memo</td>
-		<td>HETG/LETG</td>
-		<td>LSFPARM validation for <a href="memo_lsf_ha_1.0.ps.gz">HETG+ACIS-S</a>, <a href="memo_lsf_lh_1.0.ps.gz">LETG+HRC-S</a>, <a href="memo_lsf_la_1.0.ps.gz">LETG+ACIS-S</a>, <a href="memo_lsf_ma_1.0.ps.gz">MEG+ACIS-S</a></td>
-	      </tr>
-	    </tbody>
-	  </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <section id="archive">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <h2>Archive</h2>
-          <p>In this section we list all documents including those that are still under development, already outdated, or only of historical interest. For most documents we list the current and a few previous versions. Older versions may be available on request.</p>
-
-	<h3>CONTENTS</h3>
-	<ul>
-	  <li><a href=#ACIS> ACIS</a>
-	    <ul>
-	      <li><a href=#badpix> acis_build_badpix spec</a></li>
-	      <li><a href=#gti> acis_build_chip_gti spec</a> (disregard)</li>
-	      <li><a href=#msk> acis_build_mask spec</a></li>
-	      <li><a href=#hotpix> acis_detect_hotpix spec</a> (superceeded)</li>
-	      <li><a href=#aft> acis_find_afterglow spec</a></li>
-	      <li><a href=#bkgd> acis_make_bkgd spec</a></li>
-	      <li><a href=#ape> acis_process_events spec</a> (extensive, but not yet complete)</li>
-	      <li><a href=#apebadpix> acis_process_events: bad-pixel spec</a></li>
-	      <li><a href=#readcorr> acisreadcorr spec</a></li>
-	      <li><a href=#aft_det_eff> Afterglow detection efficiency</a> (superceeded)</li>
-	      <li><a href=#ACISARD> ARD ICD</a> (in development)</li>
-	      <li><a href=#bias_keys> Bias keywords</a></li>
-	      <li><a href=#berr> Bias-parity errors spec</a></li>
-	      <li><a href=#bias_rep> Bias repair and replacement spec</a></li>
-	      <li><a href=#cc_bias_sum> CC bias summary</a></li>
-	      <li><a href=#check_vf> Check VFAINT background</a></li>
-	      <li><a href=#energy_pi> Computation of ENERGY and PI</a> (superceeded)</li>
-	      <li><a href=#grades> Computation of FLTGRADE, GRADE, and PHA</a>  (superceeded)</li>
-	      <li><a href=#exposure> Computation of ONTIME, DTCOR, and EXPOSURE</a></li>
-	      <li><a href=#hkp> Computation of QUERY_VAL</a></li>
-	      <li><a href=#toa> Computation of X, Y, and TIMEs of arrival of CC-mode events</a> (superceeded)</li>
-	      <li><a href=#cti> CTI spec</a> (superceeded)</li>
-	      <li><a href=#deltoclk> DELTOCLK spec</a></li>
-	      <li><a href=#fltgrade_caveat> FLTGRADE caveat</a></li>
-	      <li><a href=#grade_ard> Grade ARD</a></li>
-	      <li><a href=#hotpix2> Hot-pixel spec</a> (superceeded)</li>
-	      <li><a href=#ACISL0> Level 0 ICD</a></li>
-	      <li><a href=#ACISL1> Level 1 ICD</a></li>
-	      <li><a href=#mean_bias> Mean biases</a> (in development)</li>
-	      <li><a href=#mkacisrmf> mkacisrmf</a></li>
-	      <li><a href=#instgeom> Notes about the ACIS instrument geometry data</a></li>
-	      <li><a href=#caveats> Pipeline processing caveats</a></li>
-	      <li><a href=#ACIStools> Pipeline processing tools</a> (obsolete)</li>
-	      <li><a href=#s4streak_alg> S4 streak algorithm</a> (superceeded)</li>
-	      <li><a href=#s4streak_loss> S4 streak loss parameter</a></li>
-	      <li><a href=#s4streak_prop> S4 streak properties</a> (superceeded)</li>
-	      <li><a href=#bpixbits> STATUS bits in bad-pixel files</a></li>
-	      <li><a href=#evtbits> STATUS bits in event files</a></li>
-	      <li><a href=#subpix> Sub-pixel and pixel randomization spec</a> (superceeded)</li>
-	      <li><a href=#trmf> Temperature-dependent RMF spec</a> (in development)</li>
-	      <li><a href=#tgain_ard> Time-dependent gain ARD</a></li>
-	      <li><a href=#tgain_spec> Time-dependent gain spec</a> (superceeded)</li>
-	      <li><a href=#acis_s_geom> ACIS-S detector geometry</a></li>
-	    </ul>
-	  </li>
-	  <li><a href=#HETG> HETG and LETG</a>
-	    <ul>
-	      <LI> <a href=#tgpipe> Requirements for grating
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav">
+		<div class="container"> <a class="navbar-brand js-scroll-trigger" href="#page-top">MIT/CXC group</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"> <a class="nav-link js-scroll-trigger" href="#about">About</a> </li>
+					<li class="nav-item"> <a class="nav-link js-scroll-trigger" href="#current">Current documents</a> </li>
+					<li class="nav-item"> <a class="nav-link js-scroll-trigger" href="#archive">Archive</a> </li>
+					<li class="nav-item"> <a class="nav-link" href="http://acis.mit.edu/">ACIS</a> </li>
+					<li class="nav-item"> <a class="nav-link" href="../../HETG/index.html">HETG</a> </li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<section id="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<h2>Memos and specifications</h2>
+					<p class="lead"> We provide a range of information about pipeline processing, the CXC Data Analysis System, Grating related analysis issues, and general scientific analysis algorithms.</p>
+					<p>The MIT/CXC team produces different types of documents:</p>
+					<ul>
+						<li><b>spec (specification)</b> Exact specification for the behavior of analysis tools. Look here for a description of the exact algorithm that a CIAO tool should implement.</li>
+						<li><b>ARD (analysis reference data)</b> Specification for the mormat of CALDB files</li>
+						<li><b>ICD (Interface control document)</b> Specification of file format produced by tool.</li>
+						<li><b>memo</b> General documents written to support the development of specs, ARDs, or ICDs. For example, the analysis of a specific detector effect might be documented here. If that analysis leads to specific changes in the algorithm for a tool, then the new algorithm will be included into the revised version of the relevant specs.</li>
+						<li><b>misc</b> Miscellaneous files including white papers and presentations.</li>
+					</ul>
+					<p>The documents listed on this page are revised over time, some may still be under development, while others may become obsolute when a tool is discontinued, e.g. because its functionality is now integrated into other tools.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="current" class="bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<h2>Current versions</h2>
+					<p>In this section, we list the most relevant and current documents.</p>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Type</th>
+								<th scope="col">Instrument</th>
+								<th scope="col">Title</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>spec</td>
+								<td>ACIS</td>
+								<td><a href="memo_acis_build_badpix_2.6.pdf">acis_build_badpix</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>ACIS</td>
+								<td><a href="memo_acis_build_mask_4.0.pdf">acis_build_mask</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>ACIS</td>
+								<td><a href="afterglow_spec_2.11.pdf">acis_find_afterglow</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>ACIS</td>
+								<td><a href="memo_acis_make_bkgd_1.4.pdf">acis_make_bkgd</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>ACIS</td>
+								<td><a href="ape_spec_4.17.pdf">acis_process_events</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>ACIS</td>
+								<td><a href="memo_acis_read_corr_times_1.3b.pdf">computation of TIME for the ACIS tool acisreadcorr</a></td>
+							</tr>
+							<tr>
+								<td>ARD</td>
+								<td>ACIS</td>
+								<td><a href="ARD_ICD/ACIS_ARD_ICD_2.1.pdf">ACIS ARD (draft, but best available description)</a></td>
+							</tr>
+							<tr>
+								<td>memo</td>
+								<td>ACIS</td>
+								<td><a href="memo_bias_keys_1.0.pdf">Some keywords in ACIS bias files</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>ACIS</td>
+								<td><a href="bias_parity_error_spec_1.3.pdf">Bias parity errors</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>ACIS</td>
+								<td><a href="bias_repair_5.5.pdf">Bias repair and replacement</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>ACIS</td>
+								<td><a href="memo_check_vf_pha_1.4.pdf">Search for cosmic rays in VFAINT mode</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>ACIS</td>
+								<td><a href="memo_time_keywords_proposal_1.2b.pdf">Computation of ONTIME, DTCOR, and EXPOSURE</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>ACIS</td>
+								<td><a href="memo_hkp0_query_val_1.1.pdf">Computation of QUERY_VAL</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>ACIS</td>
+								<td><a href="deltoclk_spec_3.2.pdf">identify anomalous DELTOCLK values</a></td>
+							</tr>
+							<tr>
+								<td>memo</td>
+								<td>ACIS</td>
+								<td><a href="notes_fltgrade_1.0.pdf">caveat about FLTGRADE = 255 in Level 1 event files</a></td>
+							</tr>
+							<tr>
+								<td>ARD</td>
+								<td>ACIS</td>
+								<td><a href="grade_ard_1.0.pdf">Grade file</a></td>
+							</tr>
+							<tr>
+								<td>ICD</td>
+								<td>ACIS</td>
+								<td><a href="acis_I0_3.2.pdf">ACIS Level 0 ICD</a></td>
+							</tr>
+							<tr>
+								<td>ICD</td>
+								<td>ACIS</td>
+								<td><a href="acis_I1_2.3.pdf">ACIS Level 1 ICD</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>ACIS</td>
+								<td><a href="mkacisrmf_spec_1.00.pdf">makeacisrmf</a></td>
+							</tr>
+							<tr>
+								<td>memo</td>
+								<td>ACIS</td>
+								<td><a href="mkacisrmf_spec_1.00.pdf">Tests for self-consistency of ACIS LCI coordinates</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>ACIS</td>
+								<td><a href="s4_streak_loss_2.0.pdf">S4 streak loss parameter</a></td>
+							</tr>
+							<tr>
+								<td>memo</td>
+								<td>ACIS</td>
+								<td><a href="memo_bpix_status_bits_1.12.pdf">Status bits in bad-pixel files</a></td>
+							</tr>
+							<tr>
+								<td>memo</td>
+								<td>ACIS</td>
+								<td><a href="memo_event_status_bits_2.3.pdf">Status bits in event files</a></td>
+							</tr>
+							<tr>
+								<td>ARD</td>
+								<td>ACIS</td>
+								<td><a href="memo_tgain_ard_1.0.pdf">time-dependent gain adjustment</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>HETG/LETG</td>
+								<td><a href="cxc_pipe_tg_enhancement.pdf">Pipeline enhancements to compute grating responses in the archive</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>HETG/LETG</td>
+								<td><a href="grating_cc_2015-02.pdf">Grating/CC-mode enhancements</a> This memo describes changes made to acis_process_events and tg_resolve_events which improve order-sorting through a second pass of processing which uses the HETG-processing-determined CHIPY position to re-do CTI/gain/tgain corrections. </td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>HETG/LETG</td>
+								<td><a href="lsfparm_update-02.pdf">Tests/validation of new HRC-S QE and LETG EEFRAC</a> This memo shows test of the revised HRC-S QE and LETG EEFRAC (in the LSFPARM file). The LETGS effective area should be unchanged. EEFRAC changes were required for custom extractions which can improve a weak lines signal-to-noise ratio. </td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>HETG/LETG</td>
+								<td><a href="tg_choose_method_specs-0.2.pdf">tgdetect2, tg_choose_method</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>HETG/LETG</td>
+								<td><a href="tg_findzo_specs-1.0.0.pdf">tg_findzo</a></td>
+							</tr>
+							<tr>
+								<td>ICD</td>
+								<td>HETG/LETG</td>
+								<td><a href="hrcs_spi_icd-1.4.pdf">HRC-S Tgain correction (for reduced background); LETG/HRC-S spectral filtering after HRC-S Tgain correction</a> This document describes the HRC-S time-dependent linearized PI computation ("SPI") for background reduction and associated CALDB "t_gmap" file (appropriate for all HRC-S observations), and the associated HRC-S/LETG event filter required for spectral extraction from Tgain-corrected HRC-S events (CALDB "pireg_tgain" file). </td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>HETG/LETG</td>
+								<td><a href="memo_letg_rot_1.0.ps.gz">LETG+ACIS-S Spurious Rotation Issue</a></td>
+							</tr>
+							<tr>
+								<td>memo</td>
+								<td>HETG/LETG</td>
+								<td><a href="technote_2004.06.11_la_rotation.ps.gz">Technical Note: LETG/ACIS-S rotation compensation</a></td>
+							</tr>
+							<tr>
+								<td>ICD</td>
+								<td>HETG/LETG</td>
+								<td><a href="ICD_L1.5.ps.gz">Transmission Grating L1.5 to Archive</a></td>
+							</tr>
+							<tr>
+								<td>ICD</td>
+								<td>HETG/LETG</td>
+								<td><a href="ICD_TGL2.ps.gz">Transmission Grating Level 2 to Archive</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>HETG/LETG</td>
+								<td><a href="hesfmaskcalc.ps.gz">Level 1.5 LETG/HESF Region Mask Definitions and Wavelength Determination</a></td>
+							</tr>
+							<tr>
+								<td>spec</td>
+								<td>HETG/LETG</td>
+								<td><a href="cc_mode.ps.gz">Level 1.5: ACIS Continuous-Clocking Mode Processing</a></td>
+							</tr>
+							<tr>
+								<td>memo</td>
+								<td>HETG</td>
+								<td><a href="WarmACISeffectsOnOSIP_20200611.pdf">HETG/ACIS Focal Plane Temperature Analysis</a></td>
+							</tr>
+							<tr>
+								<td>ICD</td>
+								<td>HETG/LETG</td>
+								<td><a href="ICD_mkgrmf_ard.ps.gz">Grating LSF Library</a></td>
+							</tr>
+							<tr>
+								<td>ICD</td>
+								<td>all</td>
+								<td><a href="ICD_PSF.ps.gz">PSF Library</a></td>
+							</tr>
+							<tr>
+								<td>memo</td>
+								<td>HETG/LETG</td>
+								<td><a href="techref_psf.ps.gz">LSF library and tools technical reference</a></td>
+							</tr>
+							<tr>
+								<td>memo</td>
+								<td>HETG/LETG</td>
+								<td><a href="memo_random_0.2.ps.gz">FITS keywords to describe data randomization</a></td>
+							</tr>
+							<tr>
+								<td>memo</td>
+								<td>HETG/LETG</td>
+								<td>LSFPARM validation for <a href="memo_lsf_ha_1.0.ps.gz">HETG+ACIS-S</a>, <a href="memo_lsf_lh_1.0.ps.gz">LETG+HRC-S</a>, <a href="memo_lsf_la_1.0.ps.gz">LETG+ACIS-S</a>, <a href="memo_lsf_ma_1.0.ps.gz">MEG+ACIS-S</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="archive">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<h2>Archive</h2>
+					<p>In this section we list all documents including those that are still under development, already outdated, or only of historical interest. For most documents we list the current and a few previous versions. Older versions may be available on request.</p>
+					<h3>CONTENTS</h3>
+					<ul>
+						<li><a href=#ACIS> ACIS</a>
+							<ul>
+								<li><a href=#badpix> acis_build_badpix spec</a></li>
+								<li><a href=#gti> acis_build_chip_gti spec</a> (disregard)</li>
+								<li><a href=#msk> acis_build_mask spec</a></li>
+								<li><a href=#hotpix> acis_detect_hotpix spec</a> (superceeded)</li>
+								<li><a href=#aft> acis_find_afterglow spec</a></li>
+								<li><a href=#bkgd> acis_make_bkgd spec</a></li>
+								<li><a href=#ape> acis_process_events spec</a> (extensive, but not yet complete)</li>
+								<li><a href=#apebadpix> acis_process_events: bad-pixel spec</a></li>
+								<li><a href=#readcorr> acisreadcorr spec</a></li>
+								<li><a href=#aft_det_eff> Afterglow detection efficiency</a> (superceeded)</li>
+								<li><a href=#ACISARD> ARD ICD</a> (in development)</li>
+								<li><a href=#bias_keys> Bias keywords</a></li>
+								<li><a href=#berr> Bias-parity errors spec</a></li>
+								<li><a href=#bias_rep> Bias repair and replacement spec</a></li>
+								<li><a href=#cc_bias_sum> CC bias summary</a></li>
+								<li><a href=#check_vf> Check VFAINT background</a></li>
+								<li><a href=#energy_pi> Computation of ENERGY and PI</a> (superceeded)</li>
+								<li><a href=#grades> Computation of FLTGRADE, GRADE, and PHA</a> (superceeded)</li>
+								<li><a href=#exposure> Computation of ONTIME, DTCOR, and EXPOSURE</a></li>
+								<li><a href=#hkp> Computation of QUERY_VAL</a></li>
+								<li><a href=#toa> Computation of X, Y, and TIMEs of arrival of CC-mode events</a> (superceeded)</li>
+								<li><a href=#cti> CTI spec</a> (superceeded)</li>
+								<li><a href=#deltoclk> DELTOCLK spec</a></li>
+								<li><a href=#fltgrade_caveat> FLTGRADE caveat</a></li>
+								<li><a href=#grade_ard> Grade ARD</a></li>
+								<li><a href=#hotpix2> Hot-pixel spec</a> (superceeded)</li>
+								<li><a href=#ACISL0> Level 0 ICD</a></li>
+								<li><a href=#ACISL1> Level 1 ICD</a></li>
+								<li><a href=#mean_bias> Mean biases</a> (in development)</li>
+								<li><a href=#mkacisrmf> mkacisrmf</a></li>
+								<li><a href=#instgeom> Notes about the ACIS instrument geometry data</a></li>
+								<li><a href=#caveats> Pipeline processing caveats</a></li>
+								<li><a href=#ACIStools> Pipeline processing tools</a> (obsolete)</li>
+								<li><a href=#s4streak_alg> S4 streak algorithm</a> (superceeded)</li>
+								<li><a href=#s4streak_loss> S4 streak loss parameter</a></li>
+								<li><a href=#s4streak_prop> S4 streak properties</a> (superceeded)</li>
+								<li><a href=#bpixbits> STATUS bits in bad-pixel files</a></li>
+								<li><a href=#evtbits> STATUS bits in event files</a></li>
+								<li><a href=#subpix> Sub-pixel and pixel randomization spec</a> (superceeded)</li>
+								<li><a href=#trmf> Temperature-dependent RMF spec</a> (in development)</li>
+								<li><a href=#tgain_ard> Time-dependent gain ARD</a></li>
+								<li><a href=#tgain_spec> Time-dependent gain spec</a> (superceeded)</li>
+								<li><a href=#acis_s_geom> ACIS-S detector geometry</a></li>
+							</ul>
+						</li>
+						<li><a href=#HETG> HETG and LETG</a>
+							<ul>
+								<LI> <a href=#tgpipe> Requirements for grating
 		  response computation in standard pipeline processing.</a></li>
-	      <LI> <a href=#cc_mode>Grating/CC-mode enhancements</a> through a second pass to re-do CTI/gain/tgain corrections based on HETG position </li>
-	      <LI> <a href=#letgslsf> HRC-S/LETG test of updated QE,
+								<LI> <a href=#cc_mode>Grating/CC-mode enhancements</a> through a second pass to re-do CTI/gain/tgain corrections based on HETG position </li>
+								<LI> <a href=#letgslsf> HRC-S/LETG test of updated QE,
 		  LSFPARM</a></li>
-	      <LI> <a href=#hrcstgain> HRC-S/LETG "tgain" correction
+								<LI> <a href=#hrcstgain> HRC-S/LETG "tgain" correction
 		  (SPI computation) </a> </li>
-	      <LI> <a href=#letggeom1> LETG + ACIS-S Rotation Issue  </a> </li>
-	      <LI> <a href=#findzo>Finding Zeroth Order Position  </a> </li>
-	      <LI> <a href=#tgfindzo>tg_findzo spec</a> </li>
-	      <LI> <a href=#tgdetect2>tgdetect2 spec  </a> </li>
-	      <LI> <a href=#hetgfptemp> HETG/ACIS Focal Plane Temperature Analysis  </a> </li>
-	    </ul>
-	  </li>
-	  <li><a href=#PSF> PSF and LSF</a>
-	    <ul>
-	      <LI> <a href=#random>Data Randomization</a> Required enhancement in header keywords
-	      <LI> <a href=#lsf1>LSFPARM</a> for HETG+ACIS-S validated for unrandomized datasets
-	      <LI> <a href=#lsf2>LSFPARM</a> for LETG+HRC-S validated for unrandomized datasets
-	      <LI> <a href=#lsf3>LSFPARM</a> for LETG+ACIS-S validated for unrandomized datasets
-	      <LI> <a href=#lsf4>Updated LSFPARM</a> for MEG+ACIS-S  for unrandomized datasets
-	    </ul>
-	  </li>
-	  <li><a href=#ARD> ARD </a></li>
-	  <li><a href=#Expmap> Exposure Map</a></li>
-	  <li><a href=#Misc> Miscellaneous</a>
-	    <ul>
-	      <li><a href=#gratcoords>Transmission Grating Diffraction Coordinates</a></li>
-	      <LI><a href=#CIAO3>CIAO 3</a> architecture White Paper and SDS presentation.</li>
-	      <li><a href=#ISIS>ISIS</a></li>
-	    </ul>
-	  </li>
-	</ul>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="ACIS" class="bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
- 	  
-	  <h3>ACIS</h3>
-	  <h4 id="badpix">acis_build_badpix spec</h4>
-
-	  <P>This document describes the use of the parameters bitflag and
-            usrfile for the tool acis_build_badpix.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-	      <tr>
-		<td>04/28/2017</td>
-		<td>2.6</td>
-		<td>
-		  <A HREF="memo_acis_build_badpix_2.6.pdf">PDF</A>,
-		  <A HREF="memo_acis_build_badpix_2.6.ps.gz">PS</A>,
-		  <A HREF="memo_acis_build_badpix_2.6.tex">LaTeX source</A>
-		</td>
-	      </tr>
-	      <tr>
-		<td>10/06/2009</td>
-		<td>2.5</td>
-		<td>
-		  <A HREF="memo_acis_build_badpix_2.5.pdf">PDF</A>,
-		  <A HREF="memo_acis_build_badpix_2.5.ps.gz">PS</A>,
-		  <A HREF="memo_acis_build_badpix_2.5.tex">LaTeX source</A>
-		</td>
-	      </tr>
-	      <tr>
-		<td>04/24/2009</td>
-		<td>2.4</td>
-		<td>
-		  <A HREF="memo_acis_build_badpix_2.4.pdf">PDF</A>,
-		  <A HREF="memo_acis_build_badpix_2.4.ps.gz">PS</A>,
-		  <A HREF="memo_acis_build_badpix_2.4.tex">LaTeX source</A>
-		</td>
-	      </tr>
-	      <tr>
-		<td>04/01/2009</td>
-		<td>2.3</td>
-		<td>
-		  <A HREF="memo_acis_build_badpix_2.3.pdf">PDF</A>,
-		  <A HREF="memo_acis_build_badpix_2.3.ps.gz">PS</A>,
-		  <A HREF="memo_acis_build_badpix_2.3.tex">LaTeX source</A>
-		</td>
-	      </tr>
-	    </tbody>
-	  </table>
-
-	  <h4 id="gti">acis_build_chip_gti spec</h4>
-	  <div class="p-3 mb-2 bg-danger text-white">Disregard.  The acis_build_chip_gti
-        specs are flawed.</div>
-	  <p>This document describes a specification for the ACIS tool
-        acis_build_chip_gti.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>07/15/2014</td><td>2.1</td><td>
-		  <A HREF="acis_build_chip_gti_2.1.pdf">PDF</A>
-		  <A HREF="acis_build_chip_gti_2.1.ps.gz">PS</A>
-		  <A HREF="acis_build_chip_gti_2.1.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>06/22/2014</td><td>2.0</td><td>
-		  <A HREF="acis_build_chip_gti_2.0.pdf">PDF</A>
-		  <A HREF="acis_build_chip_gti_2.0.ps.gz">PS</A>
-		  <A HREF="acis_build_chip_gti_2.0.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>11/08/2004</td><td>1.1</td><td>
-		  <A HREF="memo_acis_build_chip_gti_1.1.pdf">PDF</A>
-		  <A HREF="memo_acis_build_chip_gti_1.1.ps.gz">PS</A>
-		  <A HREF="memo_acis_build_chip_gti_1.1.tex">LaTeX Source</A>
-</td></tr>
-	  </tbody></table>
-
-	  
-	  <h4 id="msk">acis_build_mask spec </h4>
-	  <p>This document describes a specification for the ACIS tool acis_build_mask. </p>
-	  	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>04/04/2007</td><td>4.0</td><td>
-		  <A HREF="memo_acis_build_mask_4.0.pdf">PDF</A>
-		  <A HREF="memo_acis_build_mask_4.0.ps.gz">PS</A>
-		  <A HREF="memo_acis_build_mask_4.0.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>08/11/2004</td><td>3.10</td><td>
-		  <A HREF="memo_acis_build_mask_3.10.pdf">PDF</A>
-		  <A HREF="memo_acis_build_mask_3.10.ps.gz">PS</A>
-		  <A HREF="memo_acis_build_mask_3.10.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>04/26/2004</td><td>3.9</td><td>
-		  <A HREF="memo_acis_build_mask_3.9.pdf">PDF</A>
-		  <A HREF="memo_acis_build_mask_3.9.ps.gz">PS</A>
-		  <A HREF="memo_acis_build_mask_3.9.tex">LaTeX Source</A>
-</td></tr>
-		  </tbody></table>
-		  
-	  <h4 id="hotpix">acis_detect_hotpix spec</h4>
-	  <p>This document describes a specification for the ACIS tool acis_detect_hotpix. </p>
-	  <div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer
-	    <a href=#aft>acis_find_afterglow spec</a>.</div>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>06/16/2006</td><td>1.11</td><td>
-		  <A HREF="memo_acis_detect_hotpix_1.11.pdf">PDF</A>
-		  <A HREF="memo_acis_detect_hotpix_1.11.ps.gz">PS</A>
-		  <A HREF="memo_acis_detect_hotpix_1.11.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>05/10/2006</td><td>1.10</td><td>
-		  <A HREF="memo_acis_detect_hotpix_1.10.pdf">PDF</A>
-		  <A HREF="memo_acis_detect_hotpix_1.10.ps.gz">PS</A>
-		  <A HREF="memo_acis_detect_hotpix_1.10.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>10/15/2004</td><td>1.9</td><td>
-		  <A HREF="memo_acis_detect_hotpix_1.9.pdf">PDF</A>
-		  <A HREF="memo_acis_detect_hotpix_1.9.ps.gz">PS</A>
-		  <A HREF="memo_acis_detect_hotpix_1.9.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="aft">acis_find_afterglow spec</h4>
-	  <p>	<P>This document describes a specification for algorithms to find
-        afterglows and hot pixels on ACIS CCDs.  This spec supersedes the
-        previous <a href=#hotpix>acis_detect_hotpix</a> and
-	    <a href=#hotpix2>hot-pixel detection</a> specs.</p>
-	  	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>04/28/2017</td><td>2.11</td><td>
-		  <A HREF="afterglow_spec_2.11.pdf">PDF</A>
-		  <A HREF="afterglow_spec_2.11.ps.gz">PS</A>
-		  <A HREF="afterglow_spec_2.11.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>04/11/2012</td><td>2.10</td><td>
-		  <A HREF="afterglow_spec_2.10.pdf">PDF</A>
-		  <A HREF="afterglow_spec_2.10.ps.gz">PS</A>
-		  <A HREF="afterglow_spec_2.10.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>03/02/2012</td><td>2.9</td><td>
-		  <A HREF="afterglow_spec_2.9.pdf">PDF</A>
-		  <A HREF="afterglow_spec_2.9.ps.gz">PS</A>
-		  <A HREF="afterglow_spec_2.9.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>12/09/2011</td><td>2.8</td><td>
-		  <A HREF="afterglow_spec_2.8.pdf">PDF</A>
-		  <A HREF="afterglow_spec_2.8.ps.gz">PS</A>
-		  <A HREF="afterglow_spec_2.8.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-		  
-	  <h4 id="bkgd">acis_make_bkgd spec</h4>
-	  <p>This document describes a specification for the ACIS tool acis_make_bkgd.</p>
-	  	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>05/11/2006</td><td>1.4</td><td>
-		  <A HREF="memo_acis_make_bkgd_1.4.pdf">PDF</A>
-		  <A HREF="memo_acis_make_bkgd_1.4.ps.gz">PS</A>
-		  <A HREF="memo_acis_make_bkgd_1.4.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>04/08/2005</td><td>1.3</td><td>
-		  <A HREF="memo_acis_make_bkgd_1.3.pdf">PDF</A>
-		  <A HREF="memo_acis_make_bkgd_1.3.ps.gz">PS</A>
-		  <A HREF="memo_acis_make_bkgd_1.3.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>04/01/2008</td><td>1.2</td><td>
-		  <A HREF="memo_acis_make_bkgd_1.2.pdf">PDF</A>
-		  <A HREF="memo_acis_make_bkgd_1.2.ps.gz">PS</A>
-		  <A HREF="memo_acis_make_bkgd_1.2.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>03/16/2005</td><td>1.1</td><td>
-		  <A HREF="memo_acis_make_bkgd_1.1.pdf">PDF</A>
-		  <A HREF="memo_acis_make_bkgd_1.1.ps.gz">PS</A>
-		  <A HREF="memo_acis_make_bkgd_1.1.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>02/18/2005</td><td>1.0</td><td>
-		  <A HREF="memo_acis_make_bkgd_1.0.pdf">PDF</A>
-		  <A HREF="memo_acis_make_bkgd_1.0.ps.gz">PS</A>
-		  <A HREF="memo_acis_make_bkgd_1.0.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  <h4 id="ape">acis_process_events spec</h4>
-	  <p>This document describes an incomplete specification for the ACIS
-            tool acis_process_events.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>04/28/2017</td><td>4.17</td><td>
-		  <A HREF="ape_spec_4.17.pdf">PDF</A>
-		  <A HREF="ape_spec_4.17.ps.gz">PS</A>
-		  <A HREF="ape_spec_4.17.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>09/28/2016</td><td>4.16</td><td>
-		  <A HREF="ape_spec_4.16.pdf">PDF</A>
-		  <A HREF="ape_spec_4.16.ps.gz">PS</A>
-		  <A HREF="ape_spec_4.16.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>/07/07/2016</td><td>4.15</td><td>
-		  <A HREF="ape_spec_4.15.pdf">PDF</A>
-		  <A HREF="ape_spec_4.15.ps.gz">PS</A>
-		  <A HREF="ape_spec_4.15.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>06/23/2016</td><td>4.14</td><td>
-		  <A HREF="ape_spec_4.14.pdf">PDF</A>
-		  <A HREF="ape_spec_4.14.ps.gz">PS</A>
-		  <A HREF="ape_spec_4.14.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="apebadpix">acis_process_events: bad-pixel spec</h4>
-	  <p>This document describes a specification for the use of bad-pixel
-            files by the ACIS tool <a href="#ape">acis_process_events</a>.</p>
-	  <div class="p-3 mb-2 bg-warning text-white">This spec is still under development.</div>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>01/19/2007</td><td>1.0</td><td>
-		  <A HREF="memo_ape_badpix_1.0.pdf">PDF</A>
-		  <A HREF="memo_ape_badpix_1.0.ps.gz">PS</A>
-		  <A HREF="memo_ape_badpix_1.0.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-	  
-	  <h4 id="readcorr">acisreadcorr spec</h4>
-	  <p>This document describes a specification for the computation of TIME for the
-	    ACIS tool acisreadcorr.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>10/01/2002</td><td>1.3b</td><td>
-		  <A HREF="memo_acis_read_corr_times_1.3b.pdf">PDF</A>
-		  <A HREF="memo_acis_read_corr_times_1.3b.ps.gz">PS</A>
-		  <A HREF="memo_acis_read_corr_times_1.3b.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="aft_det_eff">Afterglow detection efficiency</h4>
-	  <p>This document describes the afterglow detection efficiency of
-            acis_run_hotpix.</p>
-	  <div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer
-	    <a href=#aft>acis_find_afterglow spec</a>.</div>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>03/01/2011</td><td>1.2</td><td>
-		  <A HREF="afterglow_detection_efficiency_1.2.pdf">PDF</A>
-		  <A HREF="afterglow_detection_efficiency_1.2.ps.gz">PS</A>
-		  <A HREF="afterglow_detection_efficiency_1.2.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>10/07/2010</td><td>1.1</td><td>
-		  <A HREF="afterglow_detection_efficiency_1.1.pdf">PDF</A>
-		  <A HREF="afterglow_detection_efficiency_1.1.ps.gz">PS</A>
-		  <A HREF="afterglow_detection_efficiency_1.1.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-	  
-	  <h4 id="ACISARD">ACIS Analysis Reference Data Interface Control Document</h4>
-	  <p>This document describes the formats of the Analysis Reference Data files
-	    used by the ACIS tools.</p>
-	  <div class="p-3 mb-2 bg-warning text-white">This spec is still under development.</div>
-
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>03/15/2000</td><td>2.1</td><td>
-		  <A HREF="ARD_ICD/ACIS_ARD_ICD_2.1.pdf">PDF</A>
-		  <A HREF="ARD_ICD/ACIS_ARD_ICD_2.1.ps.gz">PS</A>
-</td></tr>
-<tr><td>11/30/1999</td><td>2.0</td><td>
-		  <A HREF="ARD_ICD/ACIS_ARD_ICD_2.0.pdf">PDF</A>
-		  <A HREF="ARD_ICD/ACIS_ARD_ICD_2.0.ps.gz">PS</A>
-</td></tr>
-<tr><td>03/12/1999</td><td>1.3</td><td>
-		  <A HREF="ARD_ICD/ACIS_ARD_ICD_1.3.pdf">PDF</A>
-		  <A HREF="ARD_ICD/ACIS_ARD_ICD_1.3.ps.gz">PS</A>
-		  <A HREF="ACISsource/ARD/Rev1.3/">LaTeX Source</A>
-</td></tr>
-
-	  </tbody></table>
-
-	  
-	  <h4 id="bias_keys">Bias header keywords</h4>
-	  <p>This spec describes how to determine the values of some of the
-            keywords in the header of an ACIS bias file.</p>
-	  	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>09/05/2006</td><td>1.0</td><td>
-		  <A HREF="memo_bias_keys_1.0.pdf">PDF</A>
-		  <A HREF="memo_bias_keys_1.0.ps.gz">PS</A>
-		  <A HREF="memo_bias_keys_1.0.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  <h4 id="berr">Bias-parity error</h4>
-	  <p>This spec describes how to handle bias-parity errors when
-            producing a bad-pixel file.</p>
-	  	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>11/14/2013</td><td>1.3</td><td>
-		  <A HREF="bias_parity_error_spec_1.3.pdf">PDF</A>
-		  <A HREF="bias_parity_error_spec_1.3.ps.gz">PS</A>
-		  <A HREF="bias_parity_error_spec_1.3.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>10/21/2013</td><td>1.1</td><td>
-		  <A HREF="bias_parity_error_spec_1.1.pdf">PDF</A>
-		  <A HREF="bias_parity_error_spec_1.1.ps.gz">PS</A>
-		  <A HREF="bias_parity_error_spec_1.1.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>11/21/2012</td><td>1.0</td><td>
-		  <A HREF="bias_parity_error_spec_1.0.pdf">PDF</A>
-		  <A HREF="bias_parity_error_spec_1.0.ps.gz">PS</A>
-		  <A HREF="bias_parity_error_spec_1.0.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  <h4 id="bias_rep">Bias repair and replacement</h4>
-	  <p>This spec describes how to repair or replace a bias for an
-        observation with a suitable bias from another observation.
-	  </p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>05/25/2011</td><td>5.5</td><td>
-		  <A HREF="bias_repair_5.5.pdf">PDF</A>
-		  <A HREF="bias_repair_5.5.ps.gz">PS</A>
-		  <A HREF="bias_repair_5.5.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>05/13/2010</td><td>5.4</td><td>
-		  <A HREF="bias_repair_5.4.pdf">PDF</A>
-		  <A HREF="bias_repair_5.4.ps.gz">PS</A>
-		  <A HREF="bias_repair_5.4.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>05/12/2010</td><td>5.3</td><td>
-		  <A HREF="bias_repair_5.3.pdf">PDF</A>
-		  <A HREF="bias_repair_5.3.ps.gz">PS</A>
-		  <A HREF="bias_repair_5.3.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="check_vf">Check VFAINT background</h4>
-	  <p>This document describes an algorithm that can be used to search
-        for potential cosmic-ray background events in the data for TIMED
-	    VFAINT mode observations.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>03/10/2008</td><td>1.4</td><td>
-		  <A HREF="memo_check_vf_pha_1.4.pdf">PDF</A>
-		  <A HREF="memo_check_vf_pha_1.4.ps.gz">PS</A>
-		  <A HREF="memo_check_vf_pha_1.4.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>09/22/2006</td><td>1.3</td><td>
-		  <A HREF="memo_check_vf_pha_1.3.pdf">PDF</A>
-		  <A HREF="memo_check_vf_pha_1.3.ps.gz">PS</A>
-		  <A HREF="memo_check_vf_pha_1.3.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>09/01/2006</td><td>1.2</td><td>
-		  <A HREF="memo_check_vf_pha_1.2.pdf">PDF</A>
-		  <A HREF="memo_check_vf_pha_1.2.ps.gz">PS</A>
-		  <A HREF="memo_check_vf_pha_1.2.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="cti">CTI spec</h4>
-	  <p>This document describes how to compute the CTI-adjusted values of
-        PHAS, PHA, ENERGY, PI, FLTGRADE, and GRADE for ACIS event data.  The
-        algorithm includes a temperature-dependent scaling factor for the
-            integrated trap-density maps.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>10/27/2010</td><td>7.2</td><td>
-		  <A HREF="memo_cti_correction_7.2.pdf">PDF</A>
-		  <A HREF="memo_cti_correction_7.2.ps.gz">PS</A>
-		  <A HREF="memo_cti_correction_7.2.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>10/10/2010</td><td>7.1</td><td>
-		  <A HREF="memo_cti_correction_7.1.pdf">PDF</A>
-		  <A HREF="memo_cti_correction_7.1.ps.gz">PS</A>
-		  <A HREF="memo_cti_correction_7.1.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>06/08/2010</td><td>7.0</td><td>
-		  <A HREF="memo_cti_correction_7.0.pdf">PDF</A>
-		  <A HREF="memo_cti_correction_7.0.ps.gz">PS</A>
-		  <A HREF="memo_cti_correction_7.0.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>09/01/2009</td><td>6.2</td><td>
-		  <A HREF="memo_cti_correction_6.2.pdf">PDF</A>
-		  <A HREF="memo_cti_correction_6.2.ps.gz">PS</A>
-		  <A HREF="memo_cti_correction_6.2.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="deltoclk">DELTOCLK spec</h4>
-	  <p>This document describes the algorithm used to identify anomalous
-            DELTOCLK values.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>02/19/2013</td><td>3.2</td><td>
-		  <A HREF="deltoclk_spec_3.2.pdf">PDF</A>
-		  <A HREF="deltoclk_spec_3.2.ps.gz">PS</A>
-		  <A HREF="deltoclk_spec_3.2.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>02/19/2013</td><td>3.1</td><td>
-		  <A HREF="deltoclk_spec_3.1.pdf">PDF</A>
-		  <A HREF="deltoclk_spec_3.1.ps.gz">PS</A>
-		  <A HREF="deltoclk_spec_3.1.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>02/19/2013</td><td>3.0</td><td>
-		  <A HREF="deltoclk_spec_3.0.pdf">PDF</A>
-		  <A HREF="deltoclk_spec_3.0.ps.gz">PS</A>
-		  <A HREF="deltoclk_spec_3.0.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>04/30/2012</td><td>2.0</td><td>
-		  <A HREF="deltoclk_spec_2.0.pdf">PDF</A>
-		  <A HREF="deltoclk_spec_2.0.ps.gz">PS</A>
-		  <A HREF="deltoclk_spec_2.0.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="energy_pi">Computation of ENERGY and PI</h4>
-	  <p>This document describes how to compute ENERGY and PI for ACIS
-            event data.</p>
-	  <div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a href=#ape>acis_process_events spec</a>.</div>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>07/20/2013</td><td>1.0</td><td>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="grades">Computation of FLTGRADE, GRADE, and PHA</h4>
-	  <p>This document describes how to compute FLTGRADE, GRADE, and PHA for ACIS
-	    event data.</p>
-	  <div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a href=#ape>acis_process_events spec</a>.</div>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>03/18/2014</td><td>1.7</td><td>
-</td></tr>
-<tr><td>01/08/2007</td><td>1.5</td><td>
-</td></tr>
-<tr><td>05/16/2003</td><td>1.4</td><td>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="exposure">Computation of ONTIME, DTCOR, and EXPOSURE</h4>
-	  <p>This document describes how to compute TIMEDEL, FLSHTIME, ONTIME, DTCOR,
-	    and EXPOSURE for ACIS event data.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>09/09/2002</td><td>1.2b</td><td>
-		  <A HREF="memo_time_keywords_proposal_1.2b.pdf">PDF</A>
-		  <A HREF="memo_time_keywords_proposal_1.2b.ps.gz">PS</A>
-		  <A HREF="memo_time_keywords_proposal_1.2b.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="hkp">Computation of QUERY_VAL</h4>
-	  <p>This document describes how to compute QUERY_VAL for ACIS housekeeping
-	    data.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>09/09/2002</td><td>1.1</td><td>
-		  <A HREF="memo_hkp0_query_val_1.1.pdf">PDF</A>
-		  <A HREF="memo_hkp0_query_val_1.1.ps.gz">PS</A>
-		  <A HREF="memo_hkp0_query_val_1.1.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>08/26/2002</td><td>1.0</td><td>
-		  <A HREF="memo_hkp0_query_val_1.0.pdf">PDF</A>
-		  <A HREF="memo_hkp0_query_val_1.0.ps.gz">PS</A>
-		  <A HREF="memo_hkp0_query_val_1.0.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="toa">Computation of X, Y, and TIMEs of arrival of CC-mode events</h4>
-	  <p>This document describes how to compute the sky coordinates and times of
-	    arrival of photons at the detector for CC-mode event data.</p>
-	  <div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a href=#ape>acis_process_events spec</a>.</div>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>04/04/2006</td><td>4.6</td><td>
-		  <A HREF="memo_acis_cc_calc_toa_4.6.pdf">PDF</A>
-		  <A HREF="memo_acis_cc_calc_toa_4.6.ps.gz">PS</A>
-		  <A HREF="memo_acis_cc_calc_toa_4.6.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>01/14/2005</td><td>4.5</td><td>
-		  <A HREF="memo_acis_cc_calc_toa_4.5.pdf">PDF</A>
-		  <A HREF="memo_acis_cc_calc_toa_4.5.ps.gz">PS</A>
-		  <A HREF="memo_acis_cc_calc_toa_4.5.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>04/25/2003</td><td>4.4</td><td>
-		  <A HREF="memo_acis_cc_calc_toa_4.4.pdf">PDF</A>
-		  <A HREF="memo_acis_cc_calc_toa_4.4.ps.gz">PS</A>
-		  <A HREF="memo_acis_cc_calc_toa_4.4.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="fltgrade_caveat">A caveat about FLTGRADE = 255 in Level 1 event files</h4>
-	  <p>This document describes why Level 1 event files can contain
-            events that have FLTGRADE = 255.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>02/27/2007</td><td>1.0</td><td>
-		  <A HREF="notes_fltgrade_1.0.pdf">PDF</A>
-		  <A HREF="notes_fltgrade_1.0.ps.gz">PS</A>
-		  <A HREF="notes_fltgrade_1.0.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-
-	  
-	  <h4 id="grade_ard">Grade ARD spec</h4>
-	  <p>This spec describes the grade ARD file structure.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>03/18/2014</td><td>1.0</td><td>
-		  <A HREF="grade_ard_1.0.pdf">PDF</A>
-		  <A HREF="grade_ard_1.0.ps.gz">PS</A>
-		  <A HREF="grade_ard_1.0.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="hotpix2">Hot-pixel spec</h4>
-	  <p>This document describes a specification for a hot-pixel detection
-            algorithm.</p>
-	  <div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a
-											     href=#aft>acis_find_afterglow spec</a>.</div>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>01/23/2011</td><td>2.3</td><td>
-		  <A HREF="hotpix_spec_2.3.pdf">PDF</A>
-		  <A HREF="hotpix_spec_2.3.ps.gz">PS</A>
-		  <A HREF="hotpix_spec_2.3.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>10/23/2009</td><td>2.2</td><td>
-		  <A HREF="hotpix_spec_2.2.pdf">PDF</A>
-		  <A HREF="hotpix_spec_2.2.ps.gz">PS</A>
-		  <A HREF="hotpix_spec_2.2.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>07/30/2008</td><td>2.1</td><td>
-		  <A HREF="hotpix_spec_2.1.pdf">PDF</A>
-		  <A HREF="hotpix_spec_2.1.ps.gz">PS</A>
-		  <A HREF="hotpix_spec_2.1.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>07/29/2008</td><td>2.0</td><td>
-		  <A HREF="hotpix_spec_2.0.pdf">PDF</A>
-		  <A HREF="hotpix_spec_2.0.ps.gz">PS</A>
-		  <A HREF="hotpix_spec_2.0.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="ACISL0">ACIS Level 0 Interface Control Document</h4>
-	  <p>This document describes the formats of the Level 0 data products.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>10/23/2000</td><td>3.2</td><td>
-		  <A HREF="acis_l0_3.2.pdf">PDF</A>
-		  <A HREF="acis_l0_3.2.ps.gz">PS</A>
-		  <A HREF="ACISsource/L0/Rev3.2/">Framemaker source</A>
-</td></tr>
-<tr><td>08/10/2000</td><td>3.1</td><td>
-		  <A HREF="acis_l0_3.1.pdf">PDF</A>
-		  <A HREF="acis_l0_3.1.ps.gz">PS</A>
-		  <A HREF="ACISsource/L0/Rev3.1/">Framemaker source</A>
-
-</td></tr>
-<tr><td>08/18/1999</td><td>3.0</td><td>
-		  <A HREF="acis_l0_3.0.pdf">PDF</A>
-		  <A HREF="acis_l0_3.0.ps.gz">PS</A>
-		  <A HREF="ACISsource/L0/Rev3.0/">Framemaker source</A>
-</td></tr>
-</tbody></table>
-
-	  <h4 id="ACISL1">ACIS Level 1 Interface Control Document</h4>
-	  <p>This document describes the formats of the Level 1 data products.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>10/23/2000</td><td>3.2</td><td>
-		  <A HREF="acis_l1_2.3.pdf">PDF</A>
-		  <A HREF="acis_l1_2.3.ps.gz">PS</A>
-		  <A HREF="ACISsource/L1/Rev2.3/acis_l1_2.3.tar">Framemaker source</A>
-</td></tr>
-<tr><td>08/10/2000</td><td>3.1</td><td>
-		  <A HREF="acis_l1_2.2.pdf">PDF</A>
-		  <A HREF="acis_l1_2.2.ps.gz">PS</A>
-		  <A HREF="ACISsource/L1/Rev2.2/acis_l1_2.2.tar">Framemaker source</A>
-
-</td></tr>
-<tr><td>08/18/1999</td><td>3.0</td><td>
-		  <A HREF="acis_l1_2.2.pdf">PDF</A>
-		  <A HREF="acis_l1_2.2.ps.gz">PS</A>
-		  <A HREF="ACISsource/L1/Rev2.1/acis_l1_2.1.tar">Framemaker source</A>
-</td></tr>
-</tbody></table>
-	  
-	  <h4 id="instgeom">Notes about ACIS instrument geometry data memo</h4>
-	  <p>This document describes some self-consistency tests of the LSI
-            coordinates of the ACIS CCDs.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>06/08/2005</td><td>1.0</td><td>
-		  <A HREF="memo_instgeom_1.0.pdf">PDF</A>
-		  <A HREF="memo_instgeom_1.0.ps.gz">PS</A>
-		  <A HREF="memo_instgeom_1.0.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="mean_bias">Mean biases</h4>
-	  <p>This document describes a specification for computing
-            observation-specific biases from mean biases.</p>
-	  <div class="p-3 mb-2 bg-warning text-white">This spec is still under development and does not work in the current form.</div>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>06/12/2007</td><td>1.2</td><td>
-		  <A HREF="memo_mean_bias_1.2.pdf">PDF</A>
-		  <A HREF="memo_mean_bias_1.2.ps.gz">PS</A>
-		  <A HREF="memo_mean_bias_1.2.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>06/04/2007</td><td>1.1</td><td>
-		  <A HREF="memo_mean_bias_1.1.pdf">PDF</A>
-		  <A HREF="memo_mean_bias_1.1.ps.gz">PS</A>
-		  <A HREF="memo_mean_bias_1.1.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>05/30/2007</td><td>1.0</td><td>
-		  <A HREF="memo_mean_bias_1.0.pdf">PDF</A>
-		  <A HREF="memo_mean_bias_1.0.ps.gz">PS</A>
-		  <A HREF="memo_mean_bias_1.0.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="mkacisrmf">mkacisrmf spec</h4>
-	  <p>This document describes a specification for computing an ACIS RMF.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>02/01/2017</td><td>1.00</td><td>
-		  <A HREF="mkacisrmf_spec_1.00.pdf">PDF</A>
-		  <A HREF="mkacisrmf_spec_1.00.ps.gz">PS</A>
-		  <A HREF="mkacisrmf_spec_1.00.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-	  
-	  <h4 id="caveats">ACIS pipeline processing caveats memo</h4>
-	  <p>This document describes caveats about ACIS pipeline-produced event data.</p>
-<P><A HREF="acis_caveats_020710.html">HTML</A>
-	(07/10/2002)</p>
-	  <h4 id="ACIStools">ACIS pipeline processing tools</h4>
-	  <p>This document describes the ACIS pipeline processing tools.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>02/28/2000</td><td>2.1</td><td>
-		  <A HREF="acis_tools_rev2.1.pdf">PDF</A>
-		  <A HREF="acis_tools_rev2.1.ps.gz">PS</A>
-</td></tr>
-<tr><td>11/01/1999</td><td>2.0</td><td>
-		  <A HREF="acis_tools_rev2.0.pdf">PDF</A>
-		  <A HREF="acis_tools_rev2.0.ps.gz">PS</A>
-</td></tr>
-</tbody></table>
-
-	  <h4 id="s4streak_alg">S4 streak algorithm</h4>
-	  <p>This document describes an algorithm used to identify horizontal,
-            instrumental, streak events on ACIS-S4.</p>
-	  <div class="p-3 mb-2 bg-warning text-white">This memo is superceeded by the <a href="s4streak_alg">S4 streak algorithm</a> spec.</div>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>06/07/2013</td><td>000801</td><td>
-		  <A HREF="s4_streak_algorithm_000801.pdf">PDF</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="s4streak_loss">S4 streak loss parameter</h4>
-	  <p>This document describes a better implementation of the fractional
-        loss parameter of the tool that identifies horizontal, instrumental,
-            streak events on ACIS-S4.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>08/15/2013</td><td>2.0</td><td>
-		  <A HREF="s4_streak_loss_2.0.pdf">PDF</A>
-</td></tr>
-<tr><td>06/12/2013</td><td>1.1</td><td>
-		  <A HREF="s4_streak_loss_1.1.pdf">PDF</A>
-</td></tr>
-<tr><td>06/10/2013</td><td>1.0</td><td>
-		  <A HREF="s4_streak_loss_1.0.pdf">PDF</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="s4streak_prop">S4 streak properties</h4>
-	  <p>This document describes the properties of the horizontal,
-        instrumental, streak events on ACIS-S4.</p>
-	  <div class="p-3 mb-2 bg-warning text-white">This memo is superceeded by the <a href="s4streak_alg">S4 streak algorithm</a> spec.</div>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>06/07/2013</td><td>040316</td><td>
-		  <A HREF="s4_streak_properties_040316.pdf">PDF</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="bpixbits">STATUS bits in bad-pixel files</h4>
-	  <p>This document describes the conditions for which the STATUS bits in ACIS
-	    bad pixel files are set.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>04/28/2017</td><td>1.12</td><td>
-		  <A HREF="memo_bpix_status_bits_1.12.pdf">PDF</A>
-		  <A HREF="memo_bpix_status_bits_1.12.ps.gz">PS</A>
-		  <A HREF="memo_bpix_status_bits_1.12.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>06/19/2007</td><td>1.11</td><td>
-		  <A HREF="memo_bpix_status_bits_1.11.pdf">PDF</A>
-		  <A HREF="memo_bpix_status_bits_1.11.ps.gz">PS</A>
-		  <A HREF="memo_bpix_status_bits_1.11.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>05/04/2006</td><td>1.10</td><td>
-		  <A HREF="memo_bpix_status_bits_1.10.pdf">PDF</A>
-		  <A HREF="memo_bpix_status_bits_1.10.ps.gz">PS</A>
-		  <A HREF="memo_bpix_status_bits_1.10.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="evtbits">STATUS bits in event files</h4>
-	  <p>This document describes the conditions for which the STATUS bits
-        in ACIS	event data files are set.
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>05/18/2009</td><td>2.3</td><td>
-		  <A HREF="memo_event_status_bits_2.3.pdf">PDF</A>
-		  <A HREF="memo_event_status_bits_2.3.ps.gz">PS</A>
-		  <A HREF="memo_event_status_bits_2.3.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>01/19/2007</td><td>2.2</td><td>
-		  <A HREF="memo_event_status_bits_2.2.pdf">PDF</A>
-		  <A HREF="memo_event_status_bits_2.2.ps.gz">PS</A>
-		  <A HREF="memo_event_status_bits_2.2.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>04/24/2006/</td><td>2.1</td><td>
-		  <A HREF="memo_event_status_bits_2.1.pdf">PDF</A>
-		  <A HREF="memo_event_status_bits_2.1.ps.gz">PS</A>
-		  <A HREF="memo_event_status_bits_2.1.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="subpix">Sub-pixel event-repositioning and pixel
+								<LI> <a href=#letggeom1> LETG + ACIS-S Rotation Issue  </a> </li>
+								<LI> <a href=#findzo>Finding Zeroth Order Position  </a> </li>
+								<LI> <a href=#tgfindzo>tg_findzo spec</a> </li>
+								<LI> <a href=#tgdetect2>tgdetect2 spec  </a> </li>
+								<LI> <a href=#hetgfptemp> HETG/ACIS Focal Plane Temperature Analysis  </a> </li>
+							</ul>
+						</li>
+						<li><a href=#PSF> PSF and LSF</a>
+							<ul>
+								<LI> <a href=#random>Data Randomization</a> Required enhancement in header keywords
+									<LI> <a href=#lsf1>LSFPARM</a> for HETG+ACIS-S validated for unrandomized datasets
+										<LI> <a href=#lsf2>LSFPARM</a> for LETG+HRC-S validated for unrandomized datasets
+											<LI> <a href=#lsf3>LSFPARM</a> for LETG+ACIS-S validated for unrandomized datasets
+												<LI> <a href=#lsf4>Updated LSFPARM</a> for MEG+ACIS-S for unrandomized datasets </ul>
+							</li>
+							<li><a href=#ARD> ARD </a></li>
+							<li><a href=#Expmap> Exposure Map</a></li>
+							<li><a href=#Misc> Miscellaneous</a>
+								<ul>
+									<li><a href=#gratcoords>Transmission Grating Diffraction Coordinates</a></li>
+									<LI><a href=#CIAO3>CIAO 3</a> architecture White Paper and SDS presentation.</li>
+									<li><a href=#ISIS>ISIS</a></li>
+								</ul>
+							</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="ACIS" class="bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<h3>ACIS</h3>
+					<h4 id="badpix">acis_build_badpix spec</h4>
+					<P>This document describes the use of the parameters bitflag and usrfile for the tool acis_build_badpix.</p>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Date</th>
+								<th scope="col">Version</th>
+								<th scope="col">Download</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>04/28/2017</td>
+								<td>2.6</td>
+								<td>
+									<A HREF="memo_acis_build_badpix_2.6.pdf">PDF</A>,
+									<A HREF="memo_acis_build_badpix_2.6.ps.gz">PS</A>,
+									<A HREF="memo_acis_build_badpix_2.6.tex">LaTeX source</A> </td>
+							</tr>
+							<tr>
+								<td>10/06/2009</td>
+								<td>2.5</td>
+								<td>
+									<A HREF="memo_acis_build_badpix_2.5.pdf">PDF</A>,
+									<A HREF="memo_acis_build_badpix_2.5.ps.gz">PS</A>,
+									<A HREF="memo_acis_build_badpix_2.5.tex">LaTeX source</A> </td>
+							</tr>
+							<tr>
+								<td>04/24/2009</td>
+								<td>2.4</td>
+								<td>
+									<A HREF="memo_acis_build_badpix_2.4.pdf">PDF</A>,
+									<A HREF="memo_acis_build_badpix_2.4.ps.gz">PS</A>,
+									<A HREF="memo_acis_build_badpix_2.4.tex">LaTeX source</A> </td>
+							</tr>
+							<tr>
+								<td>04/01/2009</td>
+								<td>2.3</td>
+								<td>
+									<A HREF="memo_acis_build_badpix_2.3.pdf">PDF</A>,
+									<A HREF="memo_acis_build_badpix_2.3.ps.gz">PS</A>,
+									<A HREF="memo_acis_build_badpix_2.3.tex">LaTeX source</A> </td>
+							</tr>
+						</tbody>
+					</table>
+					<h4 id="gti">acis_build_chip_gti spec</h4>
+					<div class="p-3 mb-2 bg-danger text-white">Disregard. The acis_build_chip_gti specs are flawed.</div>
+					<p>This document describes a specification for the ACIS tool acis_build_chip_gti.</p>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Date</th>
+								<th scope="col">Version</th>
+								<th scope="col">Download</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>07/15/2014</td>
+								<td>2.1</td>
+								<td>
+									<A HREF="acis_build_chip_gti_2.1.pdf">PDF</A>
+									<A HREF="acis_build_chip_gti_2.1.ps.gz">PS</A>
+									<A HREF="acis_build_chip_gti_2.1.tex">LaTeX Source</A> </td>
+							</tr>
+							<tr>
+								<td>06/22/2014</td>
+								<td>2.0</td>
+								<td>
+									<A HREF="acis_build_chip_gti_2.0.pdf">PDF</A>
+									<A HREF="acis_build_chip_gti_2.0.ps.gz">PS</A>
+									<A HREF="acis_build_chip_gti_2.0.tex">LaTeX Source</A> </td>
+							</tr>
+							<tr>
+								<td>11/08/2004</td>
+								<td>1.1</td>
+								<td>
+									<A HREF="memo_acis_build_chip_gti_1.1.pdf">PDF</A>
+									<A HREF="memo_acis_build_chip_gti_1.1.ps.gz">PS</A>
+									<A HREF="memo_acis_build_chip_gti_1.1.tex">LaTeX Source</A> </td>
+							</tr>
+						</tbody>
+					</table>
+					<h4 id="msk">acis_build_mask spec </h4>
+					<p>This document describes a specification for the ACIS tool acis_build_mask. </p>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Date</th>
+								<th scope="col">Version</th>
+								<th scope="col">Download</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>04/04/2007</td>
+								<td>4.0</td>
+								<td>
+									<A HREF="memo_acis_build_mask_4.0.pdf">PDF</A>
+									<A HREF="memo_acis_build_mask_4.0.ps.gz">PS</A>
+									<A HREF="memo_acis_build_mask_4.0.tex">LaTeX Source</A> </td>
+							</tr>
+							<tr>
+								<td>08/11/2004</td>
+								<td>3.10</td>
+								<td>
+									<A HREF="memo_acis_build_mask_3.10.pdf">PDF</A>
+									<A HREF="memo_acis_build_mask_3.10.ps.gz">PS</A>
+									<A HREF="memo_acis_build_mask_3.10.tex">LaTeX Source</A> </td>
+							</tr>
+							<tr>
+								<td>04/26/2004</td>
+								<td>3.9</td>
+								<td>
+									<A HREF="memo_acis_build_mask_3.9.pdf">PDF</A>
+									<A HREF="memo_acis_build_mask_3.9.ps.gz">PS</A>
+									<A HREF="memo_acis_build_mask_3.9.tex">LaTeX Source</A> </td>
+							</tr>
+						</tbody>
+					</table>
+					<h4 id="hotpix">acis_detect_hotpix spec</h4>
+					<p>This document describes a specification for the ACIS tool acis_detect_hotpix. </p>
+					<div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a href=#aft>acis_find_afterglow spec</a>.</div>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Date</th>
+								<th scope="col">Version</th>
+								<th scope="col">Download</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>06/16/2006</td>
+								<td>1.11</td>
+								<td>
+									<A HREF="memo_acis_detect_hotpix_1.11.pdf">PDF</A>
+									<A HREF="memo_acis_detect_hotpix_1.11.ps.gz">PS</A>
+									<A HREF="memo_acis_detect_hotpix_1.11.tex">LaTeX Source</A> </td>
+							</tr>
+							<tr>
+								<td>05/10/2006</td>
+								<td>1.10</td>
+								<td>
+									<A HREF="memo_acis_detect_hotpix_1.10.pdf">PDF</A>
+									<A HREF="memo_acis_detect_hotpix_1.10.ps.gz">PS</A>
+									<A HREF="memo_acis_detect_hotpix_1.10.tex">LaTeX Source</A> </td>
+							</tr>
+							<tr>
+								<td>10/15/2004</td>
+								<td>1.9</td>
+								<td>
+									<A HREF="memo_acis_detect_hotpix_1.9.pdf">PDF</A>
+									<A HREF="memo_acis_detect_hotpix_1.9.ps.gz">PS</A>
+									<A HREF="memo_acis_detect_hotpix_1.9.tex">LaTeX Source</A> </td>
+							</tr>
+						</tbody>
+					</table>
+					<h4 id="aft">acis_find_afterglow spec</h4>
+					<p>
+						<P>This document describes a specification for algorithms to find afterglows and hot pixels on ACIS CCDs. This spec supersedes the previous <a href=#hotpix>acis_detect_hotpix</a> and <a href=#hotpix2>hot-pixel detection</a> specs.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>04/28/2017</td>
+									<td>2.11</td>
+									<td>
+										<A HREF="afterglow_spec_2.11.pdf">PDF</A>
+										<A HREF="afterglow_spec_2.11.ps.gz">PS</A>
+										<A HREF="afterglow_spec_2.11.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>04/11/2012</td>
+									<td>2.10</td>
+									<td>
+										<A HREF="afterglow_spec_2.10.pdf">PDF</A>
+										<A HREF="afterglow_spec_2.10.ps.gz">PS</A>
+										<A HREF="afterglow_spec_2.10.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>03/02/2012</td>
+									<td>2.9</td>
+									<td>
+										<A HREF="afterglow_spec_2.9.pdf">PDF</A>
+										<A HREF="afterglow_spec_2.9.ps.gz">PS</A>
+										<A HREF="afterglow_spec_2.9.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>12/09/2011</td>
+									<td>2.8</td>
+									<td>
+										<A HREF="afterglow_spec_2.8.pdf">PDF</A>
+										<A HREF="afterglow_spec_2.8.ps.gz">PS</A>
+										<A HREF="afterglow_spec_2.8.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="bkgd">acis_make_bkgd spec</h4>
+						<p>This document describes a specification for the ACIS tool acis_make_bkgd.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>05/11/2006</td>
+									<td>1.4</td>
+									<td>
+										<A HREF="memo_acis_make_bkgd_1.4.pdf">PDF</A>
+										<A HREF="memo_acis_make_bkgd_1.4.ps.gz">PS</A>
+										<A HREF="memo_acis_make_bkgd_1.4.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>04/08/2005</td>
+									<td>1.3</td>
+									<td>
+										<A HREF="memo_acis_make_bkgd_1.3.pdf">PDF</A>
+										<A HREF="memo_acis_make_bkgd_1.3.ps.gz">PS</A>
+										<A HREF="memo_acis_make_bkgd_1.3.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>04/01/2008</td>
+									<td>1.2</td>
+									<td>
+										<A HREF="memo_acis_make_bkgd_1.2.pdf">PDF</A>
+										<A HREF="memo_acis_make_bkgd_1.2.ps.gz">PS</A>
+										<A HREF="memo_acis_make_bkgd_1.2.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>03/16/2005</td>
+									<td>1.1</td>
+									<td>
+										<A HREF="memo_acis_make_bkgd_1.1.pdf">PDF</A>
+										<A HREF="memo_acis_make_bkgd_1.1.ps.gz">PS</A>
+										<A HREF="memo_acis_make_bkgd_1.1.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>02/18/2005</td>
+									<td>1.0</td>
+									<td>
+										<A HREF="memo_acis_make_bkgd_1.0.pdf">PDF</A>
+										<A HREF="memo_acis_make_bkgd_1.0.ps.gz">PS</A>
+										<A HREF="memo_acis_make_bkgd_1.0.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="ape">acis_process_events spec</h4>
+						<p>This document describes an incomplete specification for the ACIS tool acis_process_events.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>04/28/2017</td>
+									<td>4.17</td>
+									<td>
+										<A HREF="ape_spec_4.17.pdf">PDF</A>
+										<A HREF="ape_spec_4.17.ps.gz">PS</A>
+										<A HREF="ape_spec_4.17.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>09/28/2016</td>
+									<td>4.16</td>
+									<td>
+										<A HREF="ape_spec_4.16.pdf">PDF</A>
+										<A HREF="ape_spec_4.16.ps.gz">PS</A>
+										<A HREF="ape_spec_4.16.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>/07/07/2016</td>
+									<td>4.15</td>
+									<td>
+										<A HREF="ape_spec_4.15.pdf">PDF</A>
+										<A HREF="ape_spec_4.15.ps.gz">PS</A>
+										<A HREF="ape_spec_4.15.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>06/23/2016</td>
+									<td>4.14</td>
+									<td>
+										<A HREF="ape_spec_4.14.pdf">PDF</A>
+										<A HREF="ape_spec_4.14.ps.gz">PS</A>
+										<A HREF="ape_spec_4.14.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="apebadpix">acis_process_events: bad-pixel spec</h4>
+						<p>This document describes a specification for the use of bad-pixel files by the ACIS tool <a href="#ape">acis_process_events</a>.</p>
+						<div class="p-3 mb-2 bg-warning text-white">This spec is still under development.</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>01/19/2007</td>
+									<td>1.0</td>
+									<td>
+										<A HREF="memo_ape_badpix_1.0.pdf">PDF</A>
+										<A HREF="memo_ape_badpix_1.0.ps.gz">PS</A>
+										<A HREF="memo_ape_badpix_1.0.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="readcorr">acisreadcorr spec</h4>
+						<p>This document describes a specification for the computation of TIME for the ACIS tool acisreadcorr.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>10/01/2002</td>
+									<td>1.3b</td>
+									<td>
+										<A HREF="memo_acis_read_corr_times_1.3b.pdf">PDF</A>
+										<A HREF="memo_acis_read_corr_times_1.3b.ps.gz">PS</A>
+										<A HREF="memo_acis_read_corr_times_1.3b.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="aft_det_eff">Afterglow detection efficiency</h4>
+						<p>This document describes the afterglow detection efficiency of acis_run_hotpix.</p>
+						<div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a href=#aft>acis_find_afterglow spec</a>.</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>03/01/2011</td>
+									<td>1.2</td>
+									<td>
+										<A HREF="afterglow_detection_efficiency_1.2.pdf">PDF</A>
+										<A HREF="afterglow_detection_efficiency_1.2.ps.gz">PS</A>
+										<A HREF="afterglow_detection_efficiency_1.2.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>10/07/2010</td>
+									<td>1.1</td>
+									<td>
+										<A HREF="afterglow_detection_efficiency_1.1.pdf">PDF</A>
+										<A HREF="afterglow_detection_efficiency_1.1.ps.gz">PS</A>
+										<A HREF="afterglow_detection_efficiency_1.1.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="ACISARD">ACIS Analysis Reference Data Interface Control Document</h4>
+						<p>This document describes the formats of the Analysis Reference Data files used by the ACIS tools.</p>
+						<div class="p-3 mb-2 bg-warning text-white">This spec is still under development.</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>03/15/2000</td>
+									<td>2.1</td>
+									<td>
+										<A HREF="ARD_ICD/ACIS_ARD_ICD_2.1.pdf">PDF</A>
+										<A HREF="ARD_ICD/ACIS_ARD_ICD_2.1.ps.gz">PS</A> </td>
+								</tr>
+								<tr>
+									<td>11/30/1999</td>
+									<td>2.0</td>
+									<td>
+										<A HREF="ARD_ICD/ACIS_ARD_ICD_2.0.pdf">PDF</A>
+										<A HREF="ARD_ICD/ACIS_ARD_ICD_2.0.ps.gz">PS</A> </td>
+								</tr>
+								<tr>
+									<td>03/12/1999</td>
+									<td>1.3</td>
+									<td>
+										<A HREF="ARD_ICD/ACIS_ARD_ICD_1.3.pdf">PDF</A>
+										<A HREF="ARD_ICD/ACIS_ARD_ICD_1.3.ps.gz">PS</A>
+										<A HREF="ACISsource/ARD/Rev1.3/">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="bias_keys">Bias header keywords</h4>
+						<p>This spec describes how to determine the values of some of the keywords in the header of an ACIS bias file.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>09/05/2006</td>
+									<td>1.0</td>
+									<td>
+										<A HREF="memo_bias_keys_1.0.pdf">PDF</A>
+										<A HREF="memo_bias_keys_1.0.ps.gz">PS</A>
+										<A HREF="memo_bias_keys_1.0.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="berr">Bias-parity error</h4>
+						<p>This spec describes how to handle bias-parity errors when producing a bad-pixel file.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>11/14/2013</td>
+									<td>1.3</td>
+									<td>
+										<A HREF="bias_parity_error_spec_1.3.pdf">PDF</A>
+										<A HREF="bias_parity_error_spec_1.3.ps.gz">PS</A>
+										<A HREF="bias_parity_error_spec_1.3.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>10/21/2013</td>
+									<td>1.1</td>
+									<td>
+										<A HREF="bias_parity_error_spec_1.1.pdf">PDF</A>
+										<A HREF="bias_parity_error_spec_1.1.ps.gz">PS</A>
+										<A HREF="bias_parity_error_spec_1.1.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>11/21/2012</td>
+									<td>1.0</td>
+									<td>
+										<A HREF="bias_parity_error_spec_1.0.pdf">PDF</A>
+										<A HREF="bias_parity_error_spec_1.0.ps.gz">PS</A>
+										<A HREF="bias_parity_error_spec_1.0.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="bias_rep">Bias repair and replacement</h4>
+						<p>This spec describes how to repair or replace a bias for an observation with a suitable bias from another observation. </p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>05/25/2011</td>
+									<td>5.5</td>
+									<td>
+										<A HREF="bias_repair_5.5.pdf">PDF</A>
+										<A HREF="bias_repair_5.5.ps.gz">PS</A>
+										<A HREF="bias_repair_5.5.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>05/13/2010</td>
+									<td>5.4</td>
+									<td>
+										<A HREF="bias_repair_5.4.pdf">PDF</A>
+										<A HREF="bias_repair_5.4.ps.gz">PS</A>
+										<A HREF="bias_repair_5.4.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>05/12/2010</td>
+									<td>5.3</td>
+									<td>
+										<A HREF="bias_repair_5.3.pdf">PDF</A>
+										<A HREF="bias_repair_5.3.ps.gz">PS</A>
+										<A HREF="bias_repair_5.3.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="check_vf">Check VFAINT background</h4>
+						<p>This document describes an algorithm that can be used to search for potential cosmic-ray background events in the data for TIMED VFAINT mode observations.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>03/10/2008</td>
+									<td>1.4</td>
+									<td>
+										<A HREF="memo_check_vf_pha_1.4.pdf">PDF</A>
+										<A HREF="memo_check_vf_pha_1.4.ps.gz">PS</A>
+										<A HREF="memo_check_vf_pha_1.4.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>09/22/2006</td>
+									<td>1.3</td>
+									<td>
+										<A HREF="memo_check_vf_pha_1.3.pdf">PDF</A>
+										<A HREF="memo_check_vf_pha_1.3.ps.gz">PS</A>
+										<A HREF="memo_check_vf_pha_1.3.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>09/01/2006</td>
+									<td>1.2</td>
+									<td>
+										<A HREF="memo_check_vf_pha_1.2.pdf">PDF</A>
+										<A HREF="memo_check_vf_pha_1.2.ps.gz">PS</A>
+										<A HREF="memo_check_vf_pha_1.2.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="cti">CTI spec</h4>
+						<p>This document describes how to compute the CTI-adjusted values of PHAS, PHA, ENERGY, PI, FLTGRADE, and GRADE for ACIS event data. The algorithm includes a temperature-dependent scaling factor for the integrated trap-density maps.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>10/27/2010</td>
+									<td>7.2</td>
+									<td>
+										<A HREF="memo_cti_correction_7.2.pdf">PDF</A>
+										<A HREF="memo_cti_correction_7.2.ps.gz">PS</A>
+										<A HREF="memo_cti_correction_7.2.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>10/10/2010</td>
+									<td>7.1</td>
+									<td>
+										<A HREF="memo_cti_correction_7.1.pdf">PDF</A>
+										<A HREF="memo_cti_correction_7.1.ps.gz">PS</A>
+										<A HREF="memo_cti_correction_7.1.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>06/08/2010</td>
+									<td>7.0</td>
+									<td>
+										<A HREF="memo_cti_correction_7.0.pdf">PDF</A>
+										<A HREF="memo_cti_correction_7.0.ps.gz">PS</A>
+										<A HREF="memo_cti_correction_7.0.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>09/01/2009</td>
+									<td>6.2</td>
+									<td>
+										<A HREF="memo_cti_correction_6.2.pdf">PDF</A>
+										<A HREF="memo_cti_correction_6.2.ps.gz">PS</A>
+										<A HREF="memo_cti_correction_6.2.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="deltoclk">DELTOCLK spec</h4>
+						<p>This document describes the algorithm used to identify anomalous DELTOCLK values.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>02/19/2013</td>
+									<td>3.2</td>
+									<td>
+										<A HREF="deltoclk_spec_3.2.pdf">PDF</A>
+										<A HREF="deltoclk_spec_3.2.ps.gz">PS</A>
+										<A HREF="deltoclk_spec_3.2.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>02/19/2013</td>
+									<td>3.1</td>
+									<td>
+										<A HREF="deltoclk_spec_3.1.pdf">PDF</A>
+										<A HREF="deltoclk_spec_3.1.ps.gz">PS</A>
+										<A HREF="deltoclk_spec_3.1.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>02/19/2013</td>
+									<td>3.0</td>
+									<td>
+										<A HREF="deltoclk_spec_3.0.pdf">PDF</A>
+										<A HREF="deltoclk_spec_3.0.ps.gz">PS</A>
+										<A HREF="deltoclk_spec_3.0.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>04/30/2012</td>
+									<td>2.0</td>
+									<td>
+										<A HREF="deltoclk_spec_2.0.pdf">PDF</A>
+										<A HREF="deltoclk_spec_2.0.ps.gz">PS</A>
+										<A HREF="deltoclk_spec_2.0.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="energy_pi">Computation of ENERGY and PI</h4>
+						<p>This document describes how to compute ENERGY and PI for ACIS event data.</p>
+						<div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a href=#ape>acis_process_events spec</a>.</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>07/20/2013</td>
+									<td>1.0</td>
+									<td> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="grades">Computation of FLTGRADE, GRADE, and PHA</h4>
+						<p>This document describes how to compute FLTGRADE, GRADE, and PHA for ACIS event data.</p>
+						<div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a href=#ape>acis_process_events spec</a>.</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>03/18/2014</td>
+									<td>1.7</td>
+									<td> </td>
+								</tr>
+								<tr>
+									<td>01/08/2007</td>
+									<td>1.5</td>
+									<td> </td>
+								</tr>
+								<tr>
+									<td>05/16/2003</td>
+									<td>1.4</td>
+									<td> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="exposure">Computation of ONTIME, DTCOR, and EXPOSURE</h4>
+						<p>This document describes how to compute TIMEDEL, FLSHTIME, ONTIME, DTCOR, and EXPOSURE for ACIS event data.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>09/09/2002</td>
+									<td>1.2b</td>
+									<td>
+										<A HREF="memo_time_keywords_proposal_1.2b.pdf">PDF</A>
+										<A HREF="memo_time_keywords_proposal_1.2b.ps.gz">PS</A>
+										<A HREF="memo_time_keywords_proposal_1.2b.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="hkp">Computation of QUERY_VAL</h4>
+						<p>This document describes how to compute QUERY_VAL for ACIS housekeeping data.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>09/09/2002</td>
+									<td>1.1</td>
+									<td>
+										<A HREF="memo_hkp0_query_val_1.1.pdf">PDF</A>
+										<A HREF="memo_hkp0_query_val_1.1.ps.gz">PS</A>
+										<A HREF="memo_hkp0_query_val_1.1.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>08/26/2002</td>
+									<td>1.0</td>
+									<td>
+										<A HREF="memo_hkp0_query_val_1.0.pdf">PDF</A>
+										<A HREF="memo_hkp0_query_val_1.0.ps.gz">PS</A>
+										<A HREF="memo_hkp0_query_val_1.0.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="toa">Computation of X, Y, and TIMEs of arrival of CC-mode events</h4>
+						<p>This document describes how to compute the sky coordinates and times of arrival of photons at the detector for CC-mode event data.</p>
+						<div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a href=#ape>acis_process_events spec</a>.</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>04/04/2006</td>
+									<td>4.6</td>
+									<td>
+										<A HREF="memo_acis_cc_calc_toa_4.6.pdf">PDF</A>
+										<A HREF="memo_acis_cc_calc_toa_4.6.ps.gz">PS</A>
+										<A HREF="memo_acis_cc_calc_toa_4.6.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>01/14/2005</td>
+									<td>4.5</td>
+									<td>
+										<A HREF="memo_acis_cc_calc_toa_4.5.pdf">PDF</A>
+										<A HREF="memo_acis_cc_calc_toa_4.5.ps.gz">PS</A>
+										<A HREF="memo_acis_cc_calc_toa_4.5.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>04/25/2003</td>
+									<td>4.4</td>
+									<td>
+										<A HREF="memo_acis_cc_calc_toa_4.4.pdf">PDF</A>
+										<A HREF="memo_acis_cc_calc_toa_4.4.ps.gz">PS</A>
+										<A HREF="memo_acis_cc_calc_toa_4.4.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="fltgrade_caveat">A caveat about FLTGRADE = 255 in Level 1 event files</h4>
+						<p>This document describes why Level 1 event files can contain events that have FLTGRADE = 255.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>02/27/2007</td>
+									<td>1.0</td>
+									<td>
+										<A HREF="notes_fltgrade_1.0.pdf">PDF</A>
+										<A HREF="notes_fltgrade_1.0.ps.gz">PS</A>
+										<A HREF="notes_fltgrade_1.0.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="grade_ard">Grade ARD spec</h4>
+						<p>This spec describes the grade ARD file structure.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>03/18/2014</td>
+									<td>1.0</td>
+									<td>
+										<A HREF="grade_ard_1.0.pdf">PDF</A>
+										<A HREF="grade_ard_1.0.ps.gz">PS</A>
+										<A HREF="grade_ard_1.0.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="hotpix2">Hot-pixel spec</h4>
+						<p>This document describes a specification for a hot-pixel detection algorithm.</p>
+						<div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a href=#aft>acis_find_afterglow spec</a>.</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>01/23/2011</td>
+									<td>2.3</td>
+									<td>
+										<A HREF="hotpix_spec_2.3.pdf">PDF</A>
+										<A HREF="hotpix_spec_2.3.ps.gz">PS</A>
+										<A HREF="hotpix_spec_2.3.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>10/23/2009</td>
+									<td>2.2</td>
+									<td>
+										<A HREF="hotpix_spec_2.2.pdf">PDF</A>
+										<A HREF="hotpix_spec_2.2.ps.gz">PS</A>
+										<A HREF="hotpix_spec_2.2.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>07/30/2008</td>
+									<td>2.1</td>
+									<td>
+										<A HREF="hotpix_spec_2.1.pdf">PDF</A>
+										<A HREF="hotpix_spec_2.1.ps.gz">PS</A>
+										<A HREF="hotpix_spec_2.1.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>07/29/2008</td>
+									<td>2.0</td>
+									<td>
+										<A HREF="hotpix_spec_2.0.pdf">PDF</A>
+										<A HREF="hotpix_spec_2.0.ps.gz">PS</A>
+										<A HREF="hotpix_spec_2.0.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="ACISL0">ACIS Level 0 Interface Control Document</h4>
+						<p>This document describes the formats of the Level 0 data products.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>10/23/2000</td>
+									<td>3.2</td>
+									<td>
+										<A HREF="acis_l0_3.2.pdf">PDF</A>
+										<A HREF="acis_l0_3.2.ps.gz">PS</A>
+										<A HREF="ACISsource/L0/Rev3.2/">Framemaker source</A> </td>
+								</tr>
+								<tr>
+									<td>08/10/2000</td>
+									<td>3.1</td>
+									<td>
+										<A HREF="acis_l0_3.1.pdf">PDF</A>
+										<A HREF="acis_l0_3.1.ps.gz">PS</A>
+										<A HREF="ACISsource/L0/Rev3.1/">Framemaker source</A> </td>
+								</tr>
+								<tr>
+									<td>08/18/1999</td>
+									<td>3.0</td>
+									<td>
+										<A HREF="acis_l0_3.0.pdf">PDF</A>
+										<A HREF="acis_l0_3.0.ps.gz">PS</A>
+										<A HREF="ACISsource/L0/Rev3.0/">Framemaker source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="ACISL1">ACIS Level 1 Interface Control Document</h4>
+						<p>This document describes the formats of the Level 1 data products.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>10/23/2000</td>
+									<td>3.2</td>
+									<td>
+										<A HREF="acis_l1_2.3.pdf">PDF</A>
+										<A HREF="acis_l1_2.3.ps.gz">PS</A>
+										<A HREF="ACISsource/L1/Rev2.3/acis_l1_2.3.tar">Framemaker source</A> </td>
+								</tr>
+								<tr>
+									<td>08/10/2000</td>
+									<td>3.1</td>
+									<td>
+										<A HREF="acis_l1_2.2.pdf">PDF</A>
+										<A HREF="acis_l1_2.2.ps.gz">PS</A>
+										<A HREF="ACISsource/L1/Rev2.2/acis_l1_2.2.tar">Framemaker source</A> </td>
+								</tr>
+								<tr>
+									<td>08/18/1999</td>
+									<td>3.0</td>
+									<td>
+										<A HREF="acis_l1_2.2.pdf">PDF</A>
+										<A HREF="acis_l1_2.2.ps.gz">PS</A>
+										<A HREF="ACISsource/L1/Rev2.1/acis_l1_2.1.tar">Framemaker source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="instgeom">Notes about ACIS instrument geometry data memo</h4>
+						<p>This document describes some self-consistency tests of the LSI coordinates of the ACIS CCDs.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>06/08/2005</td>
+									<td>1.0</td>
+									<td>
+										<A HREF="memo_instgeom_1.0.pdf">PDF</A>
+										<A HREF="memo_instgeom_1.0.ps.gz">PS</A>
+										<A HREF="memo_instgeom_1.0.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="mean_bias">Mean biases</h4>
+						<p>This document describes a specification for computing observation-specific biases from mean biases.</p>
+						<div class="p-3 mb-2 bg-warning text-white">This spec is still under development and does not work in the current form.</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>06/12/2007</td>
+									<td>1.2</td>
+									<td>
+										<A HREF="memo_mean_bias_1.2.pdf">PDF</A>
+										<A HREF="memo_mean_bias_1.2.ps.gz">PS</A>
+										<A HREF="memo_mean_bias_1.2.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>06/04/2007</td>
+									<td>1.1</td>
+									<td>
+										<A HREF="memo_mean_bias_1.1.pdf">PDF</A>
+										<A HREF="memo_mean_bias_1.1.ps.gz">PS</A>
+										<A HREF="memo_mean_bias_1.1.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>05/30/2007</td>
+									<td>1.0</td>
+									<td>
+										<A HREF="memo_mean_bias_1.0.pdf">PDF</A>
+										<A HREF="memo_mean_bias_1.0.ps.gz">PS</A>
+										<A HREF="memo_mean_bias_1.0.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="mkacisrmf">mkacisrmf spec</h4>
+						<p>This document describes a specification for computing an ACIS RMF.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>02/01/2017</td>
+									<td>1.00</td>
+									<td>
+										<A HREF="mkacisrmf_spec_1.00.pdf">PDF</A>
+										<A HREF="mkacisrmf_spec_1.00.ps.gz">PS</A>
+										<A HREF="mkacisrmf_spec_1.00.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="caveats">ACIS pipeline processing caveats memo</h4>
+						<p>This document describes caveats about ACIS pipeline-produced event data.</p>
+						<P>
+							<A HREF="acis_caveats_020710.html">HTML</A> (07/10/2002)</p>
+						<h4 id="ACIStools">ACIS pipeline processing tools</h4>
+						<p>This document describes the ACIS pipeline processing tools.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>02/28/2000</td>
+									<td>2.1</td>
+									<td>
+										<A HREF="acis_tools_rev2.1.pdf">PDF</A>
+										<A HREF="acis_tools_rev2.1.ps.gz">PS</A> </td>
+								</tr>
+								<tr>
+									<td>11/01/1999</td>
+									<td>2.0</td>
+									<td>
+										<A HREF="acis_tools_rev2.0.pdf">PDF</A>
+										<A HREF="acis_tools_rev2.0.ps.gz">PS</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="s4streak_alg">S4 streak algorithm</h4>
+						<p>This document describes an algorithm used to identify horizontal, instrumental, streak events on ACIS-S4.</p>
+						<div class="p-3 mb-2 bg-warning text-white">This memo is superceeded by the <a href="s4streak_alg">S4 streak algorithm</a> spec.</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>06/07/2013</td>
+									<td>000801</td>
+									<td>
+										<A HREF="s4_streak_algorithm_000801.pdf">PDF</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="s4streak_loss">S4 streak loss parameter</h4>
+						<p>This document describes a better implementation of the fractional loss parameter of the tool that identifies horizontal, instrumental, streak events on ACIS-S4.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>08/15/2013</td>
+									<td>2.0</td>
+									<td>
+										<A HREF="s4_streak_loss_2.0.pdf">PDF</A> </td>
+								</tr>
+								<tr>
+									<td>06/12/2013</td>
+									<td>1.1</td>
+									<td>
+										<A HREF="s4_streak_loss_1.1.pdf">PDF</A> </td>
+								</tr>
+								<tr>
+									<td>06/10/2013</td>
+									<td>1.0</td>
+									<td>
+										<A HREF="s4_streak_loss_1.0.pdf">PDF</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="s4streak_prop">S4 streak properties</h4>
+						<p>This document describes the properties of the horizontal, instrumental, streak events on ACIS-S4.</p>
+						<div class="p-3 mb-2 bg-warning text-white">This memo is superceeded by the <a href="s4streak_alg">S4 streak algorithm</a> spec.</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>06/07/2013</td>
+									<td>040316</td>
+									<td>
+										<A HREF="s4_streak_properties_040316.pdf">PDF</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="bpixbits">STATUS bits in bad-pixel files</h4>
+						<p>This document describes the conditions for which the STATUS bits in ACIS bad pixel files are set.</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Version</th>
+									<th scope="col">Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>04/28/2017</td>
+									<td>1.12</td>
+									<td>
+										<A HREF="memo_bpix_status_bits_1.12.pdf">PDF</A>
+										<A HREF="memo_bpix_status_bits_1.12.ps.gz">PS</A>
+										<A HREF="memo_bpix_status_bits_1.12.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>06/19/2007</td>
+									<td>1.11</td>
+									<td>
+										<A HREF="memo_bpix_status_bits_1.11.pdf">PDF</A>
+										<A HREF="memo_bpix_status_bits_1.11.ps.gz">PS</A>
+										<A HREF="memo_bpix_status_bits_1.11.tex">LaTeX Source</A> </td>
+								</tr>
+								<tr>
+									<td>05/04/2006</td>
+									<td>1.10</td>
+									<td>
+										<A HREF="memo_bpix_status_bits_1.10.pdf">PDF</A>
+										<A HREF="memo_bpix_status_bits_1.10.ps.gz">PS</A>
+										<A HREF="memo_bpix_status_bits_1.10.tex">LaTeX Source</A> </td>
+								</tr>
+							</tbody>
+						</table>
+						<h4 id="evtbits">STATUS bits in event files</h4>
+						<p>This document describes the conditions for which the STATUS bits in ACIS event data files are set.
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Date</th>
+										<th scope="col">Version</th>
+										<th scope="col">Download</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>05/18/2009</td>
+										<td>2.3</td>
+										<td>
+											<A HREF="memo_event_status_bits_2.3.pdf">PDF</A>
+											<A HREF="memo_event_status_bits_2.3.ps.gz">PS</A>
+											<A HREF="memo_event_status_bits_2.3.tex">LaTeX Source</A> </td>
+									</tr>
+									<tr>
+										<td>01/19/2007</td>
+										<td>2.2</td>
+										<td>
+											<A HREF="memo_event_status_bits_2.2.pdf">PDF</A>
+											<A HREF="memo_event_status_bits_2.2.ps.gz">PS</A>
+											<A HREF="memo_event_status_bits_2.2.tex">LaTeX Source</A> </td>
+									</tr>
+									<tr>
+										<td>04/24/2006/</td>
+										<td>2.1</td>
+										<td>
+											<A HREF="memo_event_status_bits_2.1.pdf">PDF</A>
+											<A HREF="memo_event_status_bits_2.1.ps.gz">PS</A>
+											<A HREF="memo_event_status_bits_2.1.tex">LaTeX Source</A> </td>
+									</tr>
+								</tbody>
+							</table>
+							<h4 id="subpix">Sub-pixel event-repositioning and pixel
         randomization spec</h4>
-	  <p>This document is a spec describing the sub-pixel
-            event-repositioning and pixel randomization algorithms.</p>
-	  <div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a href=#ape>acis_process_events spec</a>.</div>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>09/30/2013</td><td>2.4</td><td>
-		  <A HREF="subpix_spec_2.4.pdf">PDF</A>
-		  <A HREF="subpix_spec_2.4.ps.gz">PS</A>
-		  <A HREF="subpix_spec_2.4.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>08/21/2013</td><td>2.3</td><td>
-		  <A HREF="subpix_spec_2.3.pdf">PDF</A>
-		  <A HREF="subpix_spec_2.3.ps.gz">PS</A>
-		  <A HREF="subpix_spec_2.3.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>06/28/2013</td><td>2.2</td><td>
-		  <A HREF="subpix_spec_2.2.pdf">PDF</A>
-		  <A HREF="subpix_spec_2.2.ps.gz">PS</A>
-		  <A HREF="subpix_spec_2.2.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-
-	  
-	  <h4 id="trmf">Temperature-dependent RMF spec</h4>
-	  <p>This document describes how a script could be used to create a
-            temperature-dependent RMF.</p>
-	  <div class="p-3 mb-2 bg-warning text-white">This document is still in development.</div>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>03/16/2017</td><td>1.01</td><td>
-		  <A HREF="trmf_spec_1.01.pdf">PDF</A>
-		  <A HREF="trmf_spec_1.01.ps.gz">PS</A>
-		  <A HREF="trmf_spec_1.01.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>02/02/2017</td><td>1.00</td><td>
-		  <A HREF="trmf_spec_1.00.pdf">PDF</A>
-		  <A HREF="trmf_spec_1.00.ps.gz">PS</A>
-		  <A HREF="trmf_spec_1.00.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="tgain_ard">Time-dependent gain ARD</h4>
-	  <p>This document describes the format of the ARD file used to compute the
-	    time-dependent gain adjustment.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>06/04/2003</td><td>1.0</td><td>
-		  <A HREF="memo_tgain_ard_1.0.pdf">PDF</A>
-		  <A HREF="memo_tgain_ard_1.0.ps.gz">PS</A>
-		  <A HREF="memo_tgain_ard_1.0.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="tgain_spec">Time-dependent gain spec</h4>
-	  <p>This document specifies how to apply the time-dependent gain
-            adjustment.</p>
-	  <div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a href=#ape>acis_process_events spec</a>.</div>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>06/02/2006</td><td>1.6</td><td>
-		  <A HREF="memo_apply_tgain_1.6.pdf">PDF</A>
-		  <A HREF="memo_apply_tgain_1.6.ps.gz">PS</A>
-		  <A HREF="memo_apply_tgain_1.6.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>04/20/2004</td><td>1.5</td><td>
-		  <A HREF="memo_apply_tgain_1.5.pdf">PDF</A>
-		  <A HREF="memo_apply_tgain_1.5.ps.gz">PS</A>
-		  <A HREF="memo_apply_tgain_1.5.tex">LaTeX Source</A>
-</td></tr>
-<tr><td>09/24/2003</td><td>1.4</td><td>
-		  <A HREF="memo_apply_tgain_1.4.pdf">PDF</A>
-		  <A HREF="memo_apply_tgain_1.4.ps.gz">PS</A>
-		  <A HREF="memo_apply_tgain_1.4.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-	  
-	  <h4 id="acis_s_geom">New ACIS-S geometry file in 2004</h4>
-	  <p>This document specifies the update on ACIS-S CCD chip corner positions
-	    and MEG grating period.</p>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Date</th>
-		<th scope="col">Version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-    
-<tr><td>11/15/2004</td><td>1.0</td><td>
-		  <A HREF="memo_geometry_acis_s_1.0.ps.gz">PS</A>
-		  <A HREF="memo_geometry_acis_s_1.0.tex">LaTeX Source</A>
-</td></tr>
-</tbody></table>
-
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="HETG">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-	  <h3>HETG and LETG</h3>
-	  <h4 id="tgpipe">Pipeline enhancements to compute grating responses</h4>
-	  <p>This memo describes proposed pipeline changes for
-            computation of grating responses (ARFs, RMFs) for the archive</p>
-	  <p>Current version:
-        <A HREF="cxc_pipe_tg_enhancement.pdf">  PDF</A>
-        Ver. 1.0 (10 Aug 2019)</p>
-	  <h4 id="cc_mode">Grating/CC-mode enhancements</h4>
-	  <p>This memo describes changes made to acis_process_events and tg_resolve_events
-           which improve order-sorting through a second pass of processing which uses
-           the HETG-processing-determined CHIPY position to re-do CTI/gain/tgain
-            corrections.</p>
-	  <p>        Current version:
-        <A HREF="grating_cc_2015-02.pdf">  PDF</A>
-        Ver. 1.0 (04 Nov 2015)</p>
-	  <h4 id="letgslsf">Tests/validation of new HRC-S QE and LETG EEFRAC</h4>
-	  <p>This memo shows test of the revised HRC-S QE and LETG
-        EEFRAC (in the LSFPARM file).  The LETGS effective area should be
-        unchanged.  EEFRAC changes were required for custom
-        extractions which can improve a weak lines signal-to-noise ratio.</p>
-	  <h4 id="tgfindzo">tg_findzo specifications</h4>
-	  <p>Current version:
-        <A HREF="tg_findzo_specs-1.0.0.pdf">  PDF</A>
-        <A HREF="tg_findzo_specs-1.0.0.tex">  TEX</A>
-        Ver. 1.0 (13 Dec 2012)</p>
-	  <h4 id="findzo">Finding Zeroth Order Position</h4>
-	  <p>This document describes a new algorithm of detecting zeroth order position.</p>
-
-        <P>
-        Download
-        <A HREF="memo_fzero_1.4.ps">
+							<p>This document is a spec describing the sub-pixel event-repositioning and pixel randomization algorithms.</p>
+							<div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a href=#ape>acis_process_events spec</a>.</div>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Date</th>
+										<th scope="col">Version</th>
+										<th scope="col">Download</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>09/30/2013</td>
+										<td>2.4</td>
+										<td>
+											<A HREF="subpix_spec_2.4.pdf">PDF</A>
+											<A HREF="subpix_spec_2.4.ps.gz">PS</A>
+											<A HREF="subpix_spec_2.4.tex">LaTeX Source</A> </td>
+									</tr>
+									<tr>
+										<td>08/21/2013</td>
+										<td>2.3</td>
+										<td>
+											<A HREF="subpix_spec_2.3.pdf">PDF</A>
+											<A HREF="subpix_spec_2.3.ps.gz">PS</A>
+											<A HREF="subpix_spec_2.3.tex">LaTeX Source</A> </td>
+									</tr>
+									<tr>
+										<td>06/28/2013</td>
+										<td>2.2</td>
+										<td>
+											<A HREF="subpix_spec_2.2.pdf">PDF</A>
+											<A HREF="subpix_spec_2.2.ps.gz">PS</A>
+											<A HREF="subpix_spec_2.2.tex">LaTeX Source</A> </td>
+									</tr>
+								</tbody>
+							</table>
+							<h4 id="trmf">Temperature-dependent RMF spec</h4>
+							<p>This document describes how a script could be used to create a temperature-dependent RMF.</p>
+							<div class="p-3 mb-2 bg-warning text-white">This document is still in development.</div>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Date</th>
+										<th scope="col">Version</th>
+										<th scope="col">Download</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>03/16/2017</td>
+										<td>1.01</td>
+										<td>
+											<A HREF="trmf_spec_1.01.pdf">PDF</A>
+											<A HREF="trmf_spec_1.01.ps.gz">PS</A>
+											<A HREF="trmf_spec_1.01.tex">LaTeX Source</A> </td>
+									</tr>
+									<tr>
+										<td>02/02/2017</td>
+										<td>1.00</td>
+										<td>
+											<A HREF="trmf_spec_1.00.pdf">PDF</A>
+											<A HREF="trmf_spec_1.00.ps.gz">PS</A>
+											<A HREF="trmf_spec_1.00.tex">LaTeX Source</A> </td>
+									</tr>
+								</tbody>
+							</table>
+							<h4 id="tgain_ard">Time-dependent gain ARD</h4>
+							<p>This document describes the format of the ARD file used to compute the time-dependent gain adjustment.</p>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Date</th>
+										<th scope="col">Version</th>
+										<th scope="col">Download</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>06/04/2003</td>
+										<td>1.0</td>
+										<td>
+											<A HREF="memo_tgain_ard_1.0.pdf">PDF</A>
+											<A HREF="memo_tgain_ard_1.0.ps.gz">PS</A>
+											<A HREF="memo_tgain_ard_1.0.tex">LaTeX Source</A> </td>
+									</tr>
+								</tbody>
+							</table>
+							<h4 id="tgain_spec">Time-dependent gain spec</h4>
+							<p>This document specifies how to apply the time-dependent gain adjustment.</p>
+							<div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a href=#ape>acis_process_events spec</a>.</div>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Date</th>
+										<th scope="col">Version</th>
+										<th scope="col">Download</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>06/02/2006</td>
+										<td>1.6</td>
+										<td>
+											<A HREF="memo_apply_tgain_1.6.pdf">PDF</A>
+											<A HREF="memo_apply_tgain_1.6.ps.gz">PS</A>
+											<A HREF="memo_apply_tgain_1.6.tex">LaTeX Source</A> </td>
+									</tr>
+									<tr>
+										<td>04/20/2004</td>
+										<td>1.5</td>
+										<td>
+											<A HREF="memo_apply_tgain_1.5.pdf">PDF</A>
+											<A HREF="memo_apply_tgain_1.5.ps.gz">PS</A>
+											<A HREF="memo_apply_tgain_1.5.tex">LaTeX Source</A> </td>
+									</tr>
+									<tr>
+										<td>09/24/2003</td>
+										<td>1.4</td>
+										<td>
+											<A HREF="memo_apply_tgain_1.4.pdf">PDF</A>
+											<A HREF="memo_apply_tgain_1.4.ps.gz">PS</A>
+											<A HREF="memo_apply_tgain_1.4.tex">LaTeX Source</A> </td>
+									</tr>
+								</tbody>
+							</table>
+							<h4 id="acis_s_geom">New ACIS-S geometry file in 2004</h4>
+							<p>This document specifies the update on ACIS-S CCD chip corner positions and MEG grating period.</p>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Date</th>
+										<th scope="col">Version</th>
+										<th scope="col">Download</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>11/15/2004</td>
+										<td>1.0</td>
+										<td>
+											<A HREF="memo_geometry_acis_s_1.0.ps.gz">PS</A>
+											<A HREF="memo_geometry_acis_s_1.0.tex">LaTeX Source</A> </td>
+									</tr>
+								</tbody>
+							</table>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="HETG">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<h3>HETG and LETG</h3>
+					<h4 id="tgpipe">Pipeline enhancements to compute grating responses</h4>
+					<p>This memo describes proposed pipeline changes for computation of grating responses (ARFs, RMFs) for the archive</p>
+					<p>Current version:
+						<A HREF="cxc_pipe_tg_enhancement.pdf">  PDF</A> Ver. 1.0 (10 Aug 2019)</p>
+					<h4 id="cc_mode">Grating/CC-mode enhancements</h4>
+					<p>This memo describes changes made to acis_process_events and tg_resolve_events which improve order-sorting through a second pass of processing which uses the HETG-processing-determined CHIPY position to re-do CTI/gain/tgain corrections.</p>
+					<p> Current version:
+						<A HREF="grating_cc_2015-02.pdf">  PDF</A> Ver. 1.0 (04 Nov 2015)</p>
+					<h4 id="letgslsf">Tests/validation of new HRC-S QE and LETG EEFRAC</h4>
+					<p>This memo shows test of the revised HRC-S QE and LETG EEFRAC (in the LSFPARM file). The LETGS effective area should be unchanged. EEFRAC changes were required for custom extractions which can improve a weak lines signal-to-noise ratio.</p>
+					<h4 id="tgfindzo">tg_findzo specifications</h4>
+					<p>Current version:
+						<A HREF="tg_findzo_specs-1.0.0.pdf">  PDF</A>
+						<A HREF="tg_findzo_specs-1.0.0.tex">  TEX</A> Ver. 1.0 (13 Dec 2012)</p>
+					<h4 id="findzo">Finding Zeroth Order Position</h4>
+					<p>This document describes a new algorithm of detecting zeroth order position.</p>
+					<P> Download
+						<A HREF="memo_fzero_1.4.ps">
         PS</A> or
-        <A HREF="memo_fzero_1.4.tex">
+						<A HREF="memo_fzero_1.4.tex">
         LaTeX source</A> of Ver. 1.4 (04/11/07)</p>
-	<h4 id="tgdetect2">tgdetect2, tg_choose_method specifications</h4>
-	        <P>
-        Overview
-        <A HREF="tgfzo.pdf">PDF</A></p>
-
-	  <p>Current version:
-            <A HREF="tg_choose_method_specs-0.2.pdf">  PDF</A>
-            <A HREF="tg_choose_method_specs-0.2.tex">  TEX</A>
-        Ver. 0.2 (11 Sept 2012)</p>
-	  <h4 id="hrcstgain"> HRC-S
+					<h4 id="tgdetect2">tgdetect2, tg_choose_method specifications</h4>
+					<P> Overview
+						<A HREF="tgfzo.pdf">PDF</A>
+					</p>
+					<p>Current version:
+						<A HREF="tg_choose_method_specs-0.2.pdf">  PDF</A>
+						<A HREF="tg_choose_method_specs-0.2.tex">  TEX</A> Ver. 0.2 (11 Sept 2012)</p>
+					<h4 id="hrcstgain"> HRC-S
         Tgain correction (for reduced background); LETG/HRC-S spectral
         filtering after HRC-S Tgain correction</h4>
-	  <p>This document describes the HRC-S time-dependent linearized
-        PI computation ("SPI") for background reduction and associated
-        CALDB "t_gmap" file (appropriate for <em>all</em> HRC-S
-        observations), and the associated HRC-S/LETG event filter
-        required for spectral extraction from Tgain-corrected HRC-S
-        events (CALDB "pireg_tgain" file).</p>
-
-        <P>
-        Current version:
-        <A HREF="hrcs_spi_icd-1.4.pdf">  PDF</A>
-        Ver. 1.4 (24 November 2009)</p>
-        <P>
-        Previous version:
-        <A HREF="hrcs_spi_icd-1.3.pdf">  PDF</A>
-        Ver. 1.3 (8 July 2009)</p>
-	  <h4 id="letggeom1">LETG+ACIS-S Spurious Rotation Issue</h4>
-	  <p>This document describes the LETG+ACIS-S spurious rotation issue.</p>
-
-        <P>
-        <A HREF="memo_letg_rot_1.0.ps.gz">
+					<p>This document describes the HRC-S time-dependent linearized PI computation ("SPI") for background reduction and associated CALDB "t_gmap" file (appropriate for <em>all</em> HRC-S observations), and the associated HRC-S/LETG event filter required for spectral extraction from Tgain-corrected HRC-S events (CALDB "pireg_tgain" file).</p>
+					<P> Current version:
+						<A HREF="hrcs_spi_icd-1.4.pdf">  PDF</A> Ver. 1.4 (24 November 2009)</p>
+					<P> Previous version:
+						<A HREF="hrcs_spi_icd-1.3.pdf">  PDF</A> Ver. 1.3 (8 July 2009)</p>
+					<h4 id="letggeom1">LETG+ACIS-S Spurious Rotation Issue</h4>
+					<p>This document describes the LETG+ACIS-S spurious rotation issue.</p>
+					<P>
+						<A HREF="memo_letg_rot_1.0.ps.gz">
         PS</A> or
-        <A HREF="memo_letg_rot_1.0.tex">
-        LaTeX source</A> of Ver. 1.0 (11/02/04)
-</p>
-	  <h4 id="letgrot">Technical Note: LETG/ACIS-S rotation compensation</h4>
-	  <p>Modification to extraction region to compensate for
-	anomalous rotation residuals.</p>
-
-	<P>
-	<A HREF="technote_2004.06.11_la_rotation.ps.gz">PS</A> (2004 Jun 11)</p>
-	  <h4 id="icdl15">Transmission Grating  L1.5 to Archive Interface Control Document</h4>
-	  <p>A detailed description of Grating L1.5 (event diffraction coordinates)
-	data products.</p>
-
-	<P>
-	<A HREF="./ICD_L1.5.ps.gz">PS</A>
-	<A HREF="ICD_L1.5_src.tar.gz">LaTeX source </A>
-	<A HREF="CO_L15_ICD.txt">Change-Orders</A> (1999 March 27)</p>
-	<P>
-	Previous version: <A HREF="ICD_L1.5-prev.ps.gz">PS</A>
-	<A HREF="ICD_L1.5-prev.tex">LaTeX source </A></p>
-	  <h4 id="icdl2">Transmission Grating  Level 2 to Archive Interface Control Document</h4>
-	  <p>A description of Grating Level 2 data products (binned spectrum).</p>
-
-	<P>
-	  <A HREF="ICD_TGL2.ps.gz"> PS</A>
-	<A HREF="ICD_TGL2_src.tar.gz"> LaTeX source</A>
-	<A HREF="CO_TGL2_ICD.txt">Change-Orders</A> (1999 May 28)
-	<P>
-	Previous version: Download <A HREF="ICD_TGL2-prev.ps.gz">PS</A>
-	<A HREF="ICD_TGL2-prev_src.tar.gz">LaTeX source </A></p>
-	<h4 id="grattool">Grating Tool Specifications: Level 1.5 LETG/HESF Region Mask
+						<A HREF="memo_letg_rot_1.0.tex">
+        LaTeX source</A> of Ver. 1.0 (11/02/04) </p>
+					<h4 id="letgrot">Technical Note: LETG/ACIS-S rotation compensation</h4>
+					<p>Modification to extraction region to compensate for anomalous rotation residuals.</p>
+					<P>
+						<A HREF="technote_2004.06.11_la_rotation.ps.gz">PS</A> (2004 Jun 11)</p>
+					<h4 id="icdl15">Transmission Grating  L1.5 to Archive Interface Control Document</h4>
+					<p>A detailed description of Grating L1.5 (event diffraction coordinates) data products.</p>
+					<P>
+						<A HREF="./ICD_L1.5.ps.gz">PS</A>
+						<A HREF="ICD_L1.5_src.tar.gz">LaTeX source </A>
+						<A HREF="CO_L15_ICD.txt">Change-Orders</A> (1999 March 27)</p>
+					<P> Previous version:
+						<A HREF="ICD_L1.5-prev.ps.gz">PS</A>
+						<A HREF="ICD_L1.5-prev.tex">LaTeX source </A>
+					</p>
+					<h4 id="icdl2">Transmission Grating  Level 2 to Archive Interface Control Document</h4>
+					<p>A description of Grating Level 2 data products (binned spectrum).</p>
+					<P>
+						<A HREF="ICD_TGL2.ps.gz"> PS</A>
+						<A HREF="ICD_TGL2_src.tar.gz"> LaTeX source</A>
+						<A HREF="CO_TGL2_ICD.txt">Change-Orders</A> (1999 May 28)
+						<P> Previous version: Download
+							<A HREF="ICD_TGL2-prev.ps.gz">PS</A>
+							<A HREF="ICD_TGL2-prev_src.tar.gz">LaTeX source </A>
+						</p>
+						<h4 id="grattool">Grating Tool Specifications: Level 1.5 LETG/HESF Region Mask
 	 Definitions and Wavelength Determination</h4>
-	  <p>
-	<A HREF="hesfmaskcalc.ps.gz">PS</A>
-	<A HREF="hesfmaskcalc.tar.gz">LaTeX source</A> (1999 June 04)</p>
-	  <h4 id="grattoolcc">Grating Tool Specifications: Level 1.5: ACIS Continuous-Clocking Mode
+						<p>
+							<A HREF="hesfmaskcalc.ps.gz">PS</A>
+							<A HREF="hesfmaskcalc.tar.gz">LaTeX source</A> (1999 June 04)</p>
+						<h4 id="grattoolcc">Grating Tool Specifications: Level 1.5: ACIS Continuous-Clocking Mode
 	 Processing</h4>
-	  <p><A HREF="cc_mode.ps.gz">PS</A>
-	<A HREF="cc_mode.tex">LaTeX source</A> (1999 Apr 22)</p>
-	  <h4 id="hetgfptemp">HETG/ACIS Focal Plane Temperature Analysis</h4>
-	  <p>Analysis of effects of high focal-plane temperature on
-            HETGS effective area through QE and/or order-sorting.</p>
-
-        <P><A HREF="WarmACISeffectsOnOSIP_20200611.pdf">
+						<p>
+							<A HREF="cc_mode.ps.gz">PS</A>
+							<A HREF="cc_mode.tex">LaTeX source</A> (1999 Apr 22)</p>
+						<h4 id="hetgfptemp">HETG/ACIS Focal Plane Temperature Analysis</h4>
+						<p>Analysis of effects of high focal-plane temperature on HETGS effective area through QE and/or order-sorting.</p>
+						<P>
+							<A HREF="WarmACISeffectsOnOSIP_20200611.pdf">
             PDF</A> (2020 June 15)</p>
-
-	<h3 id="PSF">PSF</h3>
-	
-	  <h4 id="icdlsf">ICD for the GRATING LSF LIBRARY</h4>
-	  <p>A detailed description of the LSF Library files.</p>
-
-	<P><A HREF="ICD_mkgrmf_ard.ps.gz">PS</A> <A HREF="ICD_mkgrmf_ard.tex">Latex Source</A> (12/28/01)</p>
-	  <h4 id="icdlsftool">PSF TOOL ICD</h4>
-	  <div class="p-3 mb-2 bg-danger text-white">This ICD is obsolete.</div>
-
-	  <P><A HREF="ICD_PSF.ps.gz">PS</A>
-	    <A HREF="ICD_PSF.tex">Latex Source</A> (10/07/98)</p>
-	  <h4 id="lsflib">LSF LIBRARY and TOOLS TECHNICAL REFERENCE</h4>
-	  <p><P>The LSF Library and Tools Technical Reference.</p>
-
-	  <P><A HREF="techref_psf.ps.gz">PS</A>
-	    <A HREF="techref_psf/techref_psf.html">HTML</A> (02/24/00)</p>
-	  <h4 id="lsfguide">LSF GUIDE</h4>
-	  <div class="p-3 mb-2 bg-danger text-white">This spec is superseded by a newer
-	<a href="LSF/LSF_0002/index.html">analysis from 2003</a>.</div>
-	  <p><A HREF="lsf_guide/lsf_guide.ps.gz">PS</A>
-	    <A HREF="lsf_guide/lsf_guide.html">HTML</A> (12/28/01)</p>
-	  <h4 id="random">Data Randomization / New Header Keywords</h4>
-	  <p>This document describes how we propose to implement additional FITS keywords
-	into Level 1 Event products and higher.</p>
-	  <h4 id="lsf1">LSFPARM validated for unrandomized datasets </h4>
-	  <table class="table">
-	    <thead>
-	      <tr>
-		<th scope="col">Grating/Detector</th>
-		<th scope="col">most recent version</th>
-		<th scope="col">Download</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-	      <tr>
-		<td>HETG+ACIS-S</td>
-		<td>1.1 (05/03/04)</td>
-		<td><A HREF="memo_lsf_ha_1.1.ps.gz">PS</A> 
-		  <A HREF="memo_lsf_ha_1.1.tex">LaTeX source</A>
-	      </tr>
-	      <tr>
-		<td>LETG+HRC-S</td>
-		<td>1.0 (05/03/04)</td>
-		<td><A HREF="memo_lsf_lh_1.0.ps.gz">PS</A> 
-		  <A HREF="memo_lsf_lh_1.0.tex">LaTeX source</A>
-	      </tr>
-	      <tr>
-		<td>LETG+ACIS-S</td>
-		<td>1.0 (07/20/04)</td>
-		<td><A HREF="memo_lsf_la_1.0.ps.gz">PS</A> 
-		  <A HREF="memo_lsf_la_1.0.tex">LaTeX source</A>
-	      </tr>
-	      <tr>
-		<td>Update for MEG+ACIS-S</td>
-		<td>1.0 (01/22/06)</td>
-		<td><A HREF="memo_lsf_ma_1.0.ps.gz">PS</A> 
-		  <A HREF="memo_lsf_ma_1.0.tex">LaTeX source</A>
-	      </tr>
-	    </tbody>
-	  </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="ARD" class="bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
- 
-	  <h3>Analysis Reference Data</h3>
-	  <h4>Exposure Maps and Gratings Data Level 1.5 and 2.0
+						<h3 id="PSF">PSF</h3>
+						<h4 id="icdlsf">ICD for the GRATING LSF LIBRARY</h4>
+						<p>A detailed description of the LSF Library files.</p>
+						<P>
+							<A HREF="ICD_mkgrmf_ard.ps.gz">PS</A>
+							<A HREF="ICD_mkgrmf_ard.tex">Latex Source</A> (12/28/01)</p>
+						<h4 id="icdlsftool">PSF TOOL ICD</h4>
+						<div class="p-3 mb-2 bg-danger text-white">This ICD is obsolete.</div>
+						<P>
+							<A HREF="ICD_PSF.ps.gz">PS</A>
+							<A HREF="ICD_PSF.tex">Latex Source</A> (10/07/98)</p>
+						<h4 id="lsflib">LSF LIBRARY and TOOLS TECHNICAL REFERENCE</h4>
+						<p>
+							<P>The LSF Library and Tools Technical Reference.</p>
+							<P>
+								<A HREF="techref_psf.ps.gz">PS</A>
+								<A HREF="techref_psf/techref_psf.html">HTML</A> (02/24/00)</p>
+							<h4 id="lsfguide">LSF GUIDE</h4>
+							<div class="p-3 mb-2 bg-danger text-white">This spec is superseded by a newer <a href="LSF/LSF_0002/index.html">analysis from 2003</a>.</div>
+							<p>
+								<A HREF="lsf_guide/lsf_guide.ps.gz">PS</A>
+								<A HREF="lsf_guide/lsf_guide.html">HTML</A> (12/28/01)</p>
+							<h4 id="random">Data Randomization / New Header Keywords</h4>
+							<p>This document describes how we propose to implement additional FITS keywords into Level 1 Event products and higher.</p>
+							<h4 id="lsf1">LSFPARM validated for unrandomized datasets </h4>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Grating/Detector</th>
+										<th scope="col">most recent version</th>
+										<th scope="col">Download</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>HETG+ACIS-S</td>
+										<td>1.1 (05/03/04)</td>
+										<td>
+											<A HREF="memo_lsf_ha_1.1.ps.gz">PS</A>
+											<A HREF="memo_lsf_ha_1.1.tex">LaTeX source</A> </tr>
+									<tr>
+										<td>LETG+HRC-S</td>
+										<td>1.0 (05/03/04)</td>
+										<td>
+											<A HREF="memo_lsf_lh_1.0.ps.gz">PS</A>
+											<A HREF="memo_lsf_lh_1.0.tex">LaTeX source</A> </tr>
+									<tr>
+										<td>LETG+ACIS-S</td>
+										<td>1.0 (07/20/04)</td>
+										<td>
+											<A HREF="memo_lsf_la_1.0.ps.gz">PS</A>
+											<A HREF="memo_lsf_la_1.0.tex">LaTeX source</A> </tr>
+									<tr>
+										<td>Update for MEG+ACIS-S</td>
+										<td>1.0 (01/22/06)</td>
+										<td>
+											<A HREF="memo_lsf_ma_1.0.ps.gz">PS</A>
+											<A HREF="memo_lsf_ma_1.0.tex">LaTeX source</A> </tr>
+								</tbody>
+							</table>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="ARD" class="bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<h3>Analysis Reference Data</h3>
+					<h4>Exposure Maps and Gratings Data Level 1.5 and 2.0
 	Analysis Reference Data ICD</h4>
-	  <p>Interface Control Document describing the reference data read
-	   by exposure map and gratings pipelines and tools.</p>
-
-	<P>
-	<A HREF="ARD_ICD/ARD_ICD.ps.gz">PS</A> 
-	<A HREF="ARD_ICD/ARD_ICD_src.tar.gz">
+					<p>Interface Control Document describing the reference data read by exposure map and gratings pipelines and tools.</p>
+					<P>
+						<A HREF="ARD_ICD/ARD_ICD.ps.gz">PS</A>
+						<A HREF="ARD_ICD/ARD_ICD_src.tar.gz">
 	  LaTeX source</A>
-	<A HREF="ARD_ICD/ARD_template.tex">
-	LaTeX template</A>   for new files.
-	<A HREF="./ARD_ICD/CO_ARD_ICD.txt">Change-Orders.</A></p>
-
-	<P>
-	ACIS  <A HREF="ARD_ICD/ARD_ICD-v1.7_contamxy.ps.gz">
-	  Spatial Contamination</A>  (2004.10.13 UPDATE)
-	</p>
-
-	<P>ACIS <A HREF="acis_da_spec-1.2.1.pdf"> Dead Area</A>
-	  (2006.09.14 update)</p>
-	  <h4>Spectroscopy Database: Analysis Reference Data
+						<A HREF="ARD_ICD/ARD_template.tex">
+	LaTeX template</A> for new files.
+						<A HREF="./ARD_ICD/CO_ARD_ICD.txt">Change-Orders.</A>
+					</p>
+					<P> ACIS
+						<A HREF="ARD_ICD/ARD_ICD-v1.7_contamxy.ps.gz">
+	  Spatial Contamination</A> (2004.10.13 UPDATE) </p>
+					<P>ACIS
+						<A HREF="acis_da_spec-1.2.1.pdf"> Dead Area</A> (2006.09.14 update)</p>
+					<h4>Spectroscopy Database: Analysis Reference Data
 	ICD</h4>
-	  <p>The format of the Spectroscopy Database files to be used
-	    in L2 spectral analysis is described here.</p>
-	  <div class="p-3 mb-2 bg-danger text-white">This ARD is obsolete.</div>
-
-
-	<P><A HREF="ARD_ICD/spectral_db.ps.gz">PS</A>
-	  <A HREF="ARD_ICD/spectral_db.tex">LaTeX source</A></p>
-
-	<h3 id="Expmap">Exposure Map</h3>
-	  <h4>Exposure Map Data Products ICD</h4>
-	  <p><A HREF="Exp_DP_ICD.pdf">
-	  PDF</A>, <A HREF="/Exp_DP_ICD.ps.gz">
+					<p>The format of the Spectroscopy Database files to be used in L2 spectral analysis is described here.</p>
+					<div class="p-3 mb-2 bg-danger text-white">This ARD is obsolete.</div>
+					<P>
+						<A HREF="ARD_ICD/spectral_db.ps.gz">PS</A>
+						<A HREF="ARD_ICD/spectral_db.tex">LaTeX source</A>
+					</p>
+					<h3 id="Expmap">Exposure Map</h3>
+					<h4>Exposure Map Data Products ICD</h4>
+					<p>
+						<A HREF="Exp_DP_ICD.pdf">
+	  PDF</A>,
+						<A HREF="/Exp_DP_ICD.ps.gz">
 	  PS</A>
-	<A HREF="Exp_DP_ICD_src.tar.gz">
-	  LaTeX source</A></p>
-	  <h4>Aspect Histogram Processing and Data Products ICD</h4>
-	  <p><A HREF="AspHist_ICD.pdf">
-	  PDF</A> <A HREF="AspHist_ICD.ps.gz">
-	  PS</A>
-	<A HREF="AspHist_src.tar.gz">
-	  LaTeX source</A></p>
-	  <h4>Introduction to Exposure Maps</h4>
-	  <p><A HREF="expmap_intro.pdf">
+						<A HREF="Exp_DP_ICD_src.tar.gz">
+	  LaTeX source</A>
+					</p>
+					<h4>Aspect Histogram Processing and Data Products ICD</h4>
+					<p>
+						<A HREF="AspHist_ICD.pdf">
 	  PDF</A>
-	  <A HREF="expmap_intro.ps.gz">
-	    PS</A></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="Misc">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
- 
-	  <h3>Miscellaneous</h3>
-	  <h4 id="gratcoords">AXAF Transmission Grating Diffraction Coordinates</h4>
-	  <p>Describes the transformation from reported event positions to dispersion coordinates.</p>
-
-	<P><A HREF="diffract-coord.ps.gz">PS</A></p>
-	  <h4 id="CIAO3">CIAO 3 Interactive Analysis Planning</h4>
-	  <p>Architecture design for interactive analysis and rapid prototyping.</p>
-	  <div class="p-3 mb-2 bg-danger text-white"><a href="https://cxc.cfa.harvard.edu/ciao/">CIAO</a> is currently in version 4, so this document is obsolete.</div>
-	<P>
-	<A HREF="CIAO_3_Arch.ps.gz">Part 1 (PS)</A> 
-	<A HREF="CIAO_3_Arch_talk.ps.gz">Part 2 (PS)</A></p>
-	  <h4 id="ISIS">ISIS: Interactive Spectral Interpretation System</h4>
-	  <p>Original design requirements for <a href="../ISIS/index.html">ISIS</a>.</p>
-
-	<P><A HREF="isis_description.ps.gz">PS</A></p>	  
-        </div>
-      </div>
-    </div>
-  </section>
-
- 
-
-
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright 2001-2020
-      Massachusetts Institute of Technology, 
-	contact <a href="mailto:hgunther@mit.edu">hgunther@mit.edu</a>,
-	<a href="http://accessibility.mit.edu">Accessibility</a>
-      </p>
-<p><small>All data on this site is classified General Technical Data 
+						<A HREF="AspHist_ICD.ps.gz">
+	  PS</A>
+						<A HREF="AspHist_src.tar.gz">
+	  LaTeX source</A>
+					</p>
+					<h4>Introduction to Exposure Maps</h4>
+					<p>
+						<A HREF="expmap_intro.pdf">
+	  PDF</A>
+						<A HREF="expmap_intro.ps.gz">
+	    PS</A>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="Misc">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<h3>Miscellaneous</h3>
+					<h4 id="gratcoords">AXAF Transmission Grating Diffraction Coordinates</h4>
+					<p>Describes the transformation from reported event positions to dispersion coordinates.</p>
+					<P>
+						<A HREF="diffract-coord.ps.gz">PS</A>
+					</p>
+					<h4 id="CIAO3">CIAO 3 Interactive Analysis Planning</h4>
+					<p>Architecture design for interactive analysis and rapid prototyping.</p>
+					<div class="p-3 mb-2 bg-danger text-white"><a href="https://cxc.cfa.harvard.edu/ciao/">CIAO</a> is currently in version 4, so this document is obsolete.</div>
+					<P>
+						<A HREF="CIAO_3_Arch.ps.gz">Part 1 (PS)</A>
+						<A HREF="CIAO_3_Arch_talk.ps.gz">Part 2 (PS)</A>
+					</p>
+					<h4 id="ISIS">ISIS: Interactive Spectral Interpretation System</h4>
+					<p>Original design requirements for <a href="../ISIS/index.html">ISIS</a>.</p>
+					<P>
+						<A HREF="isis_description.ps.gz">PS</A>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright 2001-2020 Massachusetts Institute of Technology, contact <a href="mailto:hgunther@mit.edu">hgunther@mit.edu</a>, <a href="http://accessibility.mit.edu">Accessibility</a> </p>
+			<p><small>All data on this site is classified General Technical Data 
 Available (GTDA) by the U.S. Department of Commerce, Bureau of Export 
 Administration, and may be exported outside the United States as public 
 open literature.</small></p>
-    </div>
-    <!-- /.container -->
-  </footer>
+		</div>
+		<!-- /.container -->
+	</footer>
+	<!-- Bootstrap core JavaScript -->
+	<script src="../vendor/jquery/jquery.min.js"></script>
+	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!-- Plugin JavaScript -->
+	<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+	<!-- Custom JavaScript for this theme -->
+	<script src="../js/scrolling-nav.js"></script>
+</body>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom JavaScript for this theme -->
-  <script src="../js/scrolling-nav.js"></script>
-
-
-
-
-</body></html>
+</html>
