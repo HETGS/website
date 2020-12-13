@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
-  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -203,7 +201,7 @@
 	      <tr>
 		<td>memo</td>
 		<td>ACIS</td>
-		<td><a href="memo_events_status_bits_2.3.pdf">Status bits in event files</a></td>
+		<td><a href="memo_event_status_bits_2.3.pdf">Status bits in event files</a></td>
 	      </tr>
 	      <tr>
 		<td>ARD</td>
@@ -316,91 +314,87 @@
 
 	<h3>CONTENTS</h3>
 	<ul>
-	  <li><a href=#ACIS> ACIS</a></li>
-	<ul>
-	   <li><a href=#badpix> acis_build_badpix spec</a></li>
-	   <li><a href=#gti> acis_build_chip_gti spec</a> (disregard)</li>
-	   <li><a href=#msk> acis_build_mask spec</a></li>
-	   <li><a href=#hotpix> acis_detect_hotpix spec</a> (superceeded)</li>
-	   <li><a href=#aft> acis_find_afterglow spec</a></li>
-	   <li><a href=#bkgd> acis_make_bkgd spec</a></li>
-	   <li><a href=#ape> acis_process_events spec</a> (extensive, but not yet complete)</li>
-	   <li><a href=#apebadpix> acis_process_events: bad-pixel spec</a></li>
-	   <li><a href=#readcorr> acisreadcorr spec</a></li>
-	   <li><a href=#aft_det_eff> Afterglow detection efficiency</a> (superceeded)</li>
-	   <li><a href=#ACISARD> ARD ICD</a> (in development)</li>
-	   <li><a href=#bias_keys> Bias keywords</a></li>
-	   <li><a href=#berr> Bias-parity errors spec</a></li>
-	   <li><a href=#bias_rep> Bias repair and replacement spec</a></li>
-	   <li><a href=#cc_bias_sum> CC bias summary</a></li>
-	   <li><a href=#check_vf> Check VFAINT background</a></li>
-	   <li><a href=#energy_pi> Computation of ENERGY and PI</a> (superceeded)</li>
-	   <li><a href=#grades> Computation of FLTGRADE, GRADE, and PHA</a>  (superceeded)</li>
-	   <li><a href=#exposure> Computation of ONTIME, DTCOR, and EXPOSURE</a></li>
-	   <li><a href=#hkp> Computation of QUERY_VAL</a></li>
-	   <li><a href=#toa> Computation of X, Y, and TIMEs of arrival of CC-mode events</a> (superceeded)</li>
-	   <li><a href=#cti> CTI spec</a> (superceeded)</li>
-	   <li><a href=#deltoclk> DELTOCLK spec</a></li>
-	   <li><a href=#fltgrade_caveat> FLTGRADE caveat</a></li>
-	   <li><a href=#grade_ard> Grade ARD</a></li>
-	   <li><a href=#hotpix2> Hot-pixel spec</a> (superceeded)</li>
-	   <li><a href=#ACISL0> Level 0 ICD</a></li>
-	   <li><a href=#ACISL1> Level 1 ICD</a></li>
-	   <li><a href=#mean_bias> Mean biases</a> (in development)</li>
-	   <li><a href=#mkacisrmf> mkacisrmf</a></li>
-	   <li><a href=#instgeom> Notes about the ACIS instrument geometry data</a></li>
-	   <li><a href=#caveats> Pipeline processing caveats</a></li>
-	   <li><a href=#ACIStools> Pipeline processing tools</a> (obsolete)</li>
-	   <li><a href=#s4streak_alg> S4 streak algorithm</a> (superceeded)</li>
-	   <li><a href=#s4streak_loss> S4 streak loss parameter</a></li>
-	   <li><a href=#s4streak_prop> S4 streak properties</a> (superceeded)</li>
-	   <li><a href=#bpixbits> STATUS bits in bad-pixel files</a></li>
-	   <li><a href=#evtbits> STATUS bits in event files</a></li>
-	   <li><a href=#subpix> Sub-pixel and pixel randomization spec</a> (superceeded)</li>
-	   <li><a href=#trmf> Temperature-dependent RMF spec</a> (in development)</li>
-	   <li><a href=#tgain_ard> Time-dependent gain ARD</a></li>
-	   <li><a href=#tgain_spec> Time-dependent gain spec</a> (superceeded)</li>
-	   <li><a href=#acis_s_geom> ACIS-S detector geometry</a></li>
-	</ul>
-
-	<li><a href=#HETG> HETG and LETG </a>
-
-	<ul>
-		<LI> <a href=#tgpipe> Requirements for grating
-		response computation in standard pipeline processing.</a></li>
-		<LI> <a href=#cc_mode>Grating/CC-mode enhancements</a> through a second pass to re-do CTI/gain/tgain corrections based on HETG position </li>
-		<LI> <a href=#letgslsf> HRC-S/LETG test of updated QE,
-		LSFPARM</li>
-
-		<LI> <a href=#hrcstgain> HRC-S/LETG "tgain" correction
-		(SPI computation) </a> </li>
-		<LI> <a href=#letggeom1> LETG + ACIS-S Rotation Issue  </a> </li>
-		<LI> <a href=#findzo>Finding Zeroth Order Position  </a> </li>
-		<LI> <a href=#tgfindzo>tg_findzo spec</a> </li>
-		<LI> <a href=#tgdetect2>tgdetect2 spec  </a> </li>
-		<LI> <a href=#hetgfptemp> HETG/ACIS Focal Plane Temperature Analysis  </a> </li>
-	</ul></li>
-
-
-
-
-	<li><a href=#PSF> PSF and LSF </a></li>
-	<ul>
-		<LI> <a href=#random> Data Randomization </a> Required enhancement in header keywords
-		<LI> <a href=#lsf1>  LSFPARM </a> for HETG+ACIS-S validated for unrandomized datasets
-		<LI> <a href=#lsf2>  LSFPARM </a> for LETG+HRC-S validated for unrandomized datasets
-		<LI> <a href=#lsf3>  LSFPARM </a> for LETG+ACIS-S validated for unrandomized datasets
-		<LI> <a href=#lsf4>  Updated LSFPARM </a> for MEG+ACIS-S  for unrandomized datasets
-	</ul>
-	<li><a href=#ARD> ARD </a></li>
-	
-	<li><a href=#Expmap> Exposure Map </a></li>
-	<li><a href=#Misc> Miscellaneous </a></li>
-	<ul>
-	  <li><a href=#gratcoords>Transmission Grating Diffraction Coordinates</a></li>
-	<LI>   <a href=#CIAO3> CIAO 3 </a>architecture White Paper and SDS presentation.</li>
-<li><a href=#ISIS> ISIS </a></li>
-	</ul>
+	  <li><a href=#ACIS> ACIS</a>
+	    <ul>
+	      <li><a href=#badpix> acis_build_badpix spec</a></li>
+	      <li><a href=#gti> acis_build_chip_gti spec</a> (disregard)</li>
+	      <li><a href=#msk> acis_build_mask spec</a></li>
+	      <li><a href=#hotpix> acis_detect_hotpix spec</a> (superceeded)</li>
+	      <li><a href=#aft> acis_find_afterglow spec</a></li>
+	      <li><a href=#bkgd> acis_make_bkgd spec</a></li>
+	      <li><a href=#ape> acis_process_events spec</a> (extensive, but not yet complete)</li>
+	      <li><a href=#apebadpix> acis_process_events: bad-pixel spec</a></li>
+	      <li><a href=#readcorr> acisreadcorr spec</a></li>
+	      <li><a href=#aft_det_eff> Afterglow detection efficiency</a> (superceeded)</li>
+	      <li><a href=#ACISARD> ARD ICD</a> (in development)</li>
+	      <li><a href=#bias_keys> Bias keywords</a></li>
+	      <li><a href=#berr> Bias-parity errors spec</a></li>
+	      <li><a href=#bias_rep> Bias repair and replacement spec</a></li>
+	      <li><a href=#cc_bias_sum> CC bias summary</a></li>
+	      <li><a href=#check_vf> Check VFAINT background</a></li>
+	      <li><a href=#energy_pi> Computation of ENERGY and PI</a> (superceeded)</li>
+	      <li><a href=#grades> Computation of FLTGRADE, GRADE, and PHA</a>  (superceeded)</li>
+	      <li><a href=#exposure> Computation of ONTIME, DTCOR, and EXPOSURE</a></li>
+	      <li><a href=#hkp> Computation of QUERY_VAL</a></li>
+	      <li><a href=#toa> Computation of X, Y, and TIMEs of arrival of CC-mode events</a> (superceeded)</li>
+	      <li><a href=#cti> CTI spec</a> (superceeded)</li>
+	      <li><a href=#deltoclk> DELTOCLK spec</a></li>
+	      <li><a href=#fltgrade_caveat> FLTGRADE caveat</a></li>
+	      <li><a href=#grade_ard> Grade ARD</a></li>
+	      <li><a href=#hotpix2> Hot-pixel spec</a> (superceeded)</li>
+	      <li><a href=#ACISL0> Level 0 ICD</a></li>
+	      <li><a href=#ACISL1> Level 1 ICD</a></li>
+	      <li><a href=#mean_bias> Mean biases</a> (in development)</li>
+	      <li><a href=#mkacisrmf> mkacisrmf</a></li>
+	      <li><a href=#instgeom> Notes about the ACIS instrument geometry data</a></li>
+	      <li><a href=#caveats> Pipeline processing caveats</a></li>
+	      <li><a href=#ACIStools> Pipeline processing tools</a> (obsolete)</li>
+	      <li><a href=#s4streak_alg> S4 streak algorithm</a> (superceeded)</li>
+	      <li><a href=#s4streak_loss> S4 streak loss parameter</a></li>
+	      <li><a href=#s4streak_prop> S4 streak properties</a> (superceeded)</li>
+	      <li><a href=#bpixbits> STATUS bits in bad-pixel files</a></li>
+	      <li><a href=#evtbits> STATUS bits in event files</a></li>
+	      <li><a href=#subpix> Sub-pixel and pixel randomization spec</a> (superceeded)</li>
+	      <li><a href=#trmf> Temperature-dependent RMF spec</a> (in development)</li>
+	      <li><a href=#tgain_ard> Time-dependent gain ARD</a></li>
+	      <li><a href=#tgain_spec> Time-dependent gain spec</a> (superceeded)</li>
+	      <li><a href=#acis_s_geom> ACIS-S detector geometry</a></li>
+	    </ul>
+	  </li>
+	  <li><a href=#HETG> HETG and LETG</a>
+	    <ul>
+	      <LI> <a href=#tgpipe> Requirements for grating
+		  response computation in standard pipeline processing.</a></li>
+	      <LI> <a href=#cc_mode>Grating/CC-mode enhancements</a> through a second pass to re-do CTI/gain/tgain corrections based on HETG position </li>
+	      <LI> <a href=#letgslsf> HRC-S/LETG test of updated QE,
+		  LSFPARM</a></li>
+	      <LI> <a href=#hrcstgain> HRC-S/LETG "tgain" correction
+		  (SPI computation) </a> </li>
+	      <LI> <a href=#letggeom1> LETG + ACIS-S Rotation Issue  </a> </li>
+	      <LI> <a href=#findzo>Finding Zeroth Order Position  </a> </li>
+	      <LI> <a href=#tgfindzo>tg_findzo spec</a> </li>
+	      <LI> <a href=#tgdetect2>tgdetect2 spec  </a> </li>
+	      <LI> <a href=#hetgfptemp> HETG/ACIS Focal Plane Temperature Analysis  </a> </li>
+	    </ul>
+	  </li>
+	  <li><a href=#PSF> PSF and LSF</a>
+	    <ul>
+	      <LI> <a href=#random>Data Randomization</a> Required enhancement in header keywords
+	      <LI> <a href=#lsf1>LSFPARM</a> for HETG+ACIS-S validated for unrandomized datasets
+	      <LI> <a href=#lsf2>LSFPARM</a> for LETG+HRC-S validated for unrandomized datasets
+	      <LI> <a href=#lsf3>LSFPARM</a> for LETG+ACIS-S validated for unrandomized datasets
+	      <LI> <a href=#lsf4>Updated LSFPARM</a> for MEG+ACIS-S  for unrandomized datasets
+	    </ul>
+	  </li>
+	  <li><a href=#ARD> ARD </a></li>
+	  <li><a href=#Expmap> Exposure Map</a></li>
+	  <li><a href=#Misc> Miscellaneous</a>
+	    <ul>
+	      <li><a href=#gratcoords>Transmission Grating Diffraction Coordinates</a></li>
+	      <LI><a href=#CIAO3>CIAO 3</a> architecture White Paper and SDS presentation.</li>
+	      <li><a href=#ISIS>ISIS</a></li>
+	    </ul>
+	  </li>
 	</ul>
 
         </div>
@@ -560,7 +554,7 @@
 </tbody></table>
 
 	  
-	  <h4 id="">acis_find_afterglow spec</h4>
+	  <h4 id="aft">acis_find_afterglow spec</h4>
 	  <p>	<P>This document describes a specification for algorithms to find
         afterglows and hot pixels on ACIS CCDs.  This spec supersedes the
         previous <a href=#hotpix>acis_detect_hotpix</a> and
@@ -1454,7 +1448,6 @@
 	  <p>This document is a spec describing the sub-pixel
             event-repositioning and pixel randomization algorithms.</p>
 	  <div class="p-3 mb-2 bg-warning text-white">This spec is superseded by the newer <a href=#ape>acis_process_events spec</a>.</div>
-	  </p>
 	  <table class="table">
 	    <thead>
 	      <tr>
@@ -1777,7 +1770,7 @@
         <div class="col-lg-8">
  
 	  <h3>Analysis Reference Data</h3>
-	  <h4 id="">Exposure Maps and Gratings Data Level 1.5 and 2.0
+	  <h4>Exposure Maps and Gratings Data Level 1.5 and 2.0
 	Analysis Reference Data ICD</h4>
 	  <p>Interface Control Document describing the reference data read
 	   by exposure map and gratings pipelines and tools.</p>
@@ -1797,7 +1790,7 @@
 
 	<P>ACIS <A HREF="acis_da_spec-1.2.1.pdf"> Dead Area</A>
 	  (2006.09.14 update)</p>
-	  <h4 id="">Spectroscopy Database: Analysis Reference Data
+	  <h4>Spectroscopy Database: Analysis Reference Data
 	ICD</h4>
 	  <p>The format of the Spectroscopy Database files to be used
 	    in L2 spectral analysis is described here.</p>
@@ -1808,19 +1801,19 @@
 	  <A HREF="ARD_ICD/spectral_db.tex">LaTeX source</A></p>
 
 	<h3 id="Expmap">Exposure Map</h3>
-	  <h4 id="">Exposure Map Data Products ICD</h4>
+	  <h4>Exposure Map Data Products ICD</h4>
 	  <p><A HREF="Exp_DP_ICD.pdf">
 	  PDF</A>, <A HREF="/Exp_DP_ICD.ps.gz">
 	  PS</A>
 	<A HREF="Exp_DP_ICD_src.tar.gz">
 	  LaTeX source</A></p>
-	  <h4 id="">Aspect Histogram Processing and Data Products ICD</h4>
+	  <h4>Aspect Histogram Processing and Data Products ICD</h4>
 	  <p><A HREF="AspHist_ICD.pdf">
 	  PDF</A> <A HREF="AspHist_ICD.ps.gz">
 	  PS</A>
 	<A HREF="AspHist_src.tar.gz">
 	  LaTeX source</A></p>
-	  <h4 id="">Introduction to Exposure Maps</h4>
+	  <h4>Introduction to Exposure Maps</h4>
 	  <p><A HREF="expmap_intro.pdf">
 	  PDF</A>
 	  <A HREF="expmap_intro.ps.gz">
@@ -1861,7 +1854,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright © 2001-2020
+      <p class="m-0 text-center text-white">Copyright 2001-2020
       Massachusetts Institute of Technology, 
 	contact <a href="mailto:hgunther@mit.edu">hgunther@mit.edu</a>,
 	<a href="http://accessibility.mit.edu">Accessibility</a>
