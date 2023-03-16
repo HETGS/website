@@ -178,6 +178,12 @@
                 <td><a href="memo_event_status_bits_2.3.pdf">Status bits in event files</a></td>
               </tr>
               <tr>
+                <td>memo</td>
+                <td>ACIS</td>
+                <td><a href="memo_CTI_temp_1.0.pdf">Generalize the temperature
+                dependence of CTI in CALDB CTI files and acis_process_events</a></td>
+              </tr>
+              <tr>
                 <td>ARD</td>
                 <td>ACIS</td>
                 <td><a href="memo_tgain_ard_1.0.pdf">time-dependent gain adjustment</a></td>
@@ -336,6 +342,8 @@
                 <li><a href=#tgain_ard> Time-dependent gain ARD</a></li>
                 <li><a href=#tgain_spec> Time-dependent gain spec</a> (superceeded)</li>
                 <li><a href=#acis_s_geom> ACIS-S detector geometry</a></li>
+		<li><a href=#cti_changes>Generalize the temperature dependence
+		of CTI in CALDB CTI files and acis_process_events</a></li>
               </ul>
             </li>
             <li><a href=#HETG> HETG and LETG</a>
@@ -1714,6 +1722,28 @@
                     <td>
                       <A HREF="memo_geometry_acis_s_1.0.ps.gz">PS</A>
                       <A HREF="memo_geometry_acis_s_1.0.tex">LaTeX Source</A> </td>
+                  </tr>
+                </tbody>
+              </table>
+	      <h4 id="cti_changes">Generalize the temperature dependence of CTI</h4>
+              <p>This document updates the CALDB CTI format and describes
+              changes in acis_process_events to allow CTI parameters to be
+              specified differently for different temperature bins.</p>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Version</th>
+                    <th scope="col">Download</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>03/09/2023</td>
+                    <td>1.0</td>
+                    <td>
+                      <A HREF="memo_CTI_temp_1.0.pdf">PDF</A>
+                      <A HREF="memo_CTI_temp_1.0.tex">LaTeX Source</A> </td>
                   </tr>
                 </tbody>
               </table>
